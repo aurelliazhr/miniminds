@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BelajarController;
 use App\Http\Controllers\BermainController;
+use App\Http\Controllers\GuruController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegguruController;
@@ -13,6 +14,11 @@ Route::get('/regguru', [RegguruController::class, 'regguru'])->name('regguru');
 Route::get('/home', [HomeController::class, 'home'])->name('home'); 
 Route::get('/belajar', [HomeController::class, 'belajar'])->name('belajar'); 
 Route::get('/bermain', [HomeController::class, 'bermain'])->name('bermain'); 
+Route::get('/guru', [GuruController::class, 'guru'])->name('guru');
+Route::get('/menambah', [GuruController::class, 'menambah'])->name('menambah');
+Route::get('/melihat', [GuruController::class, 'melihat'])->name('melihat');
+Route::get('/data', [GuruController::class, 'data'])->name('data');
+Route::get('/catatan', [GuruController::class, 'catatan'])->name('catatan');
 Route::get('/huruf', [BelajarController::class, 'huruf'])->name('huruf');
 Route::get('/angka', [BelajarController::class, 'angka'])->name('angka');
 Route::get('/hijaiyah', [BelajarController::class, 'hijaiyah'])->name('hijaiyah');

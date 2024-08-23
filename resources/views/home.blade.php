@@ -169,14 +169,14 @@
 
         <ul class="sidebar">
             <li onclick=hideSidebar()><a href="#"><i class="fa-solid fa-xmark"></i></a></li>
-            <li><a href="">Profil</a></li>
-            <li><a href="">Data Murid</a></li>
+            <li onclick="profil()"><a href="#">Profil</a></li>
+            <li><a href="{{ route ('guru') }}">Data Murid</a></li>
             <li><a href="{{ route ('login') }}">Logout</a></li>
         </ul>
 
         <ul>
             <li class="hideOnMobile"><a href="">Profil</a></li>
-            <li class="hideOnMobile"><a href="">Data Murid</a></li>
+            <li class="hideOnMobile"><a href="{{ route ('guru') }}">Data Murid</a></li>
             <li class="hideOnMobile"><a href="{{ route ('login') }}">Logout</a></li>
             <li class="menu-button" onclick=showSidebar()><a href="#"><img src="assets/menu.png"></a></li>
         </ul>
@@ -195,6 +195,10 @@
     </div>
 
     <script>
+        function profil() {
+
+        }
+        
         function belajar() {
             window.location.href = "{{route ('belajar')}}";
         }
