@@ -113,7 +113,7 @@
 </head>
 
 <body>
-    <a class="back" href="{{ route('guru') }}">
+    <a class="back" href="{{ route('data') }}">
         <img src="/assets/Back.png" alt="Back">
     </a>
 

@@ -143,10 +143,11 @@
         <option value="guru">-</option>
         <option value="B1">B1</option>
         <option value="B2">B2</option>
-        <option value="B3">B3</option>        
+        <option value="B3">B3</option>
     </select>
 
     <div class="button">
+        <!-- <audio id="audio" src="assets/ayo.mp3"></audio> -->
         <button id="button" type="submit">Ayo Mulai!!</button>
     </div>
 
@@ -163,6 +164,11 @@
     @endif -->
 
     <script>
+        // document.getElementById('button').addEventListener('click', function() {
+        //     var audio = document.getElementById('audio');
+        //     audio.play();
+        // });
+
         window.addEventListener("load", function() {
             setTimeout(function() {
                 var loadingScreen = document.getElementById("loading-screen");

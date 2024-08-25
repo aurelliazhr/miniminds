@@ -12,6 +12,7 @@ Route::get('/', [LoginController::class, 'login'])->name('login');
 Route::get('/kode', [RegguruController::class, 'kode'])->name('kode'); 
 Route::get('/regguru', [RegguruController::class, 'regguru'])->name('regguru'); 
 Route::get('/home', [HomeController::class, 'home'])->name('home'); 
+Route::get('/profil', [HomeController::class, 'profil'])->name('profil'); 
 Route::get('/belajar', [HomeController::class, 'belajar'])->name('belajar'); 
 Route::get('/bermain', [HomeController::class, 'bermain'])->name('bermain'); 
 Route::get('/guru', [GuruController::class, 'guru'])->name('guru');

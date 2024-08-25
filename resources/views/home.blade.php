@@ -10,6 +10,8 @@
     <style>
         * {
             background-color: #C9C0D5;
+            margin: 0;
+            padding: 0;
         }
 
         body {
@@ -130,6 +132,77 @@
             background-color: white;
         }
 
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 3;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #ABA9AC;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .close {
+            color: red;
+            float: left;
+            font-size: 30px;
+            font-weight: bold;
+            background-color: white;
+            border-radius: 10px;
+            width: 50px;
+        }
+
+        .close i {
+            color: red;
+            margin-left: 5px;
+        }
+
+        .close i:hover,
+        .close i:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .profile-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            background-color: white;
+        }
+
+        .profile-info p {
+            background-color: #ABA9AC;
+        }
+
+        .baris1,
+        .baris2 {
+            background-color: #ABA9AC;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+            gap: 5px;
+        }
+
+        .baris1 {
+            margin-top: 10%;
+            margin-right: 10%;
+        }
+
         @media (min-width: 1024px) {
             nav ul {
                 margin-right: 75px;
@@ -169,13 +242,13 @@
 
         <ul class="sidebar">
             <li onclick=hideSidebar()><a href="#"><i class="fa-solid fa-xmark"></i></a></li>
-            <li onclick="profil()"><a href="#">Profil</a></li>
+            <li onclick=openProfile()><a href="#">Profil</a></li>
             <li><a href="{{ route ('guru') }}">Data Murid</a></li>
             <li><a href="{{ route ('login') }}">Logout</a></li>
         </ul>
 
         <ul>
-            <li class="hideOnMobile"><a href="">Profil</a></li>
+            <li class="hideOnMobile" onclick=openProfile()><a href="#">Profil</a></li>
             <li class="hideOnMobile"><a href="{{ route ('guru') }}">Data Murid</a></li>
             <li class="hideOnMobile"><a href="{{ route ('login') }}">Logout</a></li>
             <li class="menu-button" onclick=showSidebar()><a href="#"><img src="assets/menu.png"></a></li>
@@ -194,11 +267,27 @@
         </div>
     </div>
 
-    <script>
-        function profil() {
+    <div id="profileModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeProfile()"><i class="fa-solid fa-xmark"></i></span>
+            <div class="baris1">
+                <img src="" class="profile-img">
+                <img src="" class="profile-img">
+            </div>
+            <div class="baris2">
+                <img src="" class="profile-img">
+                <img src="" class="profile-img">
+                <img src="" class="profile-img">
+            </div>
+            <div class="profile-info">
+                <p>Nama:</p>
+                <p>Kelas:</p>
+                <p>Catatan:</p>
+            </div>
+        </div>
+    </div>
 
-        }
-        
+    <script>
         function belajar() {
             window.location.href = "{{route ('belajar')}}";
         }
@@ -215,6 +304,19 @@
         function hideSidebar() {
             const sidebar = document.querySelector('.sidebar')
             sidebar.style.display = 'none'
+        }
+
+        function openProfile() {
+            const modal = document.getElementById('profileModal');
+            modal.style.display = 'block';
+
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.style.display = 'none';
+        }
+
+        function closeProfile() {
+            const modal = document.getElementById('profileModal');
+            modal.style.display = 'none';
         }
     </script>
 </body>

@@ -11,6 +11,11 @@ class HomeController extends Controller
         return view('home');
     }
 
+    public function profil()
+    {
+        return view('profil');
+    }
+
     public function belajar()
     {
         return view('belajar');
