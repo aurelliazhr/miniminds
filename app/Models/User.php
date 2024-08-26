@@ -23,7 +23,7 @@ class User extends Model
     // Relasi dengan Stiker
     public function stiker()
     {
-        return $this->belongsTo(Stiker::class);
+        return $this->belongsToMany(Stiker::class);
     }
 
     // Mengisi kolom catatan pada update
