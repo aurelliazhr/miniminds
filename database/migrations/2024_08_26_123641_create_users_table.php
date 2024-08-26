@@ -12,8 +12,6 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->dropColumn(['name', 'email', 'email_verified_at', 'password', 'remember_token']);
-            
             $table->id();
             $table->string('fullname', 50);
             $table->enum('kelas', ['B1', 'B2', 'B3']);
@@ -30,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('user');
+        Schema::dropIfExists('users');
     }
 };
