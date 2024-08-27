@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
         body {
             background-color: #FFFFFF;
@@ -14,10 +15,20 @@
             align-items: center;
         }
 
+        form,
+        #regguru-form {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
         .back {
             align-self: flex-start;
             margin-top: 10px;
-            margin-left: 10px;
+            margin-right: 100%;
         }
 
         .back img {
@@ -65,7 +76,7 @@
             background-color: #D9D9D9;
         }
 
-        #role {
+        #kelas {
             border-radius: 10px;
         }
 
@@ -114,45 +125,66 @@
 </head>
 
 <body>
-    <a class="back" href="{{ route('login') }}">
-        <img src="/assets/Back.png" alt="Back">
-    </a>
+    <form id="regguru-form" action="{{ route ('regguru-proses') }}" method="POST">
+        @method('post')
+        @csrf
 
-    <div class="container">
-        <img src="/assets/Guru.jpg" alt="Guru">
+        <a class="back" href="{{ route('login') }}">
+            <img src="/assets/Back.png" alt="Back">
+        </a>
 
-        <input type="text" id="fullname" name="fullname" placeholder="Nama Lengkap" class="fullname">
+        <div class="container">
+            <img src="/assets/Guru.jpg" alt="Guru">
 
-        <select id="role" name="kelas" placeholder="kelas" required class="kelas">
-            <option value="" disabled selected>Kelas:</option>
-            <option value="guru">-</option>
-            <option value="B1">B1</option>
-            <option value="B2">B2</option>
-            <option value="B3">B3</option>
-        </select>
+            <input type="text" id="fullname" name="fullname" placeholder="Nama Lengkap" class="fullname" value="{{ old('fullname') }}">
 
-        <div class="button">
-            <button type="submit" onclick="tampilkanPesan()">Daftar</button>
+            <select id="kelas" name="kelas" placeholder="kelas" required class="kelas" value="{{ old('kelas') }}">
+                <option value="" disabled selected>Kelas:</option>
+                <option value="-">-</option>
+                <option value="B1">B1</option>
+                <option value="B2">B2</option>
+                <option value="B3">B3</option>
+            </select>
+
+            <div class="button">
+                <button type="submit" onclick="tampilkanPesan()">Daftar</button>
+            </div>
         </div>
-    </div>
 
-    <script>
-        function tampilkanPesan() {
-            Swal.fire({
-                title: 'Data Anda Berhasil Ditambahkan!',
-                icon: 'success',
-                confirmButtonText: 'Halaman Login',
-                allowOutsideClick: false,
-                customClass: {
-                    confirmButton: 'custom-button'
-                }
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location.href = "{{ route('login') }}";
-                }
+        <script>
+            $('#regguru-form').on('submit', function(e) {
+                e.preventDefault(); // Mencegah form dari pengiriman otomatis
+
+                $.ajax({
+                    type: 'POST',
+                    url: $(this).attr('action'),
+                    data: $(this).serialize(),
+                    success: function(response) {
+                        Swal.fire({
+                            title: 'Data Anda Berhasil Ditambahkan!',
+                            icon: 'success',
+                            confirmButtonText: 'Halaman Login',
+                            allowOutsideClick: false,
+                            customClass: {
+                                confirmButton: 'custom-button'
+                            }
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                window.location.href = "{{ route('login') }}";
+                            }
+                        });
+                    },
+                    error: function(response) {
+                        Swal.fire({
+                            title:'Data Harus Diisi',
+                            text: 'Data Tidak Boleh Sama',
+                            icon: 'error',
+                            confirmButtonText: 'Tutup'
+                        });
+                    }
+                });
             });
-        }
-    </script>
+        </script>
 </body>
 
 </html>
