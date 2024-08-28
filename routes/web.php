@@ -8,7 +8,8 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegguruController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [LoginController::class, 'login'])->name('login'); 
+Route::get('/', [LoginController::class, 'login'])->name('login');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout'); 
 
 Route::get('/kode', [RegguruController::class, 'kode'])->name('kode'); 
 Route::get('/regguru', [RegguruController::class, 'regguru'])->name('regguru');

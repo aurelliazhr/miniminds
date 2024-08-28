@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Nerko+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Home</title>
     <style>
         * {
@@ -203,6 +204,29 @@
             margin-right: 10%;
         }
 
+        .custom-button-logout,
+        .custom-button-cancel {
+            width: 250px;
+            color: white;
+            border-radius: 10px;
+            padding: 10px 20px;
+            font-size: 20px;
+            border: none;
+            cursor: pointer;
+            background-color: #684D8C;
+        }
+
+        .custom-button-logout:hover,
+        .custom-button-cancel:hover {
+            background-color: #7bc89c;
+            color: black;
+        }
+
+        .custom-swal-title {
+            color: black;
+            background-color: white;
+        }
+
         @media (min-width: 1024px) {
             nav ul {
                 margin-right: 75px;
@@ -244,13 +268,13 @@
             <li onclick=hideSidebar()><a href="#"><i class="fa-solid fa-xmark"></i></a></li>
             <li onclick=openProfile()><a href="#">Profil</a></li>
             <li><a href="{{ route ('guru') }}">Data Murid</a></li>
-            <li><a href="{{ route ('login') }}">Logout</a></li>
+            <li onclick=logout()><a href="#">Logout</a></li>
         </ul>
 
         <ul>
             <li class="hideOnMobile" onclick=openProfile()><a href="#">Profil</a></li>
             <li class="hideOnMobile"><a href="{{ route ('guru') }}">Data Murid</a></li>
-            <li class="hideOnMobile"><a href="{{ route ('login') }}">Logout</a></li>
+            <li class="hideOnMobile" onclick=logout()><a href="#">Logout</a></li>
             <li class="menu-button" onclick=showSidebar()><a href="#"><img src="assets/menu.png"></a></li>
         </ul>
     </nav>
@@ -317,6 +341,29 @@
         function closeProfile() {
             const modal = document.getElementById('profileModal');
             modal.style.display = 'none';
+        }
+
+        function logout() {
+            event.preventDefault(); // Prevent the default link behavior
+
+            Swal.fire({
+                title: 'Apakah kamu yakin ingin logout?',
+                showCancelButton: true,
+                confirmButtonText: 'Ya',
+                cancelButtonText: 'Tidak',
+                allowOutsideClick: false,
+                customClass: {
+                    title: 'custom-swal-title',
+                    confirmButton: 'custom-button-logout',
+                    cancelButton: 'custom-button-cancel'
+                }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "{{ route('logout') }}";
+                } else {
+                    window.location.href = "{{ route('home') }}";
+                }
+            });
         }
     </script>
 </body>

@@ -111,7 +111,7 @@
         .custom-button,
         .custom-button.swal2-cancel {
             background-color: #BFADD6;
-            width: 100%;
+            width: 250px;
             color: #fff;
             border-radius: 10px;
             padding: 10px 20px;
@@ -187,7 +187,10 @@
                             title: 'Data Harus Diisi',
                             text: 'Data Tidak Boleh Sama',
                             icon: 'error',
-                            confirmButtonText: 'Tutup'
+                            confirmButtonText: 'Tutup',
+                            customClass: {
+                                confirmButton: 'custom-button',
+                            }
                         });
                     }
                 });
