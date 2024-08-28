@@ -36,6 +36,10 @@ Route::get('/menambah', [GuruController::class, 'menambah'])->name('menambah');
 Route::post('/menambah-proses', [GuruController::class, 'menambah_proses'])->name('menambah-proses');
 
 Route::get('/melihat', [GuruController::class, 'melihat'])->name('melihat');
+Route::post('/melihat-proses', [GuruController::class, 'melihat_proses'])->name('melihat-proses');
+
 Route::get('/data', [GuruController::class, 'data'])->name('data');
-Route::get('/catatan', [GuruController::class, 'catatan'])->name('catatan');
+
+Route::get('/catatan/{id}', [GuruController::class, 'catatan'])->name('catatan');
+Route::put('/update/{id}', [GuruController::class, 'update'])->name('update');
 

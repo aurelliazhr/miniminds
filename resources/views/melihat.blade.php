@@ -15,6 +15,15 @@
             margin: 0 0;
         }
 
+        form {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
         .back {
             align-self: flex-start;
             margin-left: 25px;
@@ -84,35 +93,40 @@
             color: black;
             text-decoration: underline;
         }
-
     </style>
 </head>
 
 <body>
-    <a class="back" href="{{ route('guru') }}">
-        <img src="/assets/Back.png" alt="Back">
-    </a>
+    <form action="{{ route('melihat-proses') }}" method="post">
+        @csrf
 
-    <div class="container">
-    <select id="role" name="kelas" placeholder="kelas" required class="kelas">
-            <option value="" disabled selected>Kelas:</option>
-            <option value="B1">B1</option>
-            <option value="B2">B2</option>
-            <option value="B3">B3</option>
-        </select>
+        <a class="back" href="{{ route('guru') }}">
+            <img src="/assets/Back.png" alt="Back">
+        </a>
 
-        <div class="button">
-            <button type="submit" onclick="data()">Cari Data</button>
+        <div class="container">
+            <select id="role" name="kelas" placeholder="kelas" required class="kelas">
+                <option value="" disabled selected>Kelas:</option>
+                <option value="B1">B1</option>
+                <option value="B2">B2</option>
+                <option value="B3">B3</option>
+            </select>
+
+            <div class="button">
+                <button type="submit" >Cari Data</button>
+            </div>
+
+            <img src="/assets/tambahdata.jpg">
         </div>
+    </form>
 
-        <img src="/assets/tambahdata.jpg">
-    </div>
+    <!-- <script>
+        onclick="data()"
 
-    <script>
         function data() {
             window.location.href = "{{ route ('data') }}";
         }
-    </script>
+    </script> -->
 </body>
 
 </html>

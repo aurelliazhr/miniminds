@@ -63,11 +63,8 @@
             font-size: 25px;
         }
 
-        .isi img {
-            width: 50px;
-            height: 50px;
-            background-color: white;
-            border-radius: 50%;
+        .isi {
+            font-size: 25px;
         }
 
         @media (max-width: 800px) {
@@ -99,24 +96,21 @@
     <table>
         <tr>
             <th>Nama</th>
-            <th>Pencapaian</th>
+            <th>Sticker</th>
+            <th>Catatan</th>
         </tr>
 
+        @foreach ($data as $d)
         <tr class="isi">
-            <th>Aurellia Az-Zahra</th>
-            <th>
-                <img src="" alt="">
-                <img src="" alt="">
-                <img src="" alt="">
-                <div class="baris2">
-                    <img src="" alt="">
-                    <img src="" alt="">
-                    <a href="{{ route ('catatan')}}">
-                        <img src="assets/tambah.png">
-                    </a>
-                </div>
-            </th>
+            <td>{{ $d->fullname }}</td>
+            <td>{{ $d->sticker_id }}</td>
+            <td>
+                <a href="{{ route ('catatan', ['id' => $d->id]) }}">
+                    <img src="assets/tambah.png">
+                </a>
+            </td>
         </tr>
+        @endforeach
     </table>
 </body>
 

@@ -6,9 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catatan Murid</title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
         body {
             background-color: #FFFFFF;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        form {
+            margin: 0;
+            padding: 0;
+            width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -108,43 +118,67 @@
             background-color: #7bc89c;
             color: black;
         }
-
     </style>
 </head>
 
 <body>
-    <a class="back" href="{{ route('data') }}">
-        <img src="/assets/Back.png" alt="Back">
-    </a>
+    <form id="catatan" action="{{ route ('update', ['id' => $data->id]) }}" method="POST">
+        @csrf
+        @method('PUT')
 
-    <div class="container">
-        <img src="/assets/catatan.jpg">
+        <a class="back" href="{{ route('data') }}">
+            <img src="/assets/Back.png" alt="Back">
+        </a>
 
-        <input type="text" id="fullname" name="fullname" placeholder="Nama Lengkap" class="fullname">
+        <div class="container">
+            <img src="/assets/catatan.jpg">
 
-        <textarea id="catatan" name="catatan" placeholder="Catatan" class="catatan"></textarea>
+            <input type="text" id="fullname" name="fullname" placeholder="Nama Lengkap" class="fullname" value="{{ $data->fullname }}" readonly>
 
-        <div class="button">
-            <button type="submit" onclick="tampilkanPesan()">Tambahkan</button>
+            <textarea id="catatan" name="catatan" placeholder="Catatan" class="catatan" value="{{ $data->catatan }}"></textarea>
+
+            <div class="button">
+                <button type="submit">Tambahkan</button>
+            </div>
         </div>
-    </div>
-
+    </form>
     <script>
-        function tampilkanPesan() {
-            Swal.fire({
-                title: 'Catatan Ditambahkan!',
-                icon: 'success',
-                confirmButtonText: 'Kembali',
-                allowOutsideClick: false,
-                customClass: {
-                    confirmButton: 'custom-button',
+        $('#catatan').on('submit', function(e) {
+            e.preventDefault(); // Mencegah form dari pengiriman otomatis
+
+            $.ajax({
+                type: 'POST',
+                url: $(this).attr('action'),
+                data: $(this).serialize(),
+                success: function(response) {
+                    Swal.fire({
+                        title: 'Catatan Berhasil Ditambahkan!',
+                        icon: 'success',
+                        confirmButtonText: 'Kembali',
+                        allowOutsideClick: false,
+                        customClass: {
+                            confirmButton: 'custom-button'
+                        }
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = "{{ route('data') }}";
+                        }
+                    });
+                },
+                error: function(xhr) {
+                    // Menampilkan notifikasi error jika ada kesalahan dari server
+                    let errors = xhr.responseJSON.errors;
+                    Swal.fire({
+                        title: 'Catatan Harus Diisi',
+                        icon: 'error',
+                        confirmButtonText: 'Tutup',
+                        customClass: {
+                            confirmButton: 'custom-button'
+                        }
+                    });
                 }
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location.href = "{{ route('data') }}";
-                } 
             });
-        }
+        });
     </script>
 </body>
 
