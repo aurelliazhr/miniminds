@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 
@@ -11,18 +12,27 @@ class GuruController extends Controller
 {
     public function guru()
     {
+        if (!session('login')) {
+            return redirect()->route('login'); 
+        }
+
         return view ('guru');
     }
 
     public function menambah_proses (Request $request)
     {
+        // dd($request->all());
+
         $request->validate([
             'fullname' => 'required|unique:users,fullname',
-            'kelas' => 'required'
+            'password' => 'required',
+            'kelas' => 'required',
         ]);
 
         $data['fullname'] = $request->fullname;
+        $data['password'] = Hash::make($request->password);
         $data['kelas'] = $request->kelas;
+        $data['role'] = 'murid';
 
         User::create($data);
     }

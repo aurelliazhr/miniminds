@@ -2,31 +2,39 @@
 
 namespace App\Models;
 
+use Illuminate\Foundation\Auth\User as Authenticatable; // Pastikan ini adalah superclass yang di-extend
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 
-class User extends Model
+class User extends Authenticatable // Meng-extend Authenticatable
 {
-    use HasFactory;
+    use HasFactory, Notifiable;
+
+    protected $guarded = ['id'];
 
     // Atribut yang dapat diisi massal saat create
     protected $fillable = [
         'fullname',
+        'password',
         'kelas',
+        'role',
     ];
 
-    // Atribut yang dapat diisi massal saat update
-    // protected $updateable = [
-    //     'catatan',
-    // ];
+    // public function getAuthPassword()
+    // {
+    //     return $this->kelas; // Mengembalikan nilai kelas sebagai password
+    // }
 
-    // Relasi dengan Stiker
+    // Jika Anda perlu menambahkan kolom 'catatan' secara dinamis, lakukan dengan cara yang benar.
+    // protected $fillable = ['fullname', 'kelas', 'catatan'];
+
+    // Jika Anda memerlukan hubungan dengan Stiker, pastikan Anda mendefinisikan model Stiker dengan benar.
     // public function stiker()
     // {
     //     return $this->belongsToMany(Stiker::class);
     // }
 
-    // Mengisi kolom catatan pada update
+    // Fungsi untuk mengisi kolom catatan saat update
     // public function updateCatatan(array $attributes)
     // {
     //     $this->update($attributes);

@@ -51,7 +51,8 @@
             margin-bottom: 25px;
         }
 
-        .fullname {
+        .fullname,
+        .password {
             width: 82%;
             height: 60px;
             border-radius: 10px;
@@ -138,6 +139,8 @@
 
             <input type="text" id="fullname" name="fullname" placeholder="Nama Lengkap" class="fullname" value="{{ old('fullname') }}">
 
+            <input type="text" id="password" name="password" placeholder="Nomor Absen" class="password" value="{{ old('password') }}">
+
             <select id="kelas" name="kelas" placeholder="kelas" required class="kelas" value="{{ old('kelas') }}">
                 <option value="" disabled selected>Kelas:</option>
                 <option value="-">-</option>
@@ -147,7 +150,7 @@
             </select>
 
             <div class="button">
-                <button type="submit" onclick="tampilkanPesan()">Daftar</button>
+                <button type="submit">Daftar</button>
             </div>
         </div>
 

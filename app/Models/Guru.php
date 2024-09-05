@@ -12,6 +12,7 @@ class Guru extends Model
     protected $table = 'guru';
     protected $fillable = [
         'fullname',
+        'password',
         'kelas',
     ];
 }

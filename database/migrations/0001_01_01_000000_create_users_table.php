@@ -16,6 +16,7 @@ return new class extends Migration
             
             $table->id();
             $table->string('fullname', 50);
+            $table->string('password', 10);
             $table->enum('kelas', ['B1', 'B2', 'B3']);
             $table->text('catatan')->nullable();
             $table->unsignedBigInteger('stiker_id')->nullable();

@@ -2,9 +2,9 @@
 <html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="login.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Login</title>
 
     <style>
@@ -35,12 +35,15 @@
         html,
         body,
         form {
-            height: 100%;
+            /* height: 100%; */
+            justify-content: center;
+            background-color: #BFADD6;
+            margin: 0;
+            padding: 0;
+            width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            background-color: #BFADD6;
         }
 
         img {
@@ -49,7 +52,8 @@
             margin-bottom: 35px;
         }
 
-        .nama {
+        .fullname,
+        .password {
             width: 281px;
             height: 62px;
             padding: 20px;
@@ -70,8 +74,13 @@
             border-radius: 10px;
         }
 
-        #role {
+        #kelas {
             border-radius: 10px;
+        }
+
+        .remember {
+            font-size: 20px;
+            margin-top: 15px;
         }
 
         .button {
@@ -79,7 +88,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: 50px;
+            margin-top: 30px;
         }
 
         button:hover {
@@ -126,36 +135,56 @@
 </head>
 
 <body>
-    <div id="loading-screen">
-        <img src="assets/logo.png">
-    </div>
+    <form action="{{ route ('login-proses') }}" method="post">
+        @csrf
 
-    <audio id="background-audio" autoplay>
-        <source src="assets/tanya.mp3" type="audio/mpeg">
-    </audio>
+        <div id="loading-screen">
+            <img src="assets/logo.png">
+        </div>
 
-    <img src="assets/bertanya.png">
+        <audio id="background-audio" autoplay>
+            <source src="assets/tanya.mp3" type="audio/mpeg">
+        </audio>
 
-    <input type="text" id="username" name="username" placeholder="Nama Lengkap" class="nama">
+        <img src="assets/bertanya.png" width="250px">
 
-    <select id="kelas" name="kelas" placeholder="kelas" required class="kelas">
-        <option value="" disabled selected>Kelas:</option>
-        <option value="guru">-</option>
-        <option value="B1">B1</option>
-        <option value="B2">B2</option>
-        <option value="B3">B3</option>
-    </select>
+        <input type="text" id="fullname" name="fullname" placeholder="Nama Lengkap" class="fullname">
+        @error('fullname')
+        <small>{{ $message }}</small>
+        @enderror
 
-    <div class="button">
-        <!-- <audio id="audio" src="assets/ayo.mp3"></audio> -->
-        <button id="button" type="submit">Ayo Mulai!!</button>
-    </div>
+        <input type="text" id="password" name="password" placeholder="Nomor Absen" class="password">
+        @error('password')
+        <small>{{ $message }}</small>
+        @enderror
 
-    <div class="guru">
-        <a class="guru" href="{{ route('kode') }}">Daftar Sebagai Guru</a>
-    </div>
+        <select id="kelas" name="kelas" placeholder="kelas" required class="kelas">
+            <option value="" disabled selected>Kelas:</option>
+            <option value="-">-</option>
+            <option value="B1">B1</option>
+            <option value="B2">B2</option>
+            <option value="B3">B3</option>
+            @error('kelas')
+            <small>{{ $message }}</small>
+            @enderror
+        </select>
 
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <div class="remember">
+            <input type="checkbox" name="remember" id="remember">
+            <label for="remember">Ingat Saya</label>
+        </div>
+
+        <div class="button">
+            <!-- <audio id="audio" src="assets/ayo.mp3"></audio> -->
+            <button id="button" type="submit" name="login">Ayo Mulai!!</button>
+        </div>
+
+        <div class="guru">
+            <a class="guru" href="{{ route('kode') }}">Daftar Sebagai Guru</a>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    </form>
 
     <!-- @if ($message = Session::get('failed'))
     <script>
@@ -185,8 +214,6 @@
             window.location.href = "{{route ('home')}}";
         });
     </script>
-    </script>
-
 </body>
 
 </html>

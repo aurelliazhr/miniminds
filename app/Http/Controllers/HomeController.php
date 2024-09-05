@@ -8,6 +8,10 @@ class HomeController extends Controller
 {
     public function home()
     {
+        if (!session('login')) {
+            return redirect()->route('login'); 
+        }
+        
         return view('home');
     }
 

@@ -119,14 +119,6 @@
             <img src="/assets/tambahdata.jpg">
         </div>
     </form>
-
-    <!-- <script>
-        onclick="data()"
-
-        function data() {
-            window.location.href = "{{ route ('data') }}";
-        }
-    </script> -->
 </body>
 
 </html>

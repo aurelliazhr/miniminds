@@ -9,6 +9,7 @@ use App\Http\Controllers\RegguruController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [LoginController::class, 'login'])->name('login');
+Route::post('/login-proses', [LoginController::class, 'login_proses'])->name('login-proses');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout'); 
 
 Route::get('/kode', [RegguruController::class, 'kode'])->name('kode'); 
