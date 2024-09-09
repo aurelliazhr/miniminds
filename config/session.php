@@ -32,12 +32,11 @@ return [
     |
     */
 
-    // 'lifetime' => env('SESSION_LIFETIME', 120),
+    'lifetime' => env('SESSION_LIFETIME', 120),
+    'expire_on_close' => env('SESSION_EXPIRE_ON_CLOSE', false),
 
-    // 'expire_on_close' => env('SESSION_EXPIRE_ON_CLOSE', false),
-
-    'lifetime' => env('SESSION_LIFETIME', 43200), // Waktu hidup sesi dalam menit
-    'expire_on_close' => env('SESSION_EXPIRE_ON_CLOSE', false), // Hapus sesi saat browser ditutup
+    // 'lifetime' => env('SESSION_LIFETIME', 43200), // Waktu hidup sesi dalam menit
+    // 'expire_on_close' => env('SESSION_EXPIRE_ON_CLOSE', false), // Hapus sesi saat browser ditutup
 
 
     /*
