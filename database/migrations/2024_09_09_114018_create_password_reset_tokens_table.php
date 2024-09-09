@@ -11,15 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        if (!Schema::hasTable('stiker')) {
-            Schema::create('stiker', function (Blueprint $table) {
-                $table->id();
-                $table->string('kategori', 50);
-                $table->binary('stiker');
-                $table->timestamps();
+        if (!Schema::hasTable('password_reset_tokens')) {
+            Schema::create('password_reset_tokens', function (Blueprint $table) {
+                $table->string('email', 255)->primary();
+                $table->string('token', 255);
+                $table->timestamp('created_at')->nullable();
             });
         }
     }
+
     /**
      * Reverse the migrations.
      */
