@@ -268,13 +268,17 @@
         <ul class="sidebar">
             <li onclick=hideSidebar()><a href="#"><i class="fa-solid fa-xmark"></i></a></li>
             <li onclick=openProfile()><a href="#">Profil</a></li>
+            @if(auth()->user()->role == 'guru')
             <li><a href="{{ route ('guru') }}">Data Murid</a></li>
+            @endif
             <li onclick=logout()><a href="#">Logout</a></li>
         </ul>
 
         <ul>
             <li class="hideOnMobile" onclick=openProfile()><a href="#">Profil</a></li>
+            @if(auth()->user()->role == 'guru')
             <li class="hideOnMobile"><a href="{{ route ('guru') }}">Data Murid</a></li>
+            @endif
             <li class="hideOnMobile" onclick=logout()><a href="#">Logout</a></li>
             <li class="menu-button" onclick=showSidebar()><a href="#"><img src="assets/menu.png"></a></li>
         </ul>

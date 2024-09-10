@@ -19,14 +19,3 @@ const interval = setInterval(() => {
     }
 }, 1000);
 
-// function showNotification() {
-//     Swal.fire({
-//         title: 'Waktu Belajar dan Bermain Telah Selesai',
-//         text: 'Silahkan Tutup Situs Ini, Ya!',
-//         icon: 'warning',
-//         // confirmButtonText: 'Oke',
-//         showCloseButton: true  
-//     });
-// }
-
-// setTimeout(showNotification, 10000);
