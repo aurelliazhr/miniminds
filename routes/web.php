@@ -19,7 +19,6 @@ Route::middleware('guest')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/home', [HomeController::class, 'home'])->name('home');
-    Route::get('/profil', [HomeController::class, 'profil'])->name('profil');
     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
     Route::get('/belajar', [HomeController::class, 'belajar'])->name('belajar');

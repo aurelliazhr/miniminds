@@ -1,21 +1,32 @@
-let timeSpent = localStorage.getItem('timeSpent') ? parseInt(localStorage.getItem('timeSpent')) : 0;
+let timeSpent = sessionStorage.getItem('timeSpent') ? parseInt(sessionStorage.getItem('timeSpent')) : 0;
+let isTracking = true;
+const pagesToShowNotification = ["home", "belajar", "bermain"];
+let notifikasiTerkirim = sessionStorage.getItem('notifikasiTerkirim') === 'true';
+
+function shouldShowNotification() {
+    const currentPage = window.location.pathname.split("/").pop();
+    return pagesToShowNotification.includes(currentPage);
+}
 
 const interval = setInterval(() => {
-    timeSpent += 1;
-    localStorage.setItem('timeSpent', timeSpent);
-    
-    if(timeSpent >= 10) {
-        Swal.fire({
-            title: 'Waktu Belajar dan Bermain Telah Selesai',
-            text: 'Silahkan Tutup Situs Ini, Ya!',
-            icon: 'warning',
-            // confirmButtonText: 'Oke',
-            showCloseButton: true  
-        });
+    if (isTracking && !notifikasiTerkirim) {
+        timeSpent += 1;
+        sessionStorage.setItem('timeSpent', timeSpent);
 
-        clearInterval(interval);
+        if (timeSpent >= 3600 && shouldShowNotification()) {
+            Swal.fire({
+                title: 'Waktu Belajar dan Bermain Telah Selesai',
+                text: 'Silahkan Tutup Situs Ini, Ya!',
+                icon: 'warning',
+                // showCloseButton: true
+            });
 
-        localStorage.setItem('timeSpent', 0);
+            sessionStorage.setItem('notifikasiTerkirim', 'true'); 
+            clearInterval(interval);
+        }
     }
 }, 1000);
 
+document.addEventListener("visibilitychange", () => {
+    isTracking = !document.hidden;
+});
