@@ -86,9 +86,11 @@
 </head>
 
 <body>
+    <audio src="/assets/background.mp3" autoplay loop></audio>
+
     <nav>
         <img src="assets/Back.png" onclick="back()">
-    </nav> 
+    </nav>
 
     <div class="container">
         <div class="menambah" onclick="menambah()">

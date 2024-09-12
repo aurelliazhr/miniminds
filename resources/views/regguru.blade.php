@@ -126,6 +126,11 @@
 </head>
 
 <body>
+
+    <audio id="audio" autoplay>
+        <source src="assets/isidata.mp3" type="audio/mpeg">
+    </audio>
+
     <form id="regguru-form" action="{{ route ('regguru-proses') }}" method="POST">
         @method('post')
         @csrf
@@ -179,7 +184,7 @@
                     },
                     error: function(response) {
                         Swal.fire({
-                            title:'Data Harus Diisi',
+                            title: 'Data Harus Diisi',
                             text: 'Data Tidak Boleh Sama',
                             icon: 'error',
                             confirmButtonText: 'Tutup',

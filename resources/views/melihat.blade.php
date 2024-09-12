@@ -97,6 +97,10 @@
 </head>
 
 <body>
+    <audio id="audio" autoplay>
+        <source src="assets/melihat.mp3" type="audio/mpeg">
+    </audio>
+
     <form action="{{ route('melihat-proses') }}" method="post">
         @csrf
 
@@ -113,7 +117,7 @@
             </select>
 
             <div class="button">
-                <button type="submit" >Cari Data</button>
+                <button type="submit">Cari Data</button>
             </div>
 
             <img src="/assets/tambahdata.jpg">

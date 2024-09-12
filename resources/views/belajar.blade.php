@@ -80,10 +80,10 @@
 
         .text1 img,
         .text2 img,
-        .text3 img{
+        .text3 img {
             background-color: white;
             margin-top: 30px;
-      
+
         }
 
         @media (min-width: 1024px) {
@@ -118,6 +118,12 @@
 </head>
 
 <body>
+    <audio id="audio" autoplay>
+        <source src="assets/belajar.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio src="/assets/background.mp3" autoplay loop></audio>
+
     <nav>
         <div class="back" onclick="back()">
             <img src="assets/Back.png">
@@ -152,6 +158,7 @@
         function back() {
             window.location.href = "{{ route ('home') }}"
         }
+
         function huruf() {
             window.location.href = "{{route ('huruf')}}";
         }

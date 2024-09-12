@@ -130,6 +130,10 @@
 </head>
 
 <body>
+    <audio id="audio" autoplay>
+        <source src="assets/menambah.mp3" type="audio/mpeg">
+    </audio>
+
     <form id="register" action="{{ route ('menambah-proses') }}" method="POST">
         @method('post')
         @csrf

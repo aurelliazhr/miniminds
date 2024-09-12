@@ -262,6 +262,12 @@
 </head>
 
 <body>
+    <audio id="audio" autoplay>
+        <source src="assets/ayo.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio src="/assets/background.mp3" autoplay loop></audio>
+
     <nav>
         <img src="assets/minimind.png">
 

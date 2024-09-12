@@ -150,6 +150,12 @@
 </head>
 
 <body>
+    <audio id="audio" autoplay>
+        <source src="assets/bermain.mp3" type="audio/mpeg">
+    </audio>
+    
+    <audio src="/assets/background.mp3" autoplay loop></audio>
+    
     <nav>
         <div class="back" onclick="back()">
             <img src="assets/Back.png">

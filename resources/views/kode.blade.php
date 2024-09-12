@@ -88,6 +88,9 @@
 </head>
 
 <body>
+    <audio id="audio" autoplay>
+        <source src="assets/kode.mp3" type="audio/mpeg">
+    </audio>
 
     <div class="container">
         <div class="apaya">
