@@ -6,6 +6,9 @@ use App\Http\Controllers\GuruController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegguruController;
+use App\Http\Controllers\BintangController;
+use App\Http\Controllers\StikerController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
@@ -47,5 +50,10 @@ Route::middleware('auth')->group(function () {
 
         Route::get('/catatan/{id}', [GuruController::class, 'catatan'])->name('catatan');
         Route::put('/update/{id}', [GuruController::class, 'update'])->name('update');
+    });
+
+    Route::middleware('auth')->group(function () {
+        Route::post('/store-stiker', [StikerController::class, 'storeStiker']);
+        Route::get('/home', [ProfileController::class, 'show'])->name('home'); 
     });
 });

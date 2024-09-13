@@ -20,6 +20,12 @@ class User extends Authenticatable // Meng-extend Authenticatable
         'role',
     ];
 
+    use Notifiable;
+    public function stikers()
+    {
+        return $this->hasMany(Stiker::class);
+    }
+
     // public function getAuthPassword()
     // {
     //     return $this->kelas; // Mengembalikan nilai kelas sebagai password

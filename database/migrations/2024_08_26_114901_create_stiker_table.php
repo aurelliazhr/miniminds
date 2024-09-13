@@ -14,6 +14,7 @@ return new class extends Migration
         if (!Schema::hasTable('stiker')) {
             Schema::create('stiker', function (Blueprint $table) {
                 $table->id();
+                $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
                 $table->string('kategori', 50);
                 $table->binary('stiker');
                 $table->timestamps();

@@ -9,11 +9,16 @@ class Stiker extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-    ];
+    protected $table = 'stiker';
+    protected $fillable = ['id', 'kategori', 'stiker', 'user_id'];
 
     protected $guarded = [
         'kategori',
         'stiker',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

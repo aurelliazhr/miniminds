@@ -318,6 +318,12 @@
                 <p>Nama:</p>
                 <p>Kelas:</p>
                 <p>Catatan:</p>
+                <p>Stiker:</p>
+                @foreach($stikers as $stiker)
+                  <div>
+                     <img src="{{ 'data:image/jpeg;base64,' . base64_encode($stiker->stiker)}}" alt="Stiker {{ $stiker->kategori }}">
+                  </div>
+                @endforeach
             </div>
         </div>
     </div>
