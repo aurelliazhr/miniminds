@@ -31,6 +31,10 @@ class LoginController extends Controller
 
     public function login_proses(Request $request)
     {
+        if (Auth::check()) {
+            return redirect()->route('home');
+        }
+
         $request->validate([
             'fullname' => 'required',
             'password' => 'required',
@@ -55,7 +59,7 @@ class LoginController extends Controller
 
             return redirect()->route('home');
         } else {
-            return redirect()->route('login')->with('failed', 'Nama, Password, atau Kelas Salah');
+            return redirect()->route('login')->withInput()->with('failed', 'Nama, Password, atau Kelas Salah');
         }
     }
 

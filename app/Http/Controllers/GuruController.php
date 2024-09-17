@@ -62,7 +62,9 @@ class GuruController extends Controller
         $kelas = Session::get('kelas');
 
         // Ambil data murid berdasarkan kelas yang dipilih
-        $data = User::where('kelas', $kelas)->get();
+        $data = User::where('kelas', $kelas)
+        ->where('role', 'murid')
+        ->get();
 
         // Kembalikan view dengan data murid yang sesuai
         return view('data', compact('data'));

@@ -111,7 +111,7 @@
 
         .custom-button,
         .custom-button.swal2-cancel {
-            background-color: #BFADD6;
+            background-color: #9CE6BB;
             width: 250px;
             color: #fff;
             border-radius: 10px;
@@ -123,7 +123,7 @@
 
         .custom-button:hover,
         .custom-button.swal2-cancel:hover {
-            background-color: #7bc89c;
+            background-color: #ccc;
             color: black;
         }
     </style>

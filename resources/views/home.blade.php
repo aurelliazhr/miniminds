@@ -214,13 +214,18 @@
             font-size: 20px;
             border: none;
             cursor: pointer;
-            background-color: #684D8C;
+            background-color: #9CE6BB;
         }
 
         .custom-button-logout:hover,
         .custom-button-cancel:hover {
-            background-color: #7bc89c;
+            background-color: #ccc;
+            text-decoration: underline;
             color: black;
+        }
+
+        .swal2-actions {
+            background-color: #fff;
         }
 
         .custom-swal-title {
@@ -320,9 +325,9 @@
                 <p>Catatan:</p>
                 <p>Stiker:</p>
                 @foreach($stikers as $stiker)
-                  <div>
-                     <img src="{{ 'data:image/jpeg;base64,' . base64_encode($stiker->stiker)}}" alt="Stiker {{ $stiker->kategori }}">
-                  </div>
+                <div>
+                    <img src="{{ 'data:image/jpeg;base64,' . base64_encode($stiker->stiker)}}" alt="Stiker {{ $stiker->kategori }}">
+                </div>
                 @endforeach
             </div>
         </div>

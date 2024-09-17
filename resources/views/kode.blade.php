@@ -61,7 +61,7 @@
             height: 60px;
             padding: 10px;
             margin-bottom: 10px;
-            background-color: #4CAF50;
+            background-color: #9CE6BB;
             color: white;
             border: none;
             border-radius: 5px;
@@ -71,19 +71,17 @@
         }
 
         button:hover {
-            background-color: #45a049;
+            background-color: #ccc;
             text-decoration: underline;
             cursor: pointer;
             color: black;
         }
 
-        .back-button {
-            background-color: #f44336;
+        .custom-button-logout,
+        .custom-button-cancel {
+            background-color: #9CE6BB;
         }
 
-        .back-button:hover {
-            background-color: #e53935;
-        }
     </style>
 </head>
 
@@ -110,7 +108,10 @@
                     title: 'Berhasil!',
                     icon: 'success',
                     confirmButtonText: 'Halaman Selanjutnya',
-                    allowOutsideClick: false
+                    allowOutsideClick: false,
+                    customClass: {
+                        confirmButton: 'custom-button-logout'
+                    }
                 }).then((result) => {
                     if (result.isConfirmed) {
                         window.location.href = "{{ route('regguru') }}";
@@ -123,10 +124,14 @@
                     showCancelButton: true,
                     confirmButtonText: 'Coba Lagi',
                     cancelButtonText: 'Kembali',
-                    allowOutsideClick: false
+                    allowOutsideClick: false,
+                    customClass: {
+                    confirmButton: 'custom-button-logout',
+                    cancelButton: 'custom-button-cancel'
+                }
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.reload(); // Reload halaman ini untuk coba lagi
+                        window.location.reload(); 
                     } else if (result.dismiss === Swal.DismissReason.cancel) {
                         window.location.href = "{{ route('login') }}";
                     }

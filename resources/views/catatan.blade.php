@@ -104,7 +104,7 @@
         }
 
         .custom-button {
-            background-color: #BFADD6;
+            background-color: #9CE6BB;
             width: 250px;
             color: #fff;
             border-radius: 10px;
@@ -115,7 +115,7 @@
         }
 
         .custom-button:hover {
-            background-color: #7bc89c;
+            background-color: #ccc;
             color: black;
         }
     </style>

@@ -148,17 +148,17 @@
 
         <img src="assets/bertanya.png" width="250px">
 
-        <input type="text" id="fullname" name="fullname" placeholder="Nama Lengkap" class="fullname">
+        <input type="text" id="fullname" name="fullname" placeholder="Nama Lengkap" class="fullname" value="{{ old('fullname') }}">
         @error('fullname')
         <small>{{ $message }}</small>
         @enderror
 
-        <input type="text" id="password" name="password" placeholder="Nomor Absen" class="password">
+        <input type="text" id="password" name="password" placeholder="Nomor Absen" class="password" value="{{ old('password') }}">
         @error('password')
         <small>{{ $message }}</small>
         @enderror
 
-        <select id="kelas" name="kelas" placeholder="kelas" required class="kelas">
+        <select id="kelas" name="kelas" placeholder="kelas" required class="kelas" value="{{ old('kelas') }}">
             <option value="" disabled selected>Kelas:</option>
             <option value="-">-</option>
             <option value="B1">B1</option>
@@ -175,7 +175,6 @@
         </div>
 
         <div class="button">
-            <!-- <audio id="audio" src="assets/ayo.mp3"></audio> -->
             <button id="button" type="submit" name="login">Ayo Mulai!!</button>
         </div>
 
@@ -193,11 +192,6 @@
     @endif -->
 
     <script>
-        // document.getElementById('button').addEventListener('click', function() {
-        //     var audio = document.getElementById('audio');
-        //     audio.play();
-        // });
-
         window.addEventListener("load", function() {
             setTimeout(function() {
                 var loadingScreen = document.getElementById("loading-screen");
