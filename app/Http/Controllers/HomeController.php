@@ -24,4 +24,9 @@ class HomeController extends Controller
     {
         return view('bermain');
     }
+
+    public function tes ()
+    {
+        return view('test');
+    }
 }

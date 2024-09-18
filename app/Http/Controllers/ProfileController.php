@@ -10,9 +10,18 @@ class ProfileController extends Controller
 {
     public function show()
     {
-        $user = Auth::user();
-        $stikers = $user->stikers;
+        // $user = Auth::user();
+        // $stikers = $user->stikers;
 
-        return view('home', compact('stikers'));
+        // return view('home', compact('stikers'));
+
+        $user = Auth::user();
+        $stikers = Stiker::where('user_id', $user->id)->get();
+
+        if ($user->role == 'murid') {
+            $stikers = collect();
+        }
+
+        return view('home', compact('user', 'stikers'));
     }
 }

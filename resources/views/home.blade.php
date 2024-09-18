@@ -187,6 +187,11 @@
             background-color: white;
         }
 
+        .profile-info {
+            margin-top: 75px;
+            margin-left: 15%;
+        }
+        
         .profile-info p {
             background-color: #ABA9AC;
         }
@@ -310,25 +315,24 @@
     <div id="profileModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeProfile()"><i class="fa-solid fa-xmark"></i></span>
-            <div class="baris1">
-                <img src="" class="profile-img">
-                <img src="" class="profile-img">
-            </div>
-            <div class="baris2">
-                <img src="" class="profile-img">
-                <img src="" class="profile-img">
-                <img src="" class="profile-img">
-            </div>
             <div class="profile-info">
-                <p>Nama:</p>
-                <p>Kelas:</p>
-                <p>Catatan:</p>
+                @if(auth()->user()->role == 'murid')
                 <p>Stiker:</p>
+                @if(isset($stikers))
                 @foreach($stikers as $stiker)
                 <div>
                     <img src="{{ 'data:image/jpeg;base64,' . base64_encode($stiker->stiker)}}" alt="Stiker {{ $stiker->kategori }}">
                 </div>
                 @endforeach
+                @endif
+                @endif
+
+                <p>Nama: {{ auth()->user()->fullname }}</p>
+                <p>Kelas: {{ auth()->user()->kelas }}</p>
+
+                @if(auth()->user()->role == 'murid')
+                <p>Catatan: {{ auth()->user()->catatan }}</p>
+                @endif
             </div>
         </div>
     </div>

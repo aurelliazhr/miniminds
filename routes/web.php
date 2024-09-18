@@ -24,6 +24,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/home', [HomeController::class, 'home'])->name('home');
     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
+    Route::post('/store-stiker', [StikerController::class, 'storeStiker']);
+    Route::get('/home', [ProfileController::class, 'show'])->name('home');
+
+    Route::get('/test', [HomeController::class, 'tes']);
+
     Route::get('/belajar', [HomeController::class, 'belajar'])->name('belajar');
     Route::get('/huruf', [BelajarController::class, 'huruf'])->name('huruf');
     Route::get('/angka', [BelajarController::class, 'angka'])->name('angka');
@@ -52,8 +57,8 @@ Route::middleware('auth')->group(function () {
         Route::put('/update/{id}', [GuruController::class, 'update'])->name('update');
     });
 
-    Route::middleware('auth')->group(function () {
-        Route::post('/store-stiker', [StikerController::class, 'storeStiker']);
-        Route::get('/home', [ProfileController::class, 'show'])->name('home'); 
-    });
+    // Route::middleware('auth')->group(function () {
+    //     Route::post('/store-stiker', [StikerController::class, 'storeStiker']);
+    //     Route::get('/home', [ProfileController::class, 'show'])->name('home'); 
+    // });
 });
