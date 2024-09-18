@@ -19,7 +19,7 @@ class ProfileController extends Controller
         $stikers = Stiker::where('user_id', $user->id)->get();
 
         if ($user->role == 'murid') {
-            $stikers = collect();
+           $stikers = collect();
         }
 
         return view('home', compact('user', 'stikers'));
