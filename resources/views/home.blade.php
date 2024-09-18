@@ -316,12 +316,14 @@
         <div class="modal-content">
             <span class="close" onclick="closeProfile()"><i class="fa-solid fa-xmark"></i></span>
             <div class="profile-info">
+                @if(auth()->user()->role == 'murid')
                 <p>Stiker:</p>
                 @foreach($stikers as $stiker)
                 <div>
                     <img src="{{ 'data:image/jpeg;base64,' . base64_encode($stiker->stiker)}}" alt="Stiker {{ $stiker->kategori }}">
                 </div>
                 @endforeach
+                @endif
 
                 <p>Nama: {{ auth()->user()->fullname }}</p>
                 <p>Kelas: {{ auth()->user()->kelas }}</p>

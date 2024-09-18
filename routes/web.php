@@ -57,8 +57,8 @@ Route::middleware('auth')->group(function () {
         Route::put('/update/{id}', [GuruController::class, 'update'])->name('update');
     });
 
-    Route::middleware('auth')->group(function () {
-         Route::post('/store-stiker', [StikerController::class, 'storeStiker']);
-         Route::get('/home', [ProfileController::class, 'show'])->name('home'); 
-    });
+    // Route::middleware('auth')->group(function () {
+    //      Route::post('/store-stiker', [StikerController::class, 'storeStiker']);
+    //      Route::get('/home', [ProfileController::class, 'show'])->name('home'); 
+    // });
 });
