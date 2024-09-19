@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegguruController;
 use App\Http\Controllers\BintangController;
+use App\Http\Controllers\EditController;
 use App\Http\Controllers\StikerController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -55,6 +56,9 @@ Route::middleware('auth')->group(function () {
 
         Route::get('/catatan/{id}', [GuruController::class, 'catatan'])->name('catatan');
         Route::put('/update/{id}', [GuruController::class, 'update'])->name('update');
+
+        // Route::get('/edit/{id}', [EditController::class, 'edit'])->name('edit');
+        // Route::put('/edit-proses/{id}', [EditController::class, 'edit_proses'])->name('edit-proses');
     });
 
     // Route::middleware('auth')->group(function () {

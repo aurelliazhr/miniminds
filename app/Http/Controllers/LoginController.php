@@ -35,10 +35,15 @@ class LoginController extends Controller
             return redirect()->route('home');
         }
 
-        $request->validate([
+        // $request->validate([
+            $credentials = $request->validate ([
             'fullname' => 'required',
             'password' => 'required',
             'kelas' => 'required'
+        ] , [
+            'fullname.required' => 'Nama Harus Diisi',
+            'password' => 'Nomor Absen Harus Diisi',
+            'kelas' => 'Kelas Harus Diisi',
         ]);
 
         $data = [
@@ -47,7 +52,10 @@ class LoginController extends Controller
             'kelas' => $request->kelas
         ];
 
-        if (Auth::attempt($data)) {
+        // if (Auth::attempt($data)) {
+
+        if(Auth::attempt($credentials)) {
+                    $request->session()->regenerate();
             // Session
             session(['login' => true]);
 
@@ -59,7 +67,7 @@ class LoginController extends Controller
 
             return redirect()->route('home');
         } else {
-            return redirect()->route('login')->withInput()->with('failed', 'Nama, Password, atau Kelas Salah');
+            return redirect()->route('login')->withInput()->with('failed', 'Nama, Nomor Absen, atau Kelas Salah');
         }
     }
 
@@ -70,6 +78,6 @@ class LoginController extends Controller
 
         Cookie::queue(Cookie::forget('key'));
 
-        return redirect()->route('login')->with('success', 'Kamu berhasil logout');
+        return redirect()->route('login');
     }
 }

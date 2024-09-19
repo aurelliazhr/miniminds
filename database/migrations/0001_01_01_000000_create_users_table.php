@@ -15,10 +15,11 @@ return new class extends Migration
             Schema::create('users', function (Blueprint $table) {
                 $table->id();
                 $table->string('fullname', 50);
+                $table->text('catatan')->nullable();
                 $table->string('password', 10);
                 $table->enum('kelas', ['B1', 'B2', 'B3']);
+                $table->string('image')->nullable();
                 $table->enum('role', ['guru', 'murid']); 
-                $table->text('catatan')->nullable();
                 $table->unsignedBigInteger('stiker_id')->nullable();
                 $table->timestamps();
 

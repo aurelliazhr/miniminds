@@ -325,8 +325,17 @@
                 @endforeach
                 @endif
 
+                @if(auth()->user()->role == 'guru')
+                <p>Foto:</p>
+                <!-- Foto Profil -->
+                @endif
+
                 <p>Nama: {{ auth()->user()->fullname }}</p>
                 <p>Kelas: {{ auth()->user()->kelas }}</p>
+
+                <!-- @if(auth()->user()->role == 'guru')
+                <p><a href="{{route('edit')}}">Edit Data</a></p>
+                @endif -->
 
                 @if(auth()->user()->role == 'murid')
                 <p>Catatan: {{ auth()->user()->catatan }}</p>
