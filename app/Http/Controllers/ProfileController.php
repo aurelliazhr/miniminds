@@ -18,7 +18,7 @@ class ProfileController extends Controller
         $user = Auth::user();
         $stikers = Stiker::where('user_id', $user->id)->get();
 
-        if ($user->role == 'murid') {
+        if ($user->role == 'guru') {
            $stikers = collect();
         }
 

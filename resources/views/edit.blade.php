@@ -46,13 +46,41 @@
         }
 
         img {
-            width: 297px;
-            height: 287px;
+            width: 200px;
+            height: 200px;
             margin-bottom: 25px;
+            margin-left: 25px;
+        }
+
+        .image {
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        .image input[type="file"] {
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .custom-image {
+            position: relative;
+            background-color: #D9D9D9;
+            color: black;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
         }
 
         .fullname,
-        .password {
+        .password,
+        .kelas,
+        .custom-image {
             width: 82%;
             height: 60px;
             border-radius: 10px;
@@ -65,7 +93,11 @@
             box-sizing: border-box;
         }
 
-        .kelas {
+        .custom-image {
+            background-color: #D9D9D9;
+        }
+
+        /* .kelas {
             width: 82%;
             height: 60px;
             border-radius: 10px;
@@ -79,7 +111,7 @@
 
         #kelas {
             border-radius: 10px;
-        }
+        } */
 
         .button {
             text-align: center;
@@ -127,94 +159,66 @@
 </head>
 
 <body>
-    <!-- <audio id="audio" autoplay>
-        <source src="assets/isidata.mp3" type="audio/mpeg">
-    </audio> -->
-
-    <!-- <form id="regguru-form" action="{{ route ('regguru-proses') }}" method="POST">
-        @method('post')
-        @csrf -->
-
-        <form id="edit" action="{{ route ('edit-update', ['id' => $data->id]) }}" method="POST">
+    <form id="edit" action="{{ route ('edit-proses', ['id' => $data->id]) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
-        <a class="back" href="{{ route('login') }}">
+        <a class="back" href="{{ route('home') }}">
             <img src="/assets/Back.png" alt="Back">
         </a>
 
         <div class="container">
-            <!-- <img src="/assets/Guru.jpg" alt="Guru"> -->
+        <img src="{{ asset('storage/foto-user/' . auth()->user()->image) }}" width="100px" height="100px"
+        class="profil">
 
-            <label for="">Foto Profil</label>
-            <input type="file" id="image" name="image" class="image" value="{{ $data->image }}">
+            <div class="image">
+                <input type="file" name="image" class="image" value="{{ $data->image }}" id="image-input">
+                <label for="image-input" class="custom-image">Upload Foto Profil</label>
+            </div>
+            <small>Upload foto baru jika ingin menggantinya</small>
             @error('image')
+            <br>
             <small>{{ $message }}</small>
             @enderror
+
             <input type="text" id="fullname" name="fullname" placeholder="Nama Lengkap" class="fullname" value="{{ $data->fullname }}">
             @error('fullname')
             <small>{{ $message }}</small>
             @enderror
 
-            <input type="text" id="password" name="password" placeholder="Nomor Absen" class="password" value="{{ $data->password }}">
+            <input type="text" id="password" name="password" placeholder="Nomor Absen" class="password">
+            <small>Ketik nomor baru jika ingin menggantinya</small>
             @error('password')
             <small>{{ $message }}</small>
             @enderror
 
-            <select id="kelas" name="kelas" placeholder="kelas" required class="kelas" value="{{ $data->kelas }}">
+            <input type="text" id="kelas" name="kelas" placeholder="Kelas" class="kelas" value="{{ $data->kelas }}">
+            @error('kelas')
+            <small>{{ $message }}</small>
+            @enderror
+
+            <!-- <select id="kelas" name="kelas" placeholder="kelas" required class="kelas" value="{{ $data->kelas }}">
                 <option value="" disabled selected>Kelas:</option>
                 <option value="-">-</option>
                 <option value="B1">B1</option>
                 <option value="B2">B2</option>
                 <option value="B3">B3</option>
-                @error('kelas')
-                <small>{{ $message }}</small>
-                @enderror
             </select>
+            @error('kelas')
+            <small>{{ $message }}</small>
+            @enderror -->
 
             <div class="button">
-                <button type="submit">Daftar</button>
+                <button type="submit">Simpan</button>
             </div>
         </div>
-</form>
 
-        <!-- <script>
-            // $('#regguru-form').on('submit', function(e) {
-            //     e.preventDefault(); // Mencegah form dari pengiriman otomatis
+        <!-- @if ($message = Session::get('success'))
+    <script>
+        Swal.fire('{{ $message }}');
+    </script>
+    @endif -->
 
-            //     $.ajax({
-            //         type: 'POST',
-            //         url: $(this).attr('action'),
-            //         data: $(this).serialize(),
-            //         success: function(response) {
-            //             Swal.fire({
-            //                 title: 'Data Anda Berhasil Ditambahkan!',
-            //                 icon: 'success',
-            //                 confirmButtonText: 'Halaman Login',
-            //                 allowOutsideClick: false,
-            //                 customClass: {
-            //                     confirmButton: 'custom-button'
-            //                 }
-            //             }).then((result) => {
-            //                 if (result.isConfirmed) {
-            //                     window.location.href = "{{ route('login') }}";
-            //                 }
-            //             });
-            //         },
-            //         error: function(response) {
-            //             Swal.fire({
-            //                 title: 'Data Harus Diisi',
-            //                 text: 'Data Tidak Boleh Sama',
-            //                 icon: 'error',
-            //                 confirmButtonText: 'Tutup',
-            //                 customClass: {
-            //                     confirmButton: 'custom-button'
-            //                 }
-            //             });
-            //         }
-            //     });
-            // });
-        </script> -->
 </body>
 
 </html>

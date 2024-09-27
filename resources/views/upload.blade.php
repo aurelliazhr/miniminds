@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
+    <title>Upload Foto Profil</title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
@@ -46,9 +46,10 @@
         }
 
         img {
-            width: 297px;
-            height: 287px;
+            width: 200px;
+            height: 200px;
             margin-bottom: 25px;
+            margin-left: 25px;
         }
 
         .image {
@@ -78,6 +79,7 @@
 
         .fullname,
         .password,
+        .kelas,
         .custom-image {
             width: 82%;
             height: 60px;
@@ -95,7 +97,7 @@
             background-color: #D9D9D9;
         }
 
-        .kelas {
+        /* .kelas {
             width: 82%;
             height: 60px;
             border-radius: 10px;
@@ -109,7 +111,7 @@
 
         #kelas {
             border-radius: 10px;
-        }
+        } */
 
         .button {
             text-align: center;
@@ -157,54 +159,38 @@
 </head>
 
 <body>
-
-    <audio id="audio" autoplay>
-        <source src="assets/isidata.mp3" type="audio/mpeg">
-    </audio>
-
-    <form id="regguru-form" action="{{ route ('regguru-proses') }}" method="POST" enctype="multipart/form-data">
-        @method('post')
+    <form id="edit" action="{{ route ('upload-proses', ['id' => $data->id]) }}" method="POST" enctype="multipart/form-data">
         @csrf
+        @method('PUT')
 
-        <a class="back" href="{{ route('login') }}">
+        <a class="back" href="{{ route('home') }}">
             <img src="/assets/Back.png" alt="Back">
         </a>
 
         <div class="container">
-            <img src="/assets/Guru.jpg" alt="Guru">
+        <img src="{{ asset('storage/foto-user/' . auth()->user()->image) }}" width="100px" height="100px"
+        class="profil">
 
             <div class="image">
-                <input type="file" name="image" class="image" value="{{ old('image') }}" id="image-input">
+                <input type="file" name="image" class="image" value="{{ $data->image }}" id="image-input">
                 <label for="image-input" class="custom-image">Upload Foto Profil</label>
             </div>
             @error('image')
             <small>{{ $message }}</small>
             @enderror
 
-
-            <input type="text" id="fullname" name="fullname" placeholder="Nama Lengkap" class="fullname" value="{{ old('fullname') }}">
+            <input type="text" id="fullname" name="fullname" placeholder="Nama Lengkap" class="fullname" value="{{ $data->fullname }}" readonly>
             @error('fullname')
             <small>{{ $message }}</small>
             @enderror
 
-            <input type="text" id="password" name="password" placeholder="Nomor Absen" class="password" value="{{ old('password') }}">
-            @error('password')
-            <small>{{ $message }}</small>
-            @enderror
-
-            <select id="kelas" name="kelas" placeholder="kelas" required class="kelas" value="{{ old('kelas') }}">
-                <option value="" disabled selected>Kelas:</option>
-                <option value="-">-</option>
-                <option value="B1">B1</option>
-                <option value="B2">B2</option>
-                <option value="B3">B3</option>
-            </select>
+            <input type="text" id="kelas" name="kelas" placeholder="Kelas" class="kelas" value="{{ $data->kelas }}" readonly>
             @error('kelas')
             <small>{{ $message }}</small>
             @enderror
 
             <div class="button">
-                <button type="submit">Daftar</button>
+                <button type="submit">Simpan</button>
             </div>
         </div>
 
@@ -215,4 +201,5 @@
     @endif -->
 
 </body>
+
 </html>

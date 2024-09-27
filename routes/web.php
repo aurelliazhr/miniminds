@@ -10,6 +10,7 @@ use App\Http\Controllers\BintangController;
 use App\Http\Controllers\EditController;
 use App\Http\Controllers\StikerController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UploadController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
@@ -26,6 +27,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
     Route::post('/store-stiker', [StikerController::class, 'storeStiker']);
+
+    Route::get('/upload/{id}', [UploadController::class, 'upload'])->name('upload');
+    Route::put('/upload-proses/{id}', [UploadController::class, 'upload_proses'])->name('upload-proses');
+
     Route::get('/home', [ProfileController::class, 'show'])->name('home');
 
     Route::get('/test', [HomeController::class, 'tes']);
@@ -57,12 +62,12 @@ Route::middleware('auth')->group(function () {
         Route::get('/catatan/{id}', [GuruController::class, 'catatan'])->name('catatan');
         Route::put('/update/{id}', [GuruController::class, 'update'])->name('update');
 
-        // Route::get('/edit/{id}', [EditController::class, 'edit'])->name('edit');
-        // Route::put('/edit-proses/{id}', [EditController::class, 'edit_proses'])->name('edit-proses');
+        Route::get('/edit/{id}', [EditController::class, 'edit'])->name('edit');
+        Route::put('/edit-proses/{id}', [EditController::class, 'edit_proses'])->name('edit-proses');
     });
 
-    // Route::middleware('auth')->group(function () {
-    //      Route::post('/store-stiker', [StikerController::class, 'storeStiker']);
-    //      Route::get('/home', [ProfileController::class, 'show'])->name('home'); 
-    // });
+    Route::middleware('auth')->group(function () {
+        Route::post('/store-stiker', [StikerController::class, 'storeStiker']);
+        Route::get('/home', [ProfileController::class, 'show'])->name('home');
+    });
 });

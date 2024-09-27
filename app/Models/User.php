@@ -14,6 +14,7 @@ class User extends Authenticatable // Meng-extend Authenticatable
 
     // Atribut yang dapat diisi massal saat create
     protected $fillable = [
+        'image',
         'fullname',
         'password',
         'catatan',

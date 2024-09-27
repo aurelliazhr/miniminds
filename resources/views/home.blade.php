@@ -179,20 +179,31 @@
             cursor: pointer;
         }
 
-        .profile-img {
+        /* .profile-img {
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             background-color: white;
-        }
+        } */
 
         .profile-info {
-            margin-top: 75px;
-            margin-left: 15%;
+            margin-top: 50px;
+            margin-left: 10%;
+            background-color: #ABA9AC;
         }
-        
-        .profile-info p {
+
+        .profil {
+            border-radius: 100%;
+            /* border: 1px solid #ccc; */
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 20px;
+        }
+
+        .profile-info p,
+        .profile-info a,
+        .profile-info img {
             background-color: #ABA9AC;
         }
 
@@ -317,29 +328,29 @@
             <span class="close" onclick="closeProfile()"><i class="fa-solid fa-xmark"></i></span>
             <div class="profile-info">
                 @if(auth()->user()->role == 'murid')
-                <p>Stiker:</p>
                 @foreach($stikers as $stiker)
-                <div>
-                    <img src="{{ 'data:image/jpeg;base64,' . base64_encode($stiker->stiker)}}" alt="Stiker {{ $stiker->kategori }}">
-                </div>
+
+                    <img src="{{ 'data:image/jpeg;base64,' . base64_encode($stiker->stiker)}}" alt="Stiker {{ $stiker->kategori }}" width="80px">
                 @endforeach
                 @endif
 
                 @if(auth()->user()->role == 'guru')
-                <p>Foto:</p>
-                <!-- Foto Profil -->
+                <img src="{{ asset('storage/foto-user/' . auth()->user()->image) }}" width="120px" height="120px"
+                    class="profil">
                 @endif
 
                 <p>Nama: {{ auth()->user()->fullname }}</p>
                 <p>Kelas: {{ auth()->user()->kelas }}</p>
 
-                <!-- @if(auth()->user()->role == 'guru')
-                <p><a href="{{route('edit')}}">Edit Data</a></p>
-                @endif -->
+                @if(auth()->user()->role == 'guru')
+                <p><a href="{{ route('edit', ['id' => $user->id]) }}">Edit Data</a></p>
+                @endif
 
                 @if(auth()->user()->role == 'murid')
                 <p>Catatan: {{ auth()->user()->catatan }}</p>
+                <p><a href="{{ route('upload', ['id' => $user->id]) }}">Upload Foto Profil</a></p>
                 @endif
+                
             </div>
         </div>
     </div>
