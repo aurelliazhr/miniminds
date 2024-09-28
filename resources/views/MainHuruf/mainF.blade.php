@@ -90,28 +90,28 @@
 
     <div class="Kotak">
         <div class="Header">
-            <a id="kembaliButton" href="16.html">
+            <a id="kembaliButton" href="7.html">
                 <img src="../assets/angle-left.png" alt="Kembali" />
             </a>
         </div>
 
         <div class="Text">
-            <p>Yang manakah huruf Zha?</p> <!-- Question as text -->
+            <p>Yang manakah huruf F?</p> <!-- Question as text -->
         </div>
 
         <div class="Pilihan">
             <div class="row">
-                <img src="../assets/zho.jpg " alt="Alif" data-correct="true" />
-                <img src="../assets/alif.jpg" alt="Ba" data-correct="false" />
+                <img src="../assets/mainf.png" alt="Alif" data-correct="true" />
+                <img src="../assets/mainp.png" alt="Ba" data-correct="false" />
             </div>
             <div class="row">
-                <img src="../assets/jim.jpg" alt="Ta" data-correct="false" /> 
+                <img src="../assets/maina.png" alt="Ta" data-correct="false" /> 
             </div>
         </div>
     </div>
 
     <script>
-        let wrongAttempts = 0;
+ let wrongAttempts = 0;
 
 const backgroundAudio = document.getElementById('background-audio');
 
@@ -146,7 +146,7 @@ function playAudio(audioSrc) {
 
 // Putar audio soal saat halaman dimulai
 window.onload = () => {
-    playAudio('../assets/zho.mp3');
+    playAudio('../assets/mainF.mp3');
 };
 
 // Event listener untuk tombol kembali
@@ -168,8 +168,8 @@ pilihanImages.forEach(function(img) {
             Swal.fire({
                 icon: 'success',
                 title: 'Benar!',
-                text: 'Ini adalah huruf zho!',
-                confirmButtonText: '<a href="18.html" style="color: white; text-decoration: none;">Lanjut</a>'
+                text: 'Ini adalah huruf F!',
+                confirmButtonText: '<a href="9.html" style="color: white; text-decoration: none;">Lanjut</a>'
             });
         } 
         // Jika salah, tambahkan jumlah kesalahan dan tangani feedback
@@ -188,13 +188,14 @@ pilihanImages.forEach(function(img) {
                 Swal.fire({
                     icon: 'error',
                     title: 'Salah!',
-                    text: 'Ini bukan huruf zho, silahkan coba lagi!',
+                    text: 'Ini bukan huruf F, silahkan coba lagi!',
                     confirmButtonText: 'OK'
                 });
             }
         }
     });
 });
+
     </script>
 </body>
 </html>

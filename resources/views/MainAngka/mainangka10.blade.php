@@ -90,28 +90,28 @@
 
     <div class="Kotak">
         <div class="Header">
-            <a id="kembaliButton" href="1.html">
+            <a id="kembaliButton" href="7.html">
                 <img src="../assets/angle-left.png" alt="Kembali" />
             </a>
         </div>
 
         <div class="Text">
-            <p>Yang manakah huruf Alif?</p> <!-- Question as text -->
+            <p>yg manakah angka 9</p> <!-- Question as text -->
         </div>
 
         <div class="Pilihan">
             <div class="row">
-                <img src="../assets/alif.jpg" alt="Alif" data-correct="true" />
-                <img src="../assets/ba.jpg" alt="Ba" data-correct="false" />
+                <img src="../assets/angka6.png" alt="Alif" data-correct="false" />
+                <img src="../assets/angka9.png" alt="Ba" data-correct="true" />
             </div>
             <div class="row">
-                <img src="../assets/ta.jpg" alt="Ta" data-correct="false" />
+                <img src="../assets/angka1.png" alt="Ta" data-correct="false" /> 
             </div>
         </div>
     </div>
 
     <script>
-       let wrongAttempts = 0;
+ let wrongAttempts = 0;
 
 const backgroundAudio = document.getElementById('background-audio');
 
@@ -133,20 +133,20 @@ function playAudio(audioSrc) {
     const audio = new Audio(audioSrc);
 
     // Turunkan volume backsound menjadi 40% (0.4)
-    backgroundAudio.volume = 0.2;
+    backgroundAudio.volume = 0.4;
 
     // Putar audio soal
     audio.play();
 
     // Mengembalikan volume backsound ke 100% setelah audio soal selesai
     audio.addEventListener('ended', () => {
-        backgroundAudio.volume = 0.8;
+        backgroundAudio.volume = 1.0;
     });
 }
 
 // Putar audio soal saat halaman dimulai
 window.onload = () => {
-    playAudio('../assets/alif.mp3');
+    playAudio('../assets/mainangka9.mp3');
 };
 
 // Event listener untuk tombol kembali
@@ -168,8 +168,8 @@ pilihanImages.forEach(function(img) {
             Swal.fire({
                 icon: 'success',
                 title: 'Benar!',
-                text: 'Ini adalah huruf Alif!',
-                confirmButtonText: '<a href="2.html" style="color: white; text-decoration: none;">Lanjut</a>'
+                text: 'Ini adalah huruf dal!',
+                confirmButtonText: '<a href="9.html" style="color: white; text-decoration: none;">Lanjut</a>'
             });
         } 
         // Jika salah, tambahkan jumlah kesalahan dan tangani feedback
@@ -188,14 +188,13 @@ pilihanImages.forEach(function(img) {
                 Swal.fire({
                     icon: 'error',
                     title: 'Salah!',
-                    text: 'Ini bukan huruf Alif, silahkan coba lagi!',
+                    text: 'Ini bukan huruf dal, silahkan coba lagi!',
                     confirmButtonText: 'OK'
                 });
             }
         }
     });
 });
-
 
     </script>
 </body>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="vieZport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <link href="https://fonts.googleapis.com/css?family=Lexend" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Lemon&display=swap" rel="stylesheet"/>
@@ -90,28 +90,28 @@
 
     <div class="Kotak">
         <div class="Header">
-            <a id="kembaliButton" href="12.html">
+            <a id="kembaliButton" href="7.html">
                 <img src="../assets/angle-left.png" alt="Kembali" />
             </a>
         </div>
 
         <div class="Text">
-            <p>Yang manakah huruf syin?</p> <!-- Question as text -->
+            <p>Yang manakah huruf Z?</p> <!-- Question as text -->
         </div>
 
         <div class="Pilihan">
             <div class="row">
-                <img src="../assets/sin.jpg " alt="Alif" data-correct="false" />
-                <img src="../assets/shin.jpg" alt="Ba" data-correct="true" />
+                <img src="../assets/mainz.png" alt="Alif" data-correct="true" />
+                <img src="../assets/maina.png" alt="Ba" data-correct="false" />
             </div>
             <div class="row">
-                <img src="../assets/to.jpg" alt="Ta" data-correct="false" /> 
+                <img src="../assets/mainc.png" alt="Ta" data-correct="false" /> 
             </div>
         </div>
     </div>
 
     <script>
-     let wrongAttempts = 0;
+ let wrongAttempts = 0;
 
 const backgroundAudio = document.getElementById('background-audio');
 
@@ -146,7 +146,7 @@ function playAudio(audioSrc) {
 
 // Putar audio soal saat halaman dimulai
 window.onload = () => {
-    playAudio('../assets/syin.mp3');
+    playAudio('../assets/mainZ.mp3');
 };
 
 // Event listener untuk tombol kembali
@@ -168,8 +168,8 @@ pilihanImages.forEach(function(img) {
             Swal.fire({
                 icon: 'success',
                 title: 'Benar!',
-                text: 'Ini adalah huruf syin!',
-                confirmButtonText: '<a href="14.html" style="color: white; text-decoration: none;">Lanjut</a>'
+                text: 'Ini adalah huruf Z!',
+                confirmButtonText: '<a href="9.html" style="color: white; text-decoration: none;">Lanjut</a>'
             });
         } 
         // Jika salah, tambahkan jumlah kesalahan dan tangani feedback
@@ -188,14 +188,13 @@ pilihanImages.forEach(function(img) {
                 Swal.fire({
                     icon: 'error',
                     title: 'Salah!',
-                    text: 'Ini bukan huruf syin, silahkan coba lagi!',
+                    text: 'Ini bukan huruf Z, silahkan coba lagi!',
                     confirmButtonText: 'OK'
                 });
             }
         }
     });
 });
-
 
     </script>
 </body>

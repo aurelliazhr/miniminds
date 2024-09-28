@@ -126,7 +126,7 @@
         </div>
 
         <div class="Objek">
-            <img src="../assets/pensil.jpeg" alt="Pensil" />
+            <img src="../assets/hitungpensil.jpg" alt="Pensil" />
         </div>
 
         <div class="Pilihan">
@@ -189,14 +189,14 @@ pilihanButtons.forEach(function(button) {
             backgroundAudio.volume = 1.0;  // Kembalikan volume backsound setelah suara pilihan selesai
 
             // Tampilkan notifikasi setelah audio berakhir
-            if (selectedColor === 'blue' || selectedColor === 'red') {
+            if (selectedColor === 'blue' || selectedColor === 'yellow') {
                 Swal.fire({
                     icon: 'error',
                     title: 'Salah!',
                     text: 'Pensil ini bukan berjumlah ' + button.textContent.toLowerCase() + ', silahkan coba lagi!',
                     confirmButtonText: 'OK'
                 });
-            } else if (selectedColor === 'yellow') {
+            } else if (selectedColor === 'red') {
                 Swal.fire({
                     icon: 'success',
                     title: 'Benar!',
