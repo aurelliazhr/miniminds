@@ -218,7 +218,7 @@
         }
 
         function menebakA() {
-            window.location.href = "{{route ('menebakA')}}";
+            window.location.href = "{{route ('menebakAngka1')}}";
         }
 
         function menebakHi() {
@@ -226,7 +226,7 @@
         }
 
         function menebak() {
-            window.location.href = "{{route ('menebak')}}";
+            window.location.href = "{{route ('quiz1')}}";
         }
 
         function aktivitas() {

@@ -329,7 +329,6 @@
             <div class="profile-info">
                 @if(auth()->user()->role == 'murid')
                 @foreach($stikers as $stiker)
-
                     <img src="{{ 'data:image/jpeg;base64,' . base64_encode($stiker->stiker)}}" alt="Stiker {{ $stiker->kategori }}" width="80px">
                 @endforeach
                 @endif

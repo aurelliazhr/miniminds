@@ -8,6 +8,8 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegguruController;
 use App\Http\Controllers\BintangController;
 use App\Http\Controllers\EditController;
+use App\Http\Controllers\MainAngkaController;
+use App\Http\Controllers\MainQuizController;
 use App\Http\Controllers\StikerController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UploadController;
@@ -42,9 +44,33 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/bermain', [HomeController::class, 'bermain'])->name('bermain');
     Route::get('/menebakH', [BermainController::class, 'menebakH'])->name('menebakH');
+
     Route::get('/menebakA', [BermainController::class, 'menebakA'])->name('menebakA');
+    Route::get('/menebakAngka1', [MainAngkaController::class, 'angka1'])->name('menebakAngka1');
+    Route::get('/menebakAngka2', [MainAngkaController::class, 'angka2'])->name('menebakAngka2');
+    Route::get('/menebakAngka3', [MainAngkaController::class, 'angka3'])->name('menebakAngka3');
+    Route::get('/menebakAngka4', [MainAngkaController::class, 'angka4'])->name('menebakAngka4');
+    Route::get('/menebakAngka5', [MainAngkaController::class, 'angka5'])->name('menebakAngka5');
+    Route::get('/menebakAngka6', [MainAngkaController::class, 'angka6'])->name('menebakAngka6');
+    Route::get('/menebakAngka7', [MainAngkaController::class, 'angka7'])->name('menebakAngka7');
+    Route::get('/menebakAngka8', [MainAngkaController::class, 'angka8'])->name('menebakAngka8');
+    Route::get('/menebakAngka9', [MainAngkaController::class, 'angka9'])->name('menebakAngka9');
+    Route::get('/menebakAngka10', [MainAngkaController::class, 'angka10'])->name('menebakAngka10');
+
     Route::get('/menebakHi', [BermainController::class, 'menebakHi'])->name('menebakHi');
+
     Route::get('/menebak', [BermainController::class, 'menebak'])->name('menebak');
+    Route::get('quiz1', [MainQuizController::class, 'quiz1'])->name('quiz1');
+    Route::get('quiz2', [MainQuizController::class, 'quiz2'])->name('quiz2');
+    Route::get('quiz3', [MainQuizController::class, 'quiz3'])->name('quiz3');
+    Route::get('quiz4', [MainQuizController::class, 'quiz4'])->name('quiz4');
+    Route::get('quiz5', [MainQuizController::class, 'quiz5'])->name('quiz5');
+    Route::get('quiz6', [MainQuizController::class, 'quiz6'])->name('quiz6');
+    Route::get('quiz7', [MainQuizController::class, 'quiz7'])->name('quiz7');
+    Route::get('quiz8', [MainQuizController::class, 'quiz8'])->name('quiz8');
+    Route::get('quiz9', [MainQuizController::class, 'quiz9'])->name('quiz9');
+    Route::get('quiz10', [MainQuizController::class, 'quiz10'])->name('quiz10');
+
     Route::get('/aktivitas', [BermainController::class, 'aktivitas'])->name('aktivitas');
     Route::get('/eksplor', [BermainController::class, 'eksplor'])->name('eksplor');
 

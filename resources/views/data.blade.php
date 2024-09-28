@@ -96,13 +96,18 @@
     <table>
         <tr>
             <th>Nama</th>
+            <th>Foto</th>
             <th>Sticker</th>
             <th>Catatan</th>
+            <th>Hapus</th>
         </tr>
 
         @foreach ($data as $d)
         <tr class="isi">
             <td>{{ $d->fullname }}</td>
+            <td>
+            <img src="{{ asset('storage/foto-user/' . auth()->user()->image) }}" width="120px" height="120px" class="profil">
+            </td>
             <td>{{ $d->sticker_id }}</td>
             <td>
                 <a href="{{ route ('catatan', ['id' => $d->id]) }}">
