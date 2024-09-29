@@ -21,25 +21,25 @@
     <h3>test no 03</h3>
 
     <div id="soal1" class="soal">
-        <p>1.bagi kafka tb itu?</p>
+        <p>1.for kafka, tb is?</p>
         <button onclick="checkAnswer(1, 'A')">A.each others destiny</button>
         <button onclick="checkAnswer(1, 'B')">B.nothing happen between them</button>
         <button onclick="checkAnswer(1, 'C')">C.stranger</button>
     </div>
     <div id="soal2" class="soal hidden">
-        <p>2.game fav gw.</p>
+        <p>2.my fav game is.</p>
         <button onclick="checkAnswer(2, 'A')">A.fortnite</button>
         <button onclick="checkAnswer(2, 'B')">B.minecraft</button>
         <button onclick="checkAnswer(2, 'C')">C.ML</button>
     </div>
     <div id="soal3" class="soal hidden">
-        <p>3.what happen in 1918 on vienna?</p>
+        <p>3.what happen in 1914 on vienna?</p>
         <button onclick="checkAnswer(3, 'A')">A.nothing happen</button>
         <button onclick="checkAnswer(3, 'B')">B.doomed nuh uh</button>
         <button onclick="checkAnswer(3, 'C')">C.WAR</button>
     </div>
     <div id="soal4" class="soal hidden">
-        <p>4.acheron real name is?</p>
+        <p>4.acheron real name?</p>
         <button onclick="checkAnswer(4, 'A')">A.raiden bosenmori mei</button>
         <button onclick="checkAnswer(4, 'B')">B.raiden mei</button>
         <button onclick="checkAnswer(4, 'C')">C.mei</button>
