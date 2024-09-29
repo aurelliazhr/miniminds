@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BelajarController;
 use App\Http\Controllers\BermainController;
+use App\Http\Controllers\BHurufController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
@@ -41,6 +42,33 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/belajar', [HomeController::class, 'belajar'])->name('belajar');
     Route::get('/huruf', [BelajarController::class, 'huruf'])->name('huruf');
+    Route::get('/Huruf1_', [BHurufController::class, 'Huruf1_'])->name('Huruf1_');
+    Route::get('/Huruf2_', [BHurufController::class, 'Huruf2_'])->name('Huruf2_');
+    Route::get('/Huruf3_', [BHurufController::class, 'Huruf3_'])->name('Huruf3_');
+    Route::get('/Huruf4_', [BHurufController::class, 'Huruf4_'])->name('Huruf4_');
+    Route::get('/Huruf5_', [BHurufController::class, 'Huruf5_'])->name('Huruf5_');
+    Route::get('/Huruf6_', [BHurufController::class, 'Huruf6_'])->name('Huruf6_');
+    Route::get('/Huruf7_', [BHurufController::class, 'Huruf7_'])->name('Huruf7_');
+    Route::get('/Huruf8_', [BHurufController::class, 'Huruf8_'])->name('Huruf8_');
+    Route::get('/Huruf9_', [BHurufController::class, 'Huruf9_'])->name('Huruf9_');
+    Route::get('/Huruf10_', [BHurufController::class, 'Huruf10_'])->name('Huruf10_');
+    Route::get('/Huruf11_', [BHurufController::class, 'Huruf11_'])->name('Huruf11_');
+    Route::get('/Huruf12_', [BHurufController::class, 'Huruf12_'])->name('Huruf12_');
+    Route::get('/Huruf13_', [BHurufController::class, 'Huruf13_'])->name('Huruf13_');
+    Route::get('/Huruf14_', [BHurufController::class, 'Huruf14_'])->name('Huruf14_');
+    Route::get('/Huruf15_', [BHurufController::class, 'Huruf15_'])->name('Huruf15_');
+    Route::get('/Huruf16_', [BHurufController::class, 'Huruf16_'])->name('Huruf16_');
+    Route::get('/Huruf17_', [BHurufController::class, 'Huruf17_'])->name('Huruf17_');
+    Route::get('/Huruf18_', [BHurufController::class, 'Huruf18_'])->name('Huruf18_');
+    Route::get('/Huruf19_', [BHurufController::class, 'Huruf19_'])->name('Huruf19_');
+    Route::get('/Huruf20_', [BHurufController::class, 'Huruf20_'])->name('Huruf20_');
+    Route::get('/Huruf21_', [BHurufController::class, 'Huruf21_'])->name('Huruf21_');
+    Route::get('/Huruf22_', [BHurufController::class, 'Huruf22_'])->name('Huruf22');
+    Route::get('/Huruf23_', [BHurufController::class, 'Huruf23_'])->name('Huruf23_');
+    Route::get('/Huruf24_', [BHurufController::class, 'Huruf24_'])->name('Huruf24_');
+    Route::get('/Huruf25_', [BHurufController::class, 'Huruf25_'])->name('Huruf25_');
+    Route::get('/Huruf26_', [BHurufController::class, 'Huruf26_'])->name('Huruf26_');
+
     Route::get('/angka', [BelajarController::class, 'angka'])->name('angka');
     Route::get('/hijaiyah', [BelajarController::class, 'hijaiyah'])->name('hijaiyah');
 

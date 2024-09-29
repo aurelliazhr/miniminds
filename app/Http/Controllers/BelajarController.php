@@ -8,7 +8,7 @@ class BelajarController extends Controller
 {
     public function huruf()
     {
-        return view ('huruf');
+        return view ('Huruf.abjadA');
     }
 
     public function angka()
