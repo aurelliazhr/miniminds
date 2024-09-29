@@ -43,7 +43,8 @@ class RegguruController extends Controller
         $data['role'] = 'guru';
 
         User::create($data);
-        return redirect()->route('login');
+        return redirect()->back()->with('success', 'Data Anda berhasil ditambahkan!');
+        // return redirect()->route('login');
         // return redirect()->route('login')->withInput()->withFlashMessage('success', 'Data Anda berhasil ditambahkan!');
     }
 

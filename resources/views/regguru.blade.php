@@ -214,5 +214,25 @@
     </script>
     @endif -->
 
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        @if (Session::has('success'))
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Data Anda Berhasil Ditambahkan!',
+                text: '{{ Session::get('success') }}',
+                confirmButtonText: 'OK',
+                customClass: {
+                                confirmButton: 'custom-button'
+                            }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = '/'; // Redirect to the desired route
+                }
+            });
+        </script>
+        @endif
+
 </body>
+
 </html>
