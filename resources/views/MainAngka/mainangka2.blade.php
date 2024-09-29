@@ -6,6 +6,8 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <link href="https://fonts.googleapis.com/css?family=Lexend" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Lemon&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/notifikasi.js"></script>
     <title>Tebak Warna</title>
     <style>
         body {

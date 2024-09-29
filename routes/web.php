@@ -9,6 +9,8 @@ use App\Http\Controllers\RegguruController;
 use App\Http\Controllers\BintangController;
 use App\Http\Controllers\EditController;
 use App\Http\Controllers\MainAngkaController;
+use App\Http\Controllers\MainHijaiyahController;
+use App\Http\Controllers\MainHurufController;
 use App\Http\Controllers\MainQuizController;
 use App\Http\Controllers\StikerController;
 use App\Http\Controllers\ProfileController;
@@ -43,7 +45,19 @@ Route::middleware('auth')->group(function () {
     Route::get('/hijaiyah', [BelajarController::class, 'hijaiyah'])->name('hijaiyah');
 
     Route::get('/bermain', [HomeController::class, 'bermain'])->name('bermain');
+
     Route::get('/menebakH', [BermainController::class, 'menebakH'])->name('menebakH');
+    Route::get('/huruf1', [MainHurufController::class, 'huruf1'])->name('huruf1');
+    Route::get('/huruf2', [MainHurufController::class, 'huruf2'])->name('huruf2');
+    Route::get('/huruf3', [MainHurufController::class, 'huruf3'])->name('huruf3');
+    Route::get('/huruf4', [MainHurufController::class, 'huruf4'])->name('huruf4');
+    Route::get('/huruf5', [MainHurufController::class, 'huruf5'])->name('huruf5');
+    Route::get('/huruf6', [MainHurufController::class, 'huruf6'])->name('huruf6');
+    Route::get('/huruf7', [MainHurufController::class, 'huruf7'])->name('huruf7');
+    Route::get('/huruf8', [MainHurufController::class, 'huruf8'])->name('huruf8');
+    Route::get('/huruf9', [MainHurufController::class, 'huruf9'])->name('huruf9');
+    Route::get('/huruf10', [MainHurufController::class, 'huruf10'])->name('huruf10');
+
 
     Route::get('/menebakA', [BermainController::class, 'menebakA'])->name('menebakA');
     Route::get('/menebakAngka1', [MainAngkaController::class, 'angka1'])->name('menebakAngka1');
@@ -58,6 +72,16 @@ Route::middleware('auth')->group(function () {
     Route::get('/menebakAngka10', [MainAngkaController::class, 'angka10'])->name('menebakAngka10');
 
     Route::get('/menebakHi', [BermainController::class, 'menebakHi'])->name('menebakHi');
+    Route::get('/hijaiyah1', [MainHijaiyahController::class, 'hijaiyah1'])->name('hijaiyah1');
+    Route::get('/hijaiyah2', [MainHijaiyahController::class, 'hijaiyah2'])->name('hijaiyah2');
+    Route::get('/hijaiyah3', [MainHijaiyahController::class, 'hijaiyah3'])->name('hijaiyah3');
+    Route::get('/hijaiyah4', [MainHijaiyahController::class, 'hijaiyah4'])->name('hijaiyah4');
+    Route::get('/hijaiyah5', [MainHijaiyahController::class, 'hijaiyah5'])->name('hijaiyah5');
+    Route::get('/hijaiyah6', [MainHijaiyahController::class, 'hijaiyah6'])->name('hijaiyah6');
+    Route::get('/hijaiyah7', [MainHijaiyahController::class, 'hijaiyah7'])->name('hijaiyah7');
+    Route::get('/hijaiyah8', [MainHijaiyahController::class, 'hijaiyah8'])->name('hijaiyah8');
+    Route::get('/hijaiyah9', [MainHijaiyahController::class, 'hijaiyah9'])->name('hijaiyah9');
+    Route::get('/hijaiyah10', [MainHijaiyahController::class, 'hijaiyah10'])->name('hijaiyah10');
 
     Route::get('/menebak', [BermainController::class, 'menebak'])->name('menebak');
     Route::get('quiz1', [MainQuizController::class, 'quiz1'])->name('quiz1');
@@ -72,6 +96,7 @@ Route::middleware('auth')->group(function () {
     Route::get('quiz10', [MainQuizController::class, 'quiz10'])->name('quiz10');
 
     Route::get('/aktivitas', [BermainController::class, 'aktivitas'])->name('aktivitas');
+
     Route::get('/eksplor', [BermainController::class, 'eksplor'])->name('eksplor');
 
     Route::middleware('guru')->group(function () {
@@ -87,6 +112,7 @@ Route::middleware('auth')->group(function () {
 
         Route::get('/catatan/{id}', [GuruController::class, 'catatan'])->name('catatan');
         Route::put('/update/{id}', [GuruController::class, 'update'])->name('update');
+        Route::delete('/delete/{id}', [GuruController::class, 'delete'])->name('delete');
 
         Route::get('/edit/{id}', [EditController::class, 'edit'])->name('edit');
         Route::put('/edit-proses/{id}', [EditController::class, 'edit_proses'])->name('edit-proses');

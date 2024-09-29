@@ -214,7 +214,7 @@
         }
 
         function menebakH() {
-            window.location.href = "{{route ('menebakH')}}";
+            window.location.href = "{{route ('huruf1')}}";
         }
 
         function menebakA() {
@@ -222,7 +222,7 @@
         }
 
         function menebakHi() {
-            window.location.href = "{{route ('menebakHi')}}";
+            window.location.href = "{{route ('hijaiyah1')}}";
         }
 
         function menebak() {

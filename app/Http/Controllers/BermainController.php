@@ -33,6 +33,6 @@ class BermainController extends Controller
 
     public function eksplor()
     {
-        return view ('eksplor');
+        return view ('Eksplorasi.eksplorasi');
     }
 }

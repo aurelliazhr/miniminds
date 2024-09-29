@@ -6,6 +6,8 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <link href="https://fonts.googleapis.com/css?family=Lexend" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Lemon&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/notifikasi.js"></script>
     <title>Tebak Huruf</title>
     <style>
         body {
@@ -90,28 +92,28 @@
 
     <div class="Kotak">
         <div class="Header">
-            <a id="kembaliButton" href="21.html">
+            <a id="kembaliButton" href="2.html">
                 <img src="../assets/angle-left.png" alt="Kembali" />
             </a>
         </div>
 
         <div class="Text">
-            <p>Yang manakah huruf kaf?</p> <!-- Question as text -->
+            <p>Yang manakah huruf ta?</p> <!-- Question as text -->
         </div>
 
         <div class="Pilihan">
             <div class="row">
-                <img src="../assets/kaf.jpg " alt="Alif" data-correct="true" />
-                <img src="../assets/fa.jpg" alt="Ba" data-correct="false" />
+                <img src="../assets/haa.jpg" alt="Alif" data-correct="false" />
+                <img src="../assets/ya.jpg" alt="Ba" data-correct="false" />
             </div>
             <div class="row">
-                <img src="../assets/kho.jpg" alt="Ta" data-correct="false" /> 
+                <img src="../assets/ta.jpg" alt="Ta" data-correct="true" />
             </div>
         </div>
     </div>
 
     <script>
-              let wrongAttempts = 0;
+        let wrongAttempts = 0;
 
 const backgroundAudio = document.getElementById('background-audio');
 
@@ -146,7 +148,7 @@ function playAudio(audioSrc) {
 
 // Putar audio soal saat halaman dimulai
 window.onload = () => {
-    playAudio('../assets/kaf.mp3');
+    playAudio('../assets/ta.mp3');
 };
 
 // Event listener untuk tombol kembali
@@ -168,8 +170,8 @@ pilihanImages.forEach(function(img) {
             Swal.fire({
                 icon: 'success',
                 title: 'Benar!',
-                text: 'Ini adalah huruf kaf!',
-                confirmButtonText: '<a href="23.html" style="color: white; text-decoration: none;">Lanjut</a>'
+                text: 'Ini adalah huruf ta!',
+                confirmButtonText: '<a href="4.html" style="color: white; text-decoration: none;">Lanjut</a>'
             });
         } 
         // Jika salah, tambahkan jumlah kesalahan dan tangani feedback
@@ -188,13 +190,14 @@ pilihanImages.forEach(function(img) {
                 Swal.fire({
                     icon: 'error',
                     title: 'Salah!',
-                    text: 'Ini bukan huruf kaf, silahkan coba lagi!',
+                    text: 'Ini bukan huruf ta, silahkan coba lagi!',
                     confirmButtonText: 'OK'
                 });
             }
         }
     });
 });
+
 
     </script>
 </body>

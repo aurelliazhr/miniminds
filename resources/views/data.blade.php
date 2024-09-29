@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Murid</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/notifikasi.js"></script>
     <style>
         * {
             margin: 0;
@@ -67,6 +69,13 @@
             font-size: 25px;
         }
 
+        .button {
+            background: transparent;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+        }
+
         @media (max-width: 800px) {
             nav img {
                 margin-top: 15px;
@@ -95,10 +104,10 @@
 
     <table>
         <tr>
-            <th>Nama</th>
+            <th>Nama Murid</th>
             <th>Foto</th>
             <th>Sticker</th>
-            <th>Catatan</th>
+            <th>Edit</th>
             <th>Hapus</th>
         </tr>
 
@@ -106,13 +115,24 @@
         <tr class="isi">
             <td>{{ $d->fullname }}</td>
             <td>
-            <img src="{{ asset('storage/foto-user/' . auth()->user()->image) }}" width="120px" height="120px" class="profil">
+                <img src="{{ asset('storage/foto-user/' . $d->image) }}" width="120px" height="120px" class="profil">
             </td>
-            <td>{{ $d->sticker_id }}</td>
+            <td>
+                @foreach($stikers as $stiker)
+                <img src="data:image/jpeg;base64,{{ base64_encode($stiker->stiker) }}" alt="Stiker {{ $stiker->kategori }}" width="80px">
+                @endforeach
+            </td>
             <td>
                 <a href="{{ route ('catatan', ['id' => $d->id]) }}">
                     <img src="assets/tambah.png">
                 </a>
+            </td>
+            <td>
+                <form action="{{ route('delete', $d->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button class="button"><img src="assets/delete.png" width="40px"></button>
+                </form>
             </td>
         </tr>
         @endforeach
