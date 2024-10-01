@@ -164,11 +164,11 @@
         }
 
         function angka() {
-            window.location.href = "{{route ('angka')}}";
+            window.location.href = "{{route ('angka1')}}";
         }
 
         function hijaiyah() {
-            window.location.href = "{{route ('hijaiyah')}}";
+            window.location.href = "{{route ('hijaiyah_1')}}";
         }
     </script>
 </body>

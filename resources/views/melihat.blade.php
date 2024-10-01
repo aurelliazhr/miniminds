@@ -28,7 +28,8 @@
         .back {
             align-self: flex-start;
             margin-left: 25px;
-            margin-bottom: 25px;
+            margin-bottom: 10px;
+            margin-top: 20px; 
         }
 
         .back img {
@@ -45,10 +46,10 @@
             margin-right: 15px;
         }
 
-        img {
-            width: 297px;
-            height: 287px;
-            margin-top: 30px;
+        .container img {
+            width: 200px;
+            height: 190px;
+            margin-top: 200px;
         }
 
         .kelas {
@@ -110,7 +111,7 @@
         </a>
 
         <div class="container">
-            <select id="role" name="kelas" placeholder="kelas" required class="kelas">
+            {{-- <select id="role" name="kelas" placeholder="kelas" required class="kelas">
                 <option value="" disabled selected>Kelas:</option>
                 <option value="B1">B1</option>
                 <option value="B2">B2</option>
@@ -119,6 +120,13 @@
 
             <div class="button">
                 <button type="submit">Cari Data</button>
+            </div> --}}
+
+            <div class="button">
+                <button type="submit" name="kelas" value="B1">B1</button>
+                <button type="submit" name="kelas" value="B2">B2</button>
+                <button type="submit" name="kelas" value="B3">B3</button>
+        
             </div>
 
             <img src="/assets/tambahdata.jpg">

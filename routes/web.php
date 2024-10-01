@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AktivitasController;
+use App\Http\Controllers\AngkaController;
 use App\Http\Controllers\BelajarController;
 use App\Http\Controllers\BermainController;
 use App\Http\Controllers\BHurufController;
@@ -9,6 +11,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegguruController;
 use App\Http\Controllers\BintangController;
 use App\Http\Controllers\EditController;
+use App\Http\Controllers\HijaiyahController;
 use App\Http\Controllers\MainAngkaController;
 use App\Http\Controllers\MainHijaiyahController;
 use App\Http\Controllers\MainHurufController;
@@ -70,7 +73,29 @@ Route::middleware('auth')->group(function () {
     Route::get('/Huruf26_', [BHurufController::class, 'Huruf26_'])->name('Huruf26_');
 
     Route::get('/angka', [BelajarController::class, 'angka'])->name('angka');
+    Route::get('angka1', [AngkaController::class, 'angka_1'])->name('angka1');
+    Route::get('angka2', [AngkaController::class, 'angka_2'])->name('angka2');
+    Route::get('angka3', [AngkaController::class, 'angka_3'])->name('angka3');
+    Route::get('angka4', [AngkaController::class, 'angka_4'])->name('angka4');
+    Route::get('angka5', [AngkaController::class, 'angka_5'])->name('angka5');
+    Route::get('angka6', [AngkaController::class, 'angka_6'])->name('angka6');
+    Route::get('angka7', [AngkaController::class, 'angka_7'])->name('angka7');
+    Route::get('angka8', [AngkaController::class, 'angka_8'])->name('angka8');
+    Route::get('angka9', [AngkaController::class, 'angka_9'])->name('angka9');
+    Route::get('angka10', [AngkaController::class, 'angka_10'])->name('angka10');
+    Route::get('angka11', [AngkaController::class, 'angka_11'])->name('angka11');
+    Route::get('angka12', [AngkaController::class, 'angka_12'])->name('angka12');
+    Route::get('angka13', [AngkaController::class, 'angka_13'])->name('angka13');
+    Route::get('angka14', [AngkaController::class, 'angka_14'])->name('angka14');
+    Route::get('angka15', [AngkaController::class, 'angka_15'])->name('angka15');
+    Route::get('angka16', [AngkaController::class, 'angka_16'])->name('angka16');
+    Route::get('angka17', [AngkaController::class, 'angka_17'])->name('angka17');
+    Route::get('angka18', [AngkaController::class, 'angka_18'])->name('angka18');
+    Route::get('angka19', [AngkaController::class, 'angka_19'])->name('angka19');
+    Route::get('angka20', [AngkaController::class, 'angka_20'])->name('angka20');
+
     Route::get('/hijaiyah', [BelajarController::class, 'hijaiyah'])->name('hijaiyah');
+    Route::get('/hijaiyah_1', [HijaiyahController::class, 'hijaiyah_1'])->name('hijaiyah_1');
 
     Route::get('/bermain', [HomeController::class, 'bermain'])->name('bermain');
 
@@ -124,6 +149,16 @@ Route::middleware('auth')->group(function () {
     Route::get('quiz10', [MainQuizController::class, 'quiz10'])->name('quiz10');
 
     Route::get('/aktivitas', [BermainController::class, 'aktivitas'])->name('aktivitas');
+    Route::get('/aktivitas1', [AktivitasController::class, 'aktivitas1'])->name('aktivitas1');
+    Route::get('/aktivitas2', [AktivitasController::class, 'aktivitas2'])->name('aktivitas2');
+    Route::get('/aktivitas3', [AktivitasController::class, 'aktivitas3'])->name('aktivitas3');
+    Route::get('/aktivitas4', [AktivitasController::class, 'aktivitas4'])->name('aktivitas4');
+    Route::get('/aktivitas5', [AktivitasController::class, 'aktivitas5'])->name('aktivitas5');
+    Route::get('/aktivitas6', [AktivitasController::class, 'aktivitas6'])->name('aktivitas6');
+    Route::get('/aktivitas7', [AktivitasController::class, 'aktivitas7'])->name('aktivitas7');
+    Route::get('/aktivitas8', [AktivitasController::class, 'aktivitas8'])->name('aktivitas8');
+    Route::get('/aktivitas9', [AktivitasController::class, 'aktivitas9'])->name('aktivitas9');
+    Route::get('/aktivitas10', [AktivitasController::class, 'aktivitas10'])->name('aktivitas10');
 
     Route::get('/eksplor', [BermainController::class, 'eksplor'])->name('eksplor');
 

@@ -21,7 +21,7 @@ class EditController extends Controller
 
         $validator = Validator::make($request->all(),[
             'image' => 'nullable|mimes:png,jpg,jpeg|max:2048',
-            'fullname' => 'required|unique:users,fullname',
+            'fullname' => 'nullable|unique:users,fullname',
             'password' => 'nullable',
             'kelas' => 'required',
         ] , [

@@ -230,7 +230,7 @@
         }
 
         function aktivitas() {
-            window.location.href = "{{route ('aktivitas')}}";
+            window.location.href = "{{route ('aktivitas1')}}";
         }
 
         function eksplor() {

@@ -20,7 +20,7 @@
             padding: 0;
             height: 100vh;
             /* background:#db1010; */
-            background-image: url('/..assets/1ackground.jpg');
+            background-image: url('assets/background.jpg');
             background-size: cover;
         }
 

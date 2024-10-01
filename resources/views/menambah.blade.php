@@ -175,7 +175,7 @@
                             title: 'Data Berhasil Ditambahkan!',
                             icon: 'success',
                             confirmButtonText: 'Tambah Data',
-                            cancelButtonText: 'Halaman Home',
+                            cancelButtonText: 'Halaman Guru',
                             showCancelButton: true,
                             allowOutsideClick: false,
                             customClass: {
@@ -186,7 +186,7 @@
                             if (result.isConfirmed) {
                                 window.location.href = "{{ route('menambah') }}";
                             } else if (result.dismiss === Swal.DismissReason.cancel) {
-                                window.location.href = "{{ route('home') }}";
+                                window.location.href = "{{ route('guru') }}";
                             }
                         });
                     },

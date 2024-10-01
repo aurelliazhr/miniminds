@@ -52,7 +52,7 @@ class GuruController extends Controller
 
     public function melihat_proses (Request $request)
     {
-        $kelas = $request->kelas;
+        $kelas = $request->input('kelas');
 
         // Simpan nilai kelas ke dalam session
         Session::put('kelas', $kelas);
