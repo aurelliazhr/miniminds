@@ -119,7 +119,7 @@
 
     <div class="Kotak">
         <div class="Header">
-            <a id="kembaliButton" href="soal1.html">
+            <a id="kembaliButton" href="{{ route('menebakAngka1') }}">
                 <img src="../assets/angle-left.png" alt="Kembali" />
             </a>
         </div>
@@ -204,7 +204,7 @@ pilihanButtons.forEach(function(button) {
                     icon: 'success',
                     title: 'Benar!',
                     text: 'Penggaris ini berjumlah ' + button.textContent.toLowerCase() + '!',
-                    confirmButtonText: '<a href="soal3.html" style="color: white; text-decoration: none;">Lanjut</a>'
+                    confirmButtonText: '<a href="{{ route('menebakAngka3') }}" style="color: white; text-decoration: none;">Lanjut</a>'
                 });
             }
         };

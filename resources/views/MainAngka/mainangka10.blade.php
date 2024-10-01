@@ -92,7 +92,7 @@
 
     <div class="Kotak">
         <div class="Header">
-            <a id="kembaliButton" href="7.html">
+            <a id="kembaliButton" href="{{ route('menebakAngka9') }}">
                 <img src="../assets/angle-left.png" alt="Kembali" />
             </a>
         </div>
@@ -171,7 +171,7 @@ pilihanImages.forEach(function(img) {
                 icon: 'success',
                 title: 'Benar!',
                 text: 'Ini adalah huruf dal!',
-                confirmButtonText: '<a href="9.html" style="color: white; text-decoration: none;">Lanjut</a>'
+                confirmButtonText: '<a href="{{ route('menebakA') }}" style="color: white; text-decoration: none;">Lanjut</a>'
             });
         } 
         // Jika salah, tambahkan jumlah kesalahan dan tangani feedback

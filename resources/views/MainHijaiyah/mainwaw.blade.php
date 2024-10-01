@@ -92,7 +92,7 @@
 
     <div class="Kotak">
         <div class="Header">
-            <a id="kembaliButton" href="25.html">
+            <a id="kembaliButton" href="{{ route('hijaiyah9') }}">
                 <img src="../assets/angle-left.png" alt="Kembali" />
             </a>
         </div>
@@ -171,7 +171,7 @@ pilihanImages.forEach(function(img) {
                 icon: 'success',
                 title: 'Benar!',
                 text: 'Ini adalah huruf waw!',
-                confirmButtonText: '<a href="27.html" style="color: white; text-decoration: none;">Lanjut</a>'
+                confirmButtonText: '<a href="{{ route('/menebakHi') }}" style="color: white; text-decoration: none;">Lanjut</a>'
             });
         } 
         // Jika salah, tambahkan jumlah kesalahan dan tangani feedback
@@ -184,7 +184,7 @@ pilihanImages.forEach(function(img) {
                     text: 'Anda sudah salah 2 kali, mengulang ke halaman awal.',
                     confirmButtonText: 'OK'
                 }).then(() => {
-                    window.location.href = '1.html'; // Redirect ke halaman awal setelah 2 kesalahan
+                    window.location.href = '{{ route('hijaiyah1') }}'; // Redirect ke halaman awal setelah 2 kesalahan
                 });
             } else {
                 Swal.fire({
