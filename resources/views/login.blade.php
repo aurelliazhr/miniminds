@@ -4,6 +4,11 @@
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Login</title>
 
@@ -52,6 +57,14 @@
             margin-bottom: 35px;
         }
 
+        video {
+            max-width: 100%;
+            height: 40%;
+            margin-bottom: 25px;
+            margin-top: 15px;
+            border-radius: 100%
+        }
+
         .fullname,
         .password {
             width: 281px;
@@ -74,13 +87,33 @@
             border-radius: 10px;
         }
 
+        .kelas option {
+            font-family: 'Poppins';
+        }
+
+        /* .opacity-option {
+            opacity: 0.5;
+        } */
+
         #kelas {
             border-radius: 10px;
+            font-family: 'Poppins';
+            color: rgba(0, 0, 0, 0.5);
+        }
+
+        #fullname::placeholder,
+        #password::placeholder {
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            color: #000;
+            opacity: 0.5;
         }
 
         .remember {
             font-size: 20px;
-            margin-top: 15px;
+            margin-top: 5px;
+            margin-right: 140px;
+            font-family: 'Poppins';
         }
 
         .button {
@@ -94,7 +127,7 @@
         button:hover {
             /* background-color: #9CE6BB; */
             /* Ubah warna latar belakang saat dihover */
-            color: white;
+            color: black;
             /* Ubah warna teks saat dihover */
             text-decoration: underline;
             /* Tambah garis bawah saat dihover */
@@ -108,17 +141,18 @@
             background-color: #9CE6BB;
             border: 1px solid #ccc;
             border-radius: 10px;
-            font-family: 'Nerko One';
+            font-family: 'Poppins';
             font-size: 25px;
-            color: black;
+            color: white;
         }
 
         .guru {
             margin-top: 15px;
-            margin-right: 45px;
+            margin-right: 40px;
             background-color: #BFADD6;
             color: black;
             font-size: 20px;
+            font-family: 'Poppins';
         }
 
         .guru:hover {
@@ -135,7 +169,7 @@
 </head>
 
 <body>
-    <form action="{{ route ('login-proses') }}" method="post">
+    <form action="{{ route('login-proses') }}" method="post">
         @csrf
 
         <div id="loading-screen">
@@ -146,26 +180,30 @@
             <source src="assets/tanya.mp3" type="audio/mpeg">
         </audio>
 
-        <img src="assets/bertanya.png" width="250px">
+        {{-- <img src="assets/bertanya.png" width="250px"> --}}
 
-        <input type="text" id="fullname" name="fullname" placeholder="Nama Lengkap" class="fullname" value="{{ old('fullname') }}">
+        <video src="assets/bertanya.mp4" width="200px" autoplay loop></video>
+
+        <input type="text" id="fullname" name="fullname" placeholder="Masukkan Nama Lengkap" class="fullname"
+            value="{{ old('fullname') }}">
         @error('fullname')
-        <small>{{ $message }}</small>
+            <small>{{ $message }}</small>
         @enderror
 
-        <input type="text" id="password" name="password" placeholder="Nomor Absen" class="password" value="{{ old('password') }}">
+        <input type="text" id="password" name="password" placeholder="Masukkan Nomor Absen" class="password"
+            value="{{ old('password') }}">
         @error('password')
-        <small>{{ $message }}</small>
+            <small>{{ $message }}</small>
         @enderror
 
         <select id="kelas" name="kelas" placeholder="kelas" required class="kelas" value="{{ old('kelas') }}">
-            <option value="" disabled selected>Kelas:</option>
+            <option value="" disabled selected> Pilih Kelas:</option>
             <option value="-">-</option>
             <option value="B1">B1</option>
             <option value="B2">B2</option>
             <option value="B3">B3</option>
             @error('kelas')
-            <small>{{ $message }}</small>
+                <small>{{ $message }}</small>
             @enderror
         </select>
 
@@ -186,9 +224,9 @@
     </form>
 
     @if ($message = Session::get('failed'))
-    <script>
-        Swal.fire('{{ $message }}');
-    </script>
+        <script>
+            Swal.fire('{{ $message }}');
+        </script>
     @endif
 
     <script>
@@ -205,7 +243,7 @@
 
         // Menambahkan event listener ke tombol "Lanjut!!!" untuk mengarahkan ke halaman berikutnya
         button.addEventListener("click", function() {
-            window.location.href = "{{route ('home')}}";
+            window.location.href = "{{ route('home') }}";
         });
     </script>
 </body>

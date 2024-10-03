@@ -133,7 +133,7 @@
         </div>
 
         <div class="Pilihan">
-            <button class="option" data-color="blue" data-audio="../assets/4.mp3">4</button>
+            <button class="option" data-color="blue" data-audio="../assets/4.mp3">1</button>
             <button class="option" data-color="red" data-audio="../assets/2.mp3">2</button>
             <button class="option" data-color="yellow" data-audio="../assets/8.mp3">8</button>
         </div>

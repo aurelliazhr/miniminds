@@ -7,6 +7,11 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Register Murid</title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
     <script src="js/notifikasi.js"></script>
     <style>
         body {
@@ -59,6 +64,7 @@
             border-radius: 10px;
             border: 1px solid #ccc;
             font-size: 20px;
+            font-family: 'Poppins';
             margin-bottom: 10px;
             margin-left: 30px;
             background-color: #D9D9D9;
@@ -80,6 +86,8 @@
 
         #kelas {
             border-radius: 10px;
+            font-family: 'Poppins';
+            color: rgba(0, 0, 0, 0.5);
         }
 
         .button {
@@ -96,7 +104,7 @@
             margin-left: 10px;
             background-color: #9CE6BB;
             color: #fff;
-            font-family: 'Nerko One', cursive;
+            font-family: 'Poppins', cursive;
             font-size: 30px;
             border: none;
             border-radius: 10px;

@@ -170,8 +170,8 @@ pilihanImages.forEach(function(img) {
             Swal.fire({
                 icon: 'success',
                 title: 'Benar!',
-                text: 'Ini adalah huruf dal!',
-                confirmButtonText: '<a href="{{ route('menebakA') }}" style="color: white; text-decoration: none;">Lanjut</a>'
+                text: 'Ini adalah angka9!',
+                confirmButtonText: '<a href="{{ route('bermain') }}" style="color: white; text-decoration: none;">Lanjut</a>'
             });
         } 
         // Jika salah, tambahkan jumlah kesalahan dan tangani feedback
@@ -184,7 +184,7 @@ pilihanImages.forEach(function(img) {
                     text: 'Anda sudah salah 2 kali, mengulang ke halaman awal.',
                     confirmButtonText: 'OK'
                 }).then(() => {
-                    window.location.href = '1.html'; // Redirect ke halaman awal setelah 2 kesalahan
+                    window.location.href = '{{route('menebakAngka1')}}'; // Redirect ke halaman awal setelah 2 kesalahan
                 });
             } else {
                 Swal.fire({

@@ -86,7 +86,7 @@ class GuruController extends Controller
     public function update (Request $request, $id) {
         $validator = Validator::make($request->all(),[
             'image' => 'nullable|mimes:png,jpg,jpeg|max:2048',
-            'fullname' => 'required|unique:users,fullname',
+            'fullname' => 'required',
             'password' => 'nullable',
             'kelas' => 'required',
             'catatan' => 'nullable'

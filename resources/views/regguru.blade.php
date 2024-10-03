@@ -7,6 +7,11 @@
     <title>Register</title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gsrtatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
     <style>
         body {
             background-color: #FFFFFF;
@@ -69,11 +74,11 @@
         .custom-image {
             position: relative;
             background-color: #D9D9D9;
-            color: black;
             padding: 10px 20px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            color: rgba(0, 0, 0, 0.5);
         }
 
         .fullname,
@@ -89,6 +94,7 @@
             background-color: #D9D9D9;
             padding-left: 20px;
             box-sizing: border-box;
+            font-family: 'Poppins';
         }
 
         .custom-image {
@@ -104,11 +110,14 @@
             margin-bottom: 20px;
             margin-left: 30px;
             padding: 20px;
+            font-family: 'Poppins';
             background-color: #D9D9D9;
         }
 
         #kelas {
             border-radius: 10px;
+            font-family: 'Poppins';
+            color: rgba(0, 0, 0, 0.5);
         }
 
         .button {
@@ -128,13 +137,14 @@
             border: none;
             border-radius: 10px;
             font-size: 20px;
+            font-family: 'Poppins';
             cursor: pointer;
             transition: background-color 0.3s;
         }
 
         button:hover {
-            background-color: #ccc;
-            color: black;
+            /* background-color: #ccc; */
+            color: black; 
             text-decoration: underline;
         }
 
@@ -150,8 +160,9 @@
         }
 
         .custom-button:hover {
-            background-color: #ccc;
+            /* background-color: #ccc; */
             color: black;
+            text-decoration: underline;
         }
     </style>
 </head>
