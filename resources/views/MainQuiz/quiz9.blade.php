@@ -115,7 +115,7 @@
 
     <div class="Kotak">
         <div class="Header">
-            <a id="kembaliButton" href="quiz9.html">
+            <a id="kembaliButton" href="{{ route('quiz8') }}">
                 <img src="../assets/angle-left.png" alt="Kembali" />
             </a>
         </div>
@@ -199,7 +199,7 @@ pilihanButtons.forEach(function(button) {
                     icon: 'success',
                     title: 'Benar!',
                     text: 'benar! pensil ini berjumlah 4',
-                    confirmButtonText: '<a href="quiz10.html" style="color: white; text-decoration: none;">Lanjut</a>'
+                    confirmButtonText: '<a href="{{ route('quiz10') }}" style="color: white; text-decoration: none;">Lanjut</a>'
                 });
             }
         };

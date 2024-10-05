@@ -98,7 +98,7 @@
 
     <div class="Kotak">
         <div class="Header">
-            <a id="kembaliButton" href="quiz9.html">
+            <a id="kembaliButton" href="{{ route('quiz9') }}">
                 <img src="../assets/angle-left.png" alt="Kembali" />
             </a>
         </div>
@@ -172,7 +172,7 @@
                     icon: 'success',
                     title: 'Benar!',
                     text: 'ini adalah warna hijau',
-                    confirmButtonText: '<a href="quiz1.html" style="color: white; text-decoration: none;">Lanjut</a>'
+                    confirmButtonText: '<a href="{{ route('menebak') }}" style="color: white; text-decoration: none;">Lanjut</a>'
                 });
             } else {
                 Swal.fire({
