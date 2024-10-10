@@ -171,7 +171,7 @@ pilihanImages.forEach(function(img) {
                 icon: 'success',
                 title: 'Benar!',
                 text: 'Ini adalah huruf lam!',
-                confirmButtonText: '<a href="{{ route('hijaiyah6') }} style="color: white; text-decoration: none;">Lanjut</a>'
+                confirmButtonText: '<a href="{{ route('hijaiyah6') }}" style="color: white; text-decoration: none;">Lanjut</a>'
             });
         } 
         // Jika salah, tambahkan jumlah kesalahan dan tangani feedback

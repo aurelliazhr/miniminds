@@ -182,7 +182,7 @@
             backgroundAudio.volume = 0.003;  // Kurangi volume backsound
             audio.play();
             audio.onended = () => {
-                backgroundAudio.volume = 1.0;  // Kembalikan volume backsound setelah selesai
+                backgroundAudio.volume = 0.1;  // Kembalikan volume backsound setelah selesai
             };
         }
 

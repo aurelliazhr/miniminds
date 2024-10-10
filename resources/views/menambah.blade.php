@@ -87,7 +87,6 @@
         #kelas {
             border-radius: 10px;
             font-family: 'Poppins';
-            color: rgba(0, 0, 0, 0.5);
         }
 
         .button {
@@ -113,7 +112,6 @@
         }
 
         button:hover {
-            background-color: #ccc;
             color: black;
             text-decoration: underline;
         }
@@ -132,7 +130,6 @@
 
         .custom-button:hover,
         .custom-button.swal2-cancel:hover {
-            background-color: #ccc;
             color: black;
         }
     </style>
@@ -180,7 +177,8 @@
                     data: $(this).serialize(),
                     success: function(response) {
                         Swal.fire({
-                            title: 'Data Berhasil Ditambahkan!',
+                            title: 'Sukses!',
+                            text: 'Data Anda Berhasil Ditambahkan',
                             icon: 'success',
                             confirmButtonText: 'Tambah Data',
                             cancelButtonText: 'Halaman Guru',

@@ -98,7 +98,7 @@
         </div>
 
         <div class="Text">
-            <p>Yang manakah huruf Q?</p> <!-- Question as text -->
+            <p>Yang manakah huruf M?</p> <!-- Question as text -->
         </div>
 
         <div class="Pilihan">

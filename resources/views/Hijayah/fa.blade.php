@@ -20,7 +20,7 @@
             padding: 0;
             height: 100vh;
             /* background:#db1010; */
-            background-image: url('/..assets/background.jpg');
+            background-image: url('../assets/background.jpg');
             background-size: cover;
         }
 
@@ -138,7 +138,7 @@
 </head>
 <body>
     <audio id="background-audio" loop>
-        <source src="/..assets/backsound.mp3" type="audio/mpeg">
+        <source src="../assets/backsound.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
@@ -153,11 +153,11 @@
         <!-- Tombol Suara dan Navigasi -->
         <div class="btn-container">
             <button id="backBtn">
-                <a class="fa-solid fa-arrow-left" href="ghain.html"></a>
+                <a class="fa-solid fa-arrow-left" href="{{ route ('hijaiyah_19')}}"></a>
             </button>
             <button class="fa-solid fa-volume-up" data-letter="A" onclick="playAudio('/..assets/materifa.mp3')"></button>
             <button id="nextBtn">
-                <a class="fa-solid fa-arrow-right" href="qaf.html"></a>
+                <a class="fa-solid fa-arrow-right" href="{{route ('hijaiyah_21')}}"></a>
             </button>
         </div>
     </div>

@@ -152,11 +152,11 @@
         <!-- Tombol Suara dan Navigasi -->
         <div class="btn-container">
             <button id="backBtn">
-                <a class="fa-solid fa-arrow-left" href="lam.html"></a>
+                <a class="fa-solid fa-arrow-left" href="{{ route ('hijaiyah_23')}}"></a>
             </button>
             <button class="fa-solid fa-volume-up" data-letter="A" onclick="playAudio('/..assets/materimim.mp3')"></button>
             <button id="nextBtn">
-                <a class="fa-solid fa-arrow-right" href="nun.html"></a>
+                <a class="fa-solid fa-arrow-right" href="{{route ('hijaiyah_25')}}"></a>
             </button>
         </div>
     </div>

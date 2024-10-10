@@ -153,11 +153,11 @@
         <!-- Tombol Suara dan Navigasi -->
         <div class="btn-container">
             <button id="backBtn">
-                <a class="fa-solid fa-arrow-left" href="ra.html"></a>
+                <a class="fa-solid fa-arrow-left" href="{{ route ('hijaiyah_10')}}"></a>
             </button>
             <button class="fa-solid fa-volume-up" data-letter="A" onclick="playAudio('/..assets/materiza.mp3')"></button>
             <button id="nextBtn">
-                <a class="fa-solid fa-arrow-right" href="sin.html"></a>
+                <a class="fa-solid fa-arrow-right" href="{{route ('hijaiyah_12')}}"></a>
             </button>
         </div>
     </div>

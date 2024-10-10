@@ -56,6 +56,7 @@ class UploadController extends Controller
         // $find->edit_proses($data);
         User::whereId($id)->update($data);
 
-        return redirect()->route('home');
+        // return redirect()->route('home');
+        return redirect()->back()->with('success', 'Data Anda Berhasil Ditambahkan');
     }
 }

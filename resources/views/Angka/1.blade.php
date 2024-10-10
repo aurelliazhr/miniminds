@@ -138,7 +138,7 @@
 </head>
 <body>
     <audio id="background-audio" loop>
-        <source src="/..assets/1acksound.mp3" type="audio/mpeg">
+        <source src="../assets/backsound.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
@@ -153,11 +153,11 @@
         <!-- Tombol Suara dan Navigasi -->
         <div class="btn-container">
             <button id="backBtn">
-                <a class="fa-solid fa-arrow-left" href="#"></a>
+                <a class="fa-solid fa-arrow-left" href="{{ route ('belajar') }}"></a>
             </button>
-            <button class="fa-solid fa-volume-up" data-letter="A" onclick="playAudio('/..assets/1.mp3')"></button>
+            <button class="fa-solid fa-volume-up" data-letter="A" onclick="playAudio('/assets/1.mp3')"></button>
             <button id="nextBtn">
-                <a class="fa-solid fa-arrow-right" href="2.html"></a>
+                <a class="fa-solid fa-arrow-right" href="{{ route ('angka2')}}"></a>
             </button>
         </div>
     </div>
@@ -182,13 +182,13 @@
             backgroundAudio.volume = 0.003;  // Kurangi volume backsound
             audio.play();
             audio.onended = () => {
-                backgroundAudio.volume = 1.0;  // Kembalikan volume backsound setelah selesai
+                backgroundAudio.volume = 0.7;  // Kembalikan volume backsound setelah selesai
             };
         }
 
         // Memainkan file a.mp3 otomatis saat halaman dimuat
         window.onload = () => {
-            playAudio('/..assets/1.mp3');
+            playAudio('../assets/1.mp3');
         };
     </script>
     

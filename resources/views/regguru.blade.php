@@ -117,7 +117,6 @@
         #kelas {
             border-radius: 10px;
             font-family: 'Poppins';
-            color: rgba(0, 0, 0, 0.5);
         }
 
         .button {
@@ -230,7 +229,7 @@
         <script>
             Swal.fire({
                 icon: 'success',
-                title: 'Data Anda Berhasil Ditambahkan!',
+                title: 'Sukses!',
                 text: '{{ Session::get('success') }}',
                 confirmButtonText: 'OK',
                 customClass: {

@@ -208,44 +208,26 @@
             </div>
         </div>
     </form>
-    <script>
-        // $('#catatan').on('submit', function(e) {
-        //     e.preventDefault(); // Mencegah form dari pengiriman otomatis
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        @if (Session::has('success'))
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Sukses!',
+                text: '{{ Session::get('success') }}',
+                confirmButtonText: 'OK',
+                customClass: {
+                                confirmButton: 'custom-button'
+                            }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = '/data'; // Redirect to the desired route
+                }
+            });
+        </script>
+        @endif
 
-        //     $.ajax({
-        //         type: 'POST',
-        //         url: $(this).attr('action'),
-        //         data: $(this).serialize(),
-        //         success: function(response) {
-        //             Swal.fire({
-        //                 title: 'Catatan Berhasil Ditambahkan!',
-        //                 icon: 'success',
-        //                 confirmButtonText: 'Kembali',
-        //                 allowOutsideClick: false,
-        //                 customClass: {
-        //                     confirmButton: 'custom-button'
-        //                 }
-        //             }).then((result) => {
-        //                 if (result.isConfirmed) {
-        //                     window.location.href = "{{ route('data') }}";
-        //                 }
-        //             });
-        //         },
-        //         error: function(xhr) {
-        //             // Menampilkan notifikasi error jika ada kesalahan dari server
-        //             let errors = xhr.responseJSON.errors;
-        //             Swal.fire({
-        //                 title: 'Catatan Harus Diisi',
-        //                 icon: 'error',
-        //                 confirmButtonText: 'Tutup',
-        //                 customClass: {
-        //                     confirmButton: 'custom-button'
-        //                 }
-        //             });
-        //         }
-        //     });
-        // });
-    </script>
 </body>
 
 </html>

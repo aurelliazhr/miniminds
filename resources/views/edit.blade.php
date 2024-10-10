@@ -163,8 +163,8 @@
         }
 
         .custom-button:hover {
-            background-color: #ccc;
             color: black;
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -229,6 +229,25 @@
         Swal.fire('{{ $message }}');
     </script>
     @endif -->
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        @if (Session::has('success'))
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Sukses!',
+                text: '{{ Session::get('success') }}',
+                confirmButtonText: 'OK',
+                customClass: {
+                                confirmButton: 'custom-button'
+                            }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = '/home'; // Redirect to the desired route
+                }
+            });
+        </script>
+        @endif
 
 </body>
 

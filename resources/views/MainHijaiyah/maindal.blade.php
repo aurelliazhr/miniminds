@@ -92,7 +92,7 @@
 
     <div class="Kotak">
         <div class="Header">
-            <a id="kembaliButton" href="{{ route('menebakHi') }}">
+            <a id="kembaliButton" href="{{ route('bermain') }}">
                 <img src="../assets/angle-left.png" alt="Kembali" />
             </a>
         </div>

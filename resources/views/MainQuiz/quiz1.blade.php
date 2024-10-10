@@ -199,7 +199,7 @@ pilihanButtons.forEach(function(button) {
                     icon: 'success',
                     title: 'Benar!',
                     text: 'benar! benda ini lebih panjang',
-                    confirmButtonText: '<a href="{{ route('quiz1') }}" style="color: white; text-decoration: none;">Lanjut</a>'
+                    confirmButtonText: '<a href="{{ route('quiz2') }}" style="color: white; text-decoration: none;">Lanjut</a>'
                 });
             }
         };

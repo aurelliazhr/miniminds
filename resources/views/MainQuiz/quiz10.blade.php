@@ -172,7 +172,7 @@
                     icon: 'success',
                     title: 'Benar!',
                     text: 'ini adalah warna hijau',
-                    confirmButtonText: '<a href="{{ route('menebak') }}" style="color: white; text-decoration: none;">Lanjut</a>'
+                    confirmButtonText: '<a href="{{ route('bermain') }}" style="color: white; text-decoration: none;">Lanjut</a>'
                 });
             } else {
                 Swal.fire({

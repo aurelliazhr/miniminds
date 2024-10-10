@@ -157,7 +157,7 @@
             </button>
             <button class="fa-solid fa-volume-up" data-letter="A" onclick="playAudio('../assets/z.mp3')"></button>
             <button id="nextBtn">
-                <a class="fa-solid fa-arrow-right" href="#"></a>
+                <a class="fa-solid fa-arrow-right" href="{{ route ('belajar') }}"></a>
             </button>
         </div>
     </div>

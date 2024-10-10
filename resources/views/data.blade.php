@@ -76,6 +76,38 @@
             cursor: pointer;
         }
 
+        .custom-button-logout,
+        .custom-button-cancel {
+            width: 250px;
+            color: white;
+            border-radius: 10px;
+            padding: 10px 20px;
+            font-size: 20px;
+            border: none;
+            cursor: pointer;
+            background-color: #9CE6BB;
+        }
+
+        .custom-button-logout:hover,
+        .custom-button-cancel:hover {
+            text-decoration: underline;
+            color: black;
+        }
+
+        .swal2-actions {
+            background-color: #fff;
+        }
+
+        .custom-swal-title {
+            color: black;
+            background-color: white;
+        }
+
+        .custom-swal-text {
+            color: black;
+            background-color: white;
+        }
+
         @media (max-width: 800px) {
             nav img {
                 margin-top: 15px;
@@ -128,15 +160,57 @@
                 </a>
             </td>
             <td>
-                <form action="{{ route('delete', $d->id) }}" method="POST">
+                <form id="delete-form-{{ $d->id }}" action="{{ route('delete', $d->id) }}" method="POST" style="display:none;">
                     @csrf
                     @method('DELETE')
-                    <button class="button"><img src="assets/delete.png" width="40px"></button>
                 </form>
-            </td>
+                <button class="button" onclick="confirmDelete({{ $d->id }})">
+                    <img src="assets/delete.png" width="40px">
+                </button>
+            </td>            
         </tr>
         @endforeach
     </table>
+
+    <script>
+        function confirmDelete(id) {
+            Swal.fire({
+                title: 'Apakah kamu yakin ingin menghapus data ini?',
+                showCancelButton: true,
+                confirmButtonText: 'Ya',
+                cancelButtonText: 'Tidak',
+                customClass: {
+                    title: 'custom-swal-title',
+                    confirmButton: 'custom-button-logout',
+                    cancelButton: 'custom-button-cancel'
+                }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Submit form jika user mengonfirmasi penghapusan
+                    document.getElementById('delete-form-' + id).submit();
+                }
+            })
+        }
+        </script>
+        
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        @if (Session::has('success'))
+        <script>
+            Swal.fire({
+                title: 'Data Berhasil Dihapus!',
+                confirmButtonText: 'OK',
+                customClass: {
+                    title: 'custom-swal-title',
+                    text: 'custom-swal-text',
+                    confirmButton: 'custom-button-logout'
+                            }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = '/data'; // Redirect to the desired route
+                }
+            });
+        </script>
+        @endif
 </body>
 
 </html>

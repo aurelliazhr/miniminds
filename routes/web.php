@@ -66,7 +66,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/Huruf19_', [BHurufController::class, 'Huruf19_'])->name('Huruf19_');
     Route::get('/Huruf20_', [BHurufController::class, 'Huruf20_'])->name('Huruf20_');
     Route::get('/Huruf21_', [BHurufController::class, 'Huruf21_'])->name('Huruf21_');
-    Route::get('/Huruf22_', [BHurufController::class, 'Huruf22_'])->name('Huruf22');
+    Route::get('/Huruf22_', [BHurufController::class, 'Huruf22_'])->name('Huruf22_');
     Route::get('/Huruf23_', [BHurufController::class, 'Huruf23_'])->name('Huruf23_');
     Route::get('/Huruf24_', [BHurufController::class, 'Huruf24_'])->name('Huruf24_');
     Route::get('/Huruf25_', [BHurufController::class, 'Huruf25_'])->name('Huruf25_');
@@ -96,6 +96,35 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/hijaiyah', [BelajarController::class, 'hijaiyah'])->name('hijaiyah');
     Route::get('/hijaiyah_1', [HijaiyahController::class, 'hijaiyah_1'])->name('hijaiyah_1');
+    Route::get('/hijaiyah_2', [HijaiyahController::class, 'hijaiyah_2'])->name('hijaiyah_2');
+    Route::get('/hijaiyah_3', [HijaiyahController::class, 'hijaiyah_3'])->name('hijaiyah_3');
+    Route::get('/hijaiyah_4', [HijaiyahController::class, 'hijaiyah_4'])->name('hijaiyah_4');
+    Route::get('/hijaiyah_5', [HijaiyahController::class, 'hijaiyah_5'])->name('hijaiyah_5');
+    Route::get('/hijaiyah_6', [HijaiyahController::class, 'hijaiyah_6'])->name('hijaiyah_6');
+    Route::get('/hijaiyah_7', [HijaiyahController::class, 'hijaiyah_7'])->name('hijaiyah_7');
+    Route::get('/hijaiyah_8', [HijaiyahController::class, 'hijaiyah_8'])->name('hijaiyah_8');
+    Route::get('/hijaiyah_9', [HijaiyahController::class, 'hijaiyah_9'])->name('hijaiyah_9');
+    Route::get('/hijaiyah_10', [HijaiyahController::class, 'hijaiyah_10'])->name('hijaiyah_10');
+    Route::get('/hijaiyah_11', [HijaiyahController::class, 'hijaiyah_11'])->name('hijaiyah_11');
+    Route::get('/hijaiyah_12', [HijaiyahController::class, 'hijaiyah_12'])->name('hijaiyah_12');
+    Route::get('/hijaiyah_13', [HijaiyahController::class, 'hijaiyah_13'])->name('hijaiyah_13');
+    Route::get('/hijaiyah_14', [HijaiyahController::class, 'hijaiyah_14'])->name('hijaiyah_14');
+    Route::get('/hijaiyah_15', [HijaiyahController::class, 'hijaiyah_15'])->name('hijaiyah_15');
+    Route::get('/hijaiyah_16', [HijaiyahController::class, 'hijaiyah_16'])->name('hijaiyah_16');
+    Route::get('/hijaiyah_17', [HijaiyahController::class, 'hijaiyah_17'])->name('hijaiyah_17');
+    Route::get('/hijaiyah_18', [HijaiyahController::class, 'hijaiyah_18'])->name('hijaiyah_18');
+    Route::get('/hijaiyah_19', [HijaiyahController::class, 'hijaiyah_19'])->name('hijaiyah_19');
+    Route::get('/hijaiyah_20', [HijaiyahController::class, 'hijaiyah_20'])->name('hijaiyah_20');
+    Route::get('/hijaiyah_21', [HijaiyahController::class, 'hijaiyah_21'])->name('hijaiyah_21');
+    Route::get('/hijaiyah_22', [HijaiyahController::class, 'hijaiyah_22'])->name('hijaiyah_22');
+    Route::get('/hijaiyah_23', [HijaiyahController::class, 'hijaiyah_23'])->name('hijaiyah_23');
+    Route::get('/hijaiyah_24', [HijaiyahController::class, 'hijaiyah_24'])->name('hijaiyah_24');
+    Route::get('/hijaiyah_25', [HijaiyahController::class, 'hijaiyah_25'])->name('hijaiyah_25');
+    Route::get('/hijaiyah_26', [HijaiyahController::class, 'hijaiyah_26'])->name('hijaiyah_26');
+    Route::get('/hijaiyah_27', [HijaiyahController::class, 'hijaiyah_27'])->name('hijaiyah_27');
+    Route::get('/hijaiyah_28', [HijaiyahController::class, 'hijaiyah_28'])->name('hijaiyah_28');
+    Route::get('/hijaiyah_29', [HijaiyahController::class, 'hijaiyah_29'])->name('hijaiyah_29');
+    Route::get('/hijaiyah_30', [HijaiyahController::class, 'hijaiyah_30'])->name('hijaiyah_30');
 
     Route::get('/bermain', [HomeController::class, 'bermain'])->name('bermain');
 

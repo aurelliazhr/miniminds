@@ -137,7 +137,8 @@ class GuruController extends Controller
         // $find->edit_proses($data);
         User::whereId($id)->update($data);
 
-        return redirect()->route('data');
+        // return redirect()->route('data');
+        return redirect()->back()->with('success', 'Data Anda Berhasil Ditambahkan');
     }
 
     public function delete(Request $request, $id) {
@@ -147,6 +148,7 @@ class GuruController extends Controller
             $data->delete();
         }
 
-        return redirect()->route('data');
+        // return redirect()->route('data');
+        return redirect()->back()->with('success', 'Data Berhasil Dihapus');
     }
 }

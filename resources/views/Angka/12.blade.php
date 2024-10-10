@@ -153,11 +153,11 @@
         <!-- Tombol Suara dan Navigasi -->
         <div class="btn-container">
             <button id="backBtn">
-                <a class="fa-solid fa-arrow-left" href="11.html"></a>
+                <a class="fa-solid fa-arrow-left" href="{{ route ('angka11')}}"></a>
             </button>
             <button class="fa-solid fa-volume-up" data-letter="A" onclick="playAudio('/..assets/12.mp3')"></button>
             <button id="nextBtn">
-                <a class="fa-solid fa-arrow-right" href="13.html"></a>
+                <a class="fa-solid fa-arrow-right" href="{{ route ('angka13')}}"></a>
             </button>
         </div>
     </div>

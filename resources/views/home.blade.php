@@ -235,7 +235,6 @@
 
         .custom-button-logout:hover,
         .custom-button-cancel:hover {
-            background-color: #ccc;
             text-decoration: underline;
             color: black;
         }
