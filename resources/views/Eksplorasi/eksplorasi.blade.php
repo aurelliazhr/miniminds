@@ -1,104 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Drawing App 🎨</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="js/notifikasi.js"></script>
     <style>
         * {
             margin: 0;
             padding: 0;
-            overflow: hidden;
+            box-sizing: border-box;
             font-family: Arial, Helvetica, sans-serif;
         }
 
-        .nav {
-            width: auto;
-            height: 50px;
-            position: fixed;
-            top: 1%;
-            left: 50%;
-            transform: translateX(-50%);
+        html, body {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        body {
             display: flex;
+            flex-direction: column;
+        }
+
+        .main-container {
+            display: flex;
+            flex-grow: 1;
+            height: calc(100vh - 50px); /* Canvas will take remaining space except the footer */
+        }
+
+        /* Sidebar styling */
+        .nav {
+            width: 100px;
+            background: linear-gradient(to bottom, #4568DC, #B06AB3);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            justify-content: space-around;
-            transition: opacity .5s;
-            background: linear-gradient(to right, #4568DC, #B06AB3);
-            padding: 10px;
-            border-radius: 10px;
-            border: 3px solid white;
-        }
-
-        img {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        .nav div,
-        button,
-        input {
-            margin: 5px;
-        }
-
-        .nav:hover {
-            cursor: pointer;
-        }
-
-        buttton:hover {
-            cursor: pointer;
+            padding: 20px 0;
+            gap: 20px;
         }
 
         .clr {
-            height: 35px;
-            width: 35px;
-            background-color: blue;
+            height: 40px;
+            width: 40px;
             border-radius: 50%;
-            border: 3px solid white;
-            transition: transform .5s;
+            border: 2px solid white;
+            transition: transform .3s;
+            cursor: pointer;
         }
 
         .clr:hover {
             transform: scale(1.2);
-        }
-
-        .clr:nth-child(1) {
-            background-color: #000;
-        }
-
-        .clr:nth-child(2) {
-            background-color: red;
-        }
-
-        .clr:nth-child(3) {
-            background-color: orange;
-        }
-
-        .clr:nth-child(4) {
-            background-color: blue;
-        }
-
-        .clr:nth-child(5) {
-            background-color: purple;
-        }
-
-        .clr:nth-child(6) {
-            background-color: yellowgreen;
-        }
-
-        .clr:nth-child(7) {
-            background-color: yellow;
-        }
-
-        .clr:nth-child(8) {
-            background-color: #fff;
         }
 
         button {
@@ -108,9 +62,14 @@
             border-radius: 3px;
             background-color: #03bb56;
             color: #fff;
-            border: 3px solid white;
-            font-size: 15px;
+            font-size: 12px;
             font-weight: bold;
+            cursor: pointer;
+            width: 80px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .save {
@@ -118,126 +77,220 @@
         }
 
         input[type="color"] {
-            width: 60px;
-            height: 40px;
+            margin-bottom: 10px;
+            width: 80%;
         }
 
-        #ageOutputId {
+        .canvas-container {
+            flex-grow: 1;
+            position: relative;
+            height: 100%;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        canvas {
+            border: 1px solid #ccc;
+            width: 100%;
+            height: 100%;
+            cursor: crosshair;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #4568DC;
+            padding: 10px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50px;
+        }
+
+        input[type="range"] {
+            width: 80%;
+            margin: 0 10px;
+        }
+
+        output {
             color: white;
-            font-weight: bold;
-            font-size: 15pt;
+            font-size: 16px;
+            margin-left: 10px;
         }
 
-        #ageInputId {
-            background: linear-gradient(to right, #000428 0%, #004e92 100%);
-            height: 7px;
-            outline: none;
-            /* -webkit-appearance: none; */
-            cursor: ew-resize;
-            border-radius: 5px;
-            border: 3px solid white;
-            accent-color: white;
-        }
+        @media screen and (max-width: 768px) {
+            .nav {
+                width: 80px;
+            }
 
-        .emoji {
-            font-size: 40px;
-            padding-bottom: 10px;
+            .clr {
+                width: 30px;
+                height: 30px;
+            }
+
+            button {
+                font-size: 9px;
+            }
         }
     </style>
 </head>
-
 <body>
-    <canvas id="canvas"></canvas>
-    <div class="nav">
-        <div class="clr" data-clr="#000"></div>
-        <div class="clr" data-clr="red"></div>
-        <div class="clr" data-clr="orange"></div>
-        <div class="clr" data-clr="blue"></div>
-        <div class="clr" data-clr="purple"></div>
-        <div class="clr" data-clr="yellowgreen"></div>
-        <div class="clr" data-clr="yellow"></div>
-        <div class="clr" data-clr="#fff"></div>
-        <button class="clear">Bersihkan</button>
-        <button class="save">Simpan</button>
-        <input type="color" id="favcolor" value="#FFFFFF">
+
+    <div class="main-container">
+        <div class="nav">
+            <!-- Colors for drawing -->
+            <div class="clr" style="background-color: #000;" data-clr="#000"></div>
+            <div class="clr" style="background-color: red;" data-clr="red"></div>
+            <div class="clr" style="background-color: orange;" data-clr="orange"></div>
+            <div class="clr" style="background-color: blue;" data-clr="blue"></div>
+            <div class="clr" style="background-color: purple;" data-clr="purple"></div>
+            <div class="clr" style="background-color: yellowgreen;" data-clr="yellowgreen"></div>
+            <div class="clr" style="background-color: yellow;" data-clr="yellow"></div>
+            <div class="clr" style="background-color: white;" data-clr="#fff"></div>
+
+            <!-- Color picker to change canvas background color -->
+            <input type="color" id="favcolor" value="#FFFFFF">
+
+            <!-- Action buttons -->
+            <button class="clear">Bersihkan</button>
+            <button class="save">Simpan</button>
+        </div>
+
+        <div class="canvas-container">
+            <canvas id="canvas"></canvas>
+        </div>
+    </div>
+
+    <div class="footer">
         <input type="range" name="ageInputName" id="ageInputId" value="5" min="1" max="10" oninput="ageOutputId.value = ageInputId.value">
         <output id="ageOutputId">5</output>
-        <div class="emoji">🎨</div>
     </div>
 
     <script>
-        const canvas = document.getElementById("canvas")
-        const body = document.querySelector('body');
-        canvas.height = window.innerHeight
-        canvas.width = window.innerWidth
-        var theColor = '';
-        var lineW = 5;
-        let prevX = null
-        let prevY = null
-        let draw = false
+        const canvas = document.getElementById("canvas");
+        const canvasContainer = document.querySelector('.canvas-container');
+        const ctx = canvas.getContext("2d");
 
-        body.style.backgroundColor = "#FFFFFF";
-        var theInput = document.getElementById("favcolor");
+        // Set canvas size based on container size
+        function resizeCanvas() {
+            canvas.width = canvasContainer.clientWidth;
+            canvas.height = canvasContainer.clientHeight;
 
-        theInput.addEventListener("input", function() {
-            theColor = theInput.value;
-            body.style.backgroundColor = theColor;
+            // Fill the canvas with the current background color
+            ctx.fillStyle = canvas.style.backgroundColor || '#FFFFFF';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+        }
+
+        resizeCanvas(); // Call on load
+        window.addEventListener("resize", resizeCanvas); // Resize canvas on window resize
+
+        let drawingColor = '#000000'; // Default drawing color
+        let lineWidth = 5;
+        let prevX = null;
+        let prevY = null;
+        let draw = false;
+
+        // Set up color picking
+        const colors = document.querySelectorAll(".clr");
+        colors.forEach(clr => {
+            clr.addEventListener("click", () => {
+                drawingColor = clr.dataset.clr; // Update drawing color
+                ctx.strokeStyle = drawingColor; // Set stroke color
+            });
+        });
+
+        // Change canvas background color
+        const colorInput = document.getElementById("favcolor");
+        colorInput.addEventListener("input", function() {
+            canvas.style.backgroundColor = colorInput.value; // Change canvas background color
+            resizeCanvas(); // Resize canvas to apply new background color
         }, false);
 
-        const ctx = canvas.getContext("2d")
-        ctx.lineWidth = lineW;
-
+        // Set line width from range input
         document.getElementById("ageInputId").oninput = function() {
-            draw = null
-            lineW = document.getElementById("ageInputId").value;
-            document.getElementById("ageOutputId").innerHTML = lineW;
-            ctx.lineWidth = lineW;
+            lineWidth = this.value;
+            document.getElementById("ageOutputId").innerHTML = lineWidth;
+            ctx.lineWidth = lineWidth;
         };
 
-        let clrs = document.querySelectorAll(".clr")
-        clrs = Array.from(clrs)
-        clrs.forEach(clr => {
-            clr.addEventListener("click", () => {
-                ctx.strokeStyle = clr.dataset.clr
-            })
-        })
-
-        let clearBtn = document.querySelector(".clear")
+        // Clear button functionality
+        const clearBtn = document.querySelector(".clear");
         clearBtn.addEventListener("click", () => {
-            ctx.clearRect(0, 0, canvas.width, canvas.height)
-        })
+            Swal.fire({
+                title: 'Anda yakin?',
+                text: "Ini akan membersihkan seluruh gambar!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas
+                    canvas.style.backgroundColor = '#FFFFFF'; // Reset to white background
+                    resizeCanvas(); // Resize canvas after clearing
+                    Swal.fire(
+                        'Dibersihkan!',
+                        'Gambar telah dihapus.',
+                        'success'
+                    );
+                }
+            });
+        });
 
-        let saveBtn = document.querySelector(".save")
+        // Save button functionality
+        const saveBtn = document.querySelector(".save");
         saveBtn.addEventListener("click", () => {
-            let data = canvas.toDataURL("imag/png")
-            let a = document.createElement("a")
-            a.href = data
-            a.download = "sketch.png"
-            a.click()
-        })
+            const dataURL = canvas.toDataURL("image/png");
+            const a = document.createElement("a");
+            a.href = dataURL;
+            a.download = "sketch.png";
+            a.click();
 
-        window.addEventListener("mousedown", (e) => draw = true)
-        window.addEventListener("mouseup", (e) => draw = false)
+            Swal.fire({
+                icon: 'success',
+                title: 'Berhasil!',
+                text: 'Gambar telah disimpan.'
+            });
+        });
+
+        // Mouse event listeners for drawing
+        window.addEventListener("mousedown", (e) => {
+            draw = true;
+            prevX = e.clientX - canvas.getBoundingClientRect().left; // Get mouse position relative to canvas
+            prevY = e.clientY - canvas.getBoundingClientRect().top; // Get mouse position relative to canvas
+        });
+
+        window.addEventListener("mouseup", () => draw = false);
 
         window.addEventListener("mousemove", (e) => {
-            if (prevX == null || prevY == null || !draw) {
-                prevX = e.clientX
-                prevY = e.clientY
-                return
+            if (!draw) return;
+
+            let currentX = e.clientX - canvas.getBoundingClientRect().left; // Get mouse position relative to canvas
+            let currentY = e.clientY - canvas.getBoundingClientRect().top; // Get mouse position relative to canvas
+
+            ctx.lineWidth = lineWidth;
+            ctx.lineCap = "round";
+            ctx.strokeStyle = drawingColor;
+
+            if (prevX == null || prevY == null) {
+                prevX = currentX;
+                prevY = currentY;
             }
 
-            let currentX = e.clientX
-            let currentY = e.clientY
+            ctx.beginPath();
+            ctx.moveTo(prevX, prevY);
+            ctx.lineTo(currentX, currentY);
+            ctx.stroke();
 
-            ctx.beginPath()
-            ctx.moveTo(prevX, prevY)
-            ctx.lineTo(currentX, currentY)
-            ctx.stroke()
-
-            prevX = currentX
-            prevY = currentY
-        })
+            prevX = currentX;
+            prevY = currentY;
+        });
     </script>
-</body>
 
+</body>
 </html>
