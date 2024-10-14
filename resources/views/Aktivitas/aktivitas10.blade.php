@@ -173,12 +173,12 @@ window.addEventListener('beforeunload', () => {
 // Fungsi untuk memutar audio lain dan mengurangi volume backsound sementara
 function playAudio(audioSrc) {
     const audio = new Audio(audioSrc);
-    backgroundAudio.volume = 0.1;  // Kurangi volume backsound saat audio lain diputar
+    backgroundAudio.volume = 0.003;  // Kurangi volume backsound saat audio lain diputar
     audio.play();
 
     // Kembalikan volume backsound setelah audio lain selesai diputar
     audio.onended = () => {
-        backgroundAudio.volume = 1.0;  // Kembalikan volume backsound
+        backgroundAudio.volume = 0.1;  // Kembalikan volume backsound
     };
 }
 
