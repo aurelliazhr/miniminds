@@ -20,7 +20,7 @@
             padding: 0;
             height: 100vh;
             /* background:#db1010; */
-            background-image: url('/..assets/background.jpg');
+            background-image: url('../assets/background.jpg');
             background-size: cover;
         }
 
@@ -137,7 +137,7 @@
 </head>
 <body>
     <audio id="background-audio" loop>
-        <source src="/..assets/backsound.mp3" type="audio/mpeg">
+        <source src="../assets/backsound.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
@@ -146,7 +146,7 @@
         <div class="abjad">م</div>
 
         <!-- <div class="image-container">
-            <img src="/..assets/ayam.gif" alt="Gambar Ayam" onclick="playAudio('/..assets/ayam.mp3')">
+            <img src="../assets/ayam.gif" alt="Gambar Ayam" onclick="playAudio('../assets/ayam.mp3')">
         </div> -->
 
         <!-- Tombol Suara dan Navigasi -->
@@ -154,7 +154,7 @@
             <button id="backBtn">
                 <a class="fa-solid fa-arrow-left" href="{{ route ('hijaiyah_23')}}"></a>
             </button>
-            <button class="fa-solid fa-volume-up" data-letter="A" onclick="playAudio('/..assets/materimim.mp3')"></button>
+            <button class="fa-solid fa-volume-up" data-letter="A" onclick="playAudio('../assets/materimim.mp3')"></button>
             <button id="nextBtn">
                 <a class="fa-solid fa-arrow-right" href="{{route ('hijaiyah_25')}}"></a>
             </button>
@@ -187,7 +187,7 @@
 
         // Memainkan file a.mp3 otomatis saat halaman dimuat
         window.onload = () => {
-            playAudio('/..assets/materimim.mp3');
+            playAudio('../assets/materimim.mp3');
         };
     </script>
     
