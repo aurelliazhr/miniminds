@@ -15,6 +15,9 @@
             padding: 0;
             font-family: 'Lexend', sans-serif;
             background-color: #f5f5f5;
+            background-image: url('../assets/background.jpg');
+            background-size: cover;
+            height: 80vh;
         }
 
         .Kotak {
@@ -47,16 +50,9 @@
         }
 
         .Text {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: "Lexend", sans-serif;
-            margin-bottom: 20px;
             font-size: 18px;
-        }
-
-        .Text p {
-            margin-right: 10px;
+            margin-left: 5px;
+            margin-bottom: 10px;
         }
 
         .volume-icon {
@@ -87,6 +83,22 @@
         .Pilihan img:hover {
             transform: scale(1.1);
         }
+
+        @media (max-width: 800px) {
+            body {
+                height: 98vh;
+            }
+
+            .Kotak {
+                top: 120px;
+            }
+
+            .Text {
+            font-size: 18px;
+            margin-left: 15px;
+            margin-bottom: 20px;
+        }
+        }
     </style>
 </head>
 <body>
@@ -101,12 +113,10 @@
             <a id="kembaliButton" href="{{ route('quiz4') }}">
                 <img src="../assets/angle-left.png" alt="Kembali" />
             </a>
-        </div>
 
         <div class="Text">
             <p>Yang manakah bentuk lingkaran</p>
-            <!-- Volume icon to play question audio -->
-            <img src="../assets/volume.png" alt="Volume" class="volume-icon" width="24px" height="24px" />
+        </div>
         </div>
 
         <div class="Pilihan">
@@ -135,12 +145,12 @@
     // Fungsi untuk memutar audio soal
     function playAudio(audioSrc) {
         const audio = new Audio(audioSrc);
-        backgroundAudio.volume = 0.1;  // Kurangi volume backsound saat audio soal diputar
+        backgroundAudio.volume = 0.003;  // Kurangi volume backsound saat audio soal diputar
         audio.play();
 
         // Kembalikan volume backsound setelah audio soal selesai diputar
         audio.onended = () => {
-            backgroundAudio.volume = 1.0;  // Kembalikan volume backsound
+            backgroundAudio.volume = 0.1;  // Kembalikan volume backsound
         };
     }
 
@@ -148,12 +158,6 @@
     window.onload = () => {
         playAudio('../assets/soal5quiz.mp3');
     };
-
-    // Tambahkan event listener pada icon volume untuk memutar ulang audio soal
-    const volumeIcon = document.querySelector('.volume-icon');
-    volumeIcon.addEventListener('click', () => {
-        playAudio('../assets/soal5quiz.mp3');
-    });
 
     // Event listener untuk tombol kembali
     const kembaliButton = document.getElementById('kembaliButton');

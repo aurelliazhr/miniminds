@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drawing App 🎨</title>
+    <title>Eksplorasi Diri</title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/notifikasi.js"></script>
     <style>
         * {
             margin: 0;
@@ -33,13 +34,13 @@
         /* Sidebar styling */
         .nav {
             width: 100px;
-            background: linear-gradient(to bottom, #4568DC, #B06AB3);
+            height: 95vh;
+            background: linear-gradient(to bottom, #C9C0D5, #B06AB3);
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: space-around;
             align-items: center;
             padding: 20px 0;
-            gap: 20px;
         }
 
         .clr {
@@ -103,7 +104,7 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            background-color: #4568DC;
+            background-color: #B06AB3;
             padding: 10px 0;
             display: flex;
             justify-content: center;
@@ -139,6 +140,8 @@
     </style>
 </head>
 <body>
+
+    <audio src="/assets/backsound.mp3" autoplay loop></audio>
 
     <div class="main-container">
         <div class="nav">

@@ -15,10 +15,14 @@
             padding: 0;
             font-family: 'Lexend', sans-serif;
             background-color: #f5f5f5;
+            background-image: url('../assets/background.jpg');
+            background-size: cover;
+            height: 80vh;
         }
 
         .Kotak {
-            position: relative; top: 120px;
+            position: relative; 
+            top: 85px;
             background: white;
             margin: 1rem auto;
             padding: 30px;
@@ -46,10 +50,8 @@
         }
 
         .Text {
-            text-align: center;
-            font-family: "Lexend", sans-serif;
-            margin-bottom: 20px;
             font-size: 18px;
+            margin-left: 20px;
         }
 
         .Objek {
@@ -85,12 +87,12 @@
 
 
         .option[data-color="blue"] {
-            background-color: rgb(53, 238, 152);
+            background-color: rgba(238, 231, 53, 1);
             color: black;
         }
 
         .option[data-color="red"] {
-            background-color: rgb(238, 173, 53);
+            background-color: rgba(53, 238, 161, 1);
             color: black;
         }
 
@@ -103,6 +105,20 @@
             background-color: rgb(41, 106, 183); /* Warna saat di-hover */
         }
 
+        @media (max-width: 800px) {
+            body {
+                height: 98vh;
+            }
+
+            .Kotak {
+                top: 120px;
+            }
+
+            .Text {
+            font-size: 18px;
+            margin-left: 20px;
+        }
+        }
 
     </style>
 </head>
@@ -118,10 +134,10 @@
             <a id="kembaliButton" href="{{ route('quiz1') }}">
                 <img src="../assets/angle-left.png" alt="Kembali" />
             </a>
-        </div>
 
         <div class="Text">
-            <p>yg manakah yg lebih besar?</p>
+            <p>Yang manakah lebih besar?</p>
+        </div>
         </div>
 
         <div class="Objek">
@@ -129,8 +145,8 @@
         </div>
 
         <div class="Pilihan">
-            <button class="option" data-color="blue" data-audio="../assets/gajahquiz.mp3">gajah</button>
-            <button class="option" data-color="red" data-audio="../assets/semutquiz.mp3">semut</button>
+            <button class="option" data-color="blue" data-audio="../assets/gajahquiz.mp3">Gajah</button>
+            <button class="option" data-color="red" data-audio="../assets/semutquiz.mp3">Semut</button>
         </div>
     </div>
 
@@ -153,12 +169,12 @@ window.addEventListener('beforeunload', () => {
 // Fungsi untuk memutar audio lain dan mengurangi volume backsound sementara
 function playAudio(audioSrc) {
     const audio = new Audio(audioSrc);
-    backgroundAudio.volume = 0.1;  // Kurangi volume backsound saat audio lain diputar
+    backgroundAudio.volume = 0.003;  // Kurangi volume backsound saat audio lain diputar
     audio.play();
 
     // Kembalikan volume backsound setelah audio lain selesai diputar
     audio.onended = () => {
-        backgroundAudio.volume = 1.0;  // Kembalikan volume backsound
+        backgroundAudio.volume = 0.1;  // Kembalikan volume backsound
     };
 }
 

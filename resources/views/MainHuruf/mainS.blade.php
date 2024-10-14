@@ -17,16 +17,17 @@
             background-color: #f5f5f5;
             background-image: url('../assets/background.jpg');
             background-size: cover;
+            height: 80vh;
         }
 
         .Kotak {
             position: relative;
-            top: 55px;
+            top: 15px;
             background: white;
             margin: 1rem auto;
             padding: 30px;
             width: 75%;
-            height: 455px;
+            height: 475px;
             max-width: 340px;
             border-radius: 15px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
@@ -34,9 +35,9 @@
 
         .Header {
             display: flex;
+            justify-content: space-between;
             align-items: center;
             padding: 5px;
-            gap: 15px;
         }
 
         #kembaliButton {
@@ -50,13 +51,13 @@
         }
 
         .Text {
-            text-align: center;
             font-size: 18px;
-            margin-bottom: 20px;
+            margin-right: 50px;
         }
 
         .Pilihan {
-            position: relative; top: 50px;
+            position: relative;
+            top: 50px;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
@@ -71,8 +72,8 @@
         }
 
         .Pilihan img {
-            width: 135px;
-            height: 160px;
+            width: 125px;
+            height: 150px;
             cursor: pointer;
             transition: transform 0.3s ease;
         }
@@ -81,6 +82,20 @@
             transform: scale(1.1);
         }
 
+        @media (max-width: 800px) {
+            body {
+                height: 98vh;
+            }
+
+            .Kotak {
+                top: 60px;
+            }
+
+            .Text {
+            font-size: 18px;
+            margin-left: 50px;
+        }
+        }
     </style>
 </head>
 <body>
@@ -95,19 +110,19 @@
             <a id="kembaliButton" href="{{ route('huruf5') }}">
                 <img src="../assets/angle-left.png" alt="Kembali" />
             </a>
-        </div>
 
         <div class="Text">
             <p>Yang manakah huruf S?</p> <!-- Question as text -->
         </div>
+    </div>
 
         <div class="Pilihan">
             <div class="row">
-                <img src="../assets/mainc.png" alt="Alif" data-correct="false" />
-                <img src="../assets/maink.png" alt="Ba" data-correct="false" />
+                <img src="../assets/s.png" alt="Alif" data-correct="true" />
+                <img src="../assets/k.png" alt="Ba" data-correct="false" />
             </div>
             <div class="row">
-                <img src="../assets/mains.png" alt="Ta" data-correct="true" /> 
+                <img src="../assets/c.png" alt="Ta" data-correct="false" /> 
             </div>
         </div>
     </div>
@@ -135,14 +150,14 @@ function playAudio(audioSrc) {
     const audio = new Audio(audioSrc);
 
     // Turunkan volume backsound menjadi 40% (0.4)
-    backgroundAudio.volume = 0.4;
+    backgroundAudio.volume = 0.003;
 
     // Putar audio soal
     audio.play();
 
     // Mengembalikan volume backsound ke 100% setelah audio soal selesai
     audio.addEventListener('ended', () => {
-        backgroundAudio.volume = 1.0;
+        backgroundAudio.volume = 0.1;
     });
 }
 

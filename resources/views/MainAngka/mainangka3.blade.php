@@ -15,10 +15,14 @@
             padding: 0;
             font-family: 'Lexend', sans-serif;
             background-color: #f5f5f5;
+            background-image: url('../assets/background.jpg');
+            background-size: cover;
+            height: 80vh;
         }
 
         .Kotak {
-            position: relative; top: 55px;
+            position: relative; 
+            top: 25px;
             background: white;
             margin: 1rem auto;
             padding: 30px;
@@ -46,10 +50,8 @@
         }
 
         .Text {
-            text-align: center;
-            font-family: "Lexend", sans-serif;
-            margin-bottom: 20px;
             font-size: 18px;
+            margin-left: 20px;
         }
 
         .Objek {
@@ -94,6 +96,7 @@
         }
 
         .option[data-color="yellow"] {
+            margin-top: 5px;
             background-color: rgba(53, 183, 238, 1);
             color: black;
         }
@@ -106,6 +109,20 @@
             background-color: rgb(41, 106, 183); /* Warna saat di-hover */
         }
 
+        @media (max-width: 800px) {
+            body {
+                height: 98vh;
+            }
+
+            .Kotak {
+                top: 50px;
+            }
+
+            .Text {
+            font-size: 18px;
+            margin-right: 50px;
+        }
+        }
     </style>
 </head>
 <body>
@@ -120,10 +137,10 @@
             <a id="kembaliButton" href="{{ route('menebakAngka2') }}">
                 <img src="../assets/angle-left.png" alt="Kembali" />
             </a>
-        </div>
 
         <div class="Text">
             <p>Ada berapa banyak penghapus di layar?</p>
+        </div>
         </div>
 
         <div class="Objek">
@@ -156,12 +173,12 @@ window.addEventListener('beforeunload', () => {
 // Fungsi untuk memutar audio lain dan mengurangi volume backsound sementara
 function playAudio(audioSrc) {
     const audio = new Audio(audioSrc);
-    backgroundAudio.volume = 0.1;  // Kurangi volume backsound saat audio lain diputar
+    backgroundAudio.volume = 0.003;  // Kurangi volume backsound saat audio lain diputar
     audio.play();
 
     // Kembalikan volume backsound setelah audio lain selesai diputar
     audio.onended = () => {
-        backgroundAudio.volume = 1.0;  // Kembalikan volume backsound
+        backgroundAudio.volume = 0.1;  // Kembalikan volume backsound
     };
 }
 

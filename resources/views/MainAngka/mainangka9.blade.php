@@ -17,16 +17,17 @@
             background-color: #f5f5f5;
             background-image: url('../assets/background.jpg');
             background-size: cover;
+            height: 80vh;
         }
 
         .Kotak {
             position: relative;
-            top: 55px;
+            top: 25px;
             background: white;
             margin: 1rem auto;
             padding: 30px;
             width: 75%;
-            height: 455px;
+            height: 460px;
             max-width: 340px;
             border-radius: 15px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
@@ -50,9 +51,8 @@
         }
 
         .Text {
-            text-align: center;
             font-size: 18px;
-            margin-bottom: 20px;
+            margin-left: 20px;
         }
 
         .Pilihan {
@@ -81,6 +81,21 @@
             transform: scale(1.1);
         }
 
+        @media (max-width: 800px) {
+            body {
+                height: 98vh;
+            }
+
+            .Kotak {
+                top: 60px;
+            }
+
+            .Text {
+            font-size: 18px;
+            margin-right: 50px;
+        }
+        }
+
     </style>
 </head>
 <body>
@@ -95,11 +110,11 @@
             <a id="kembaliButton" href="{{ route('menebakAngka8') }}">
                 <img src="../assets/angle-left.png" alt="Kembali" />
             </a>
-        </div>
 
         <div class="Text">
-            <p>yg manakah angka 6</p> <!-- Question as text -->
+            <p>Yang manakah angka 6?</p> <!-- Question as text -->
         </div>
+    </div>
 
         <div class="Pilihan">
             <div class="row">

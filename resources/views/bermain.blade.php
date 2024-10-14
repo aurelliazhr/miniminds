@@ -154,7 +154,7 @@
         <source src="assets/bermain.mp3" type="audio/mpeg">
     </audio>
     
-    <audio src="/assets/background.mp3" autoplay loop></audio>
+    <audio src="/assets/backsound.mp3" autoplay loop></audio>
     
     <nav>
         <div class="back" onclick="back()">

@@ -15,10 +15,14 @@
             padding: 0;
             font-family: 'Lexend', sans-serif;
             background-color: #f5f5f5;
+            background-image: url('../assets/background.jpg');
+            background-size: cover;
+            height: 80vh;
         }
 
         .Kotak {
-            position: relative; top: 120px;
+            position: relative; 
+            top: 75px;
             background: white;
             margin: 1rem auto;
             padding: 30px;
@@ -46,23 +50,26 @@
         }
 
         .Text {
-            text-align: center;
+            /* text-align: center;
             font-family: "Lexend", sans-serif;
             margin-bottom: 20px;
+            font-size: 18px; */
+
             font-size: 18px;
+            margin-left: 20px;
         }
 
         .Objek {
             display: flex;
             justify-content: center;
             align-items: center;
-            margin: 20px 0;
         }
 
         .Objek img {
             max-width: 65%;
             height: auto;
             border-radius: 10px;
+            margin-bottom: 20px;
         }
 
         .Pilihan {
@@ -103,6 +110,20 @@
             background-color: rgb(41, 106, 183); /* Warna saat di-hover */
         }
 
+        @media (max-width: 800px) {
+            body {
+                height: 98vh;
+            }
+
+            .Kotak {
+                top: 100px;
+            }
+
+            .Text {
+            font-size: 18px;
+            margin-left: 20px;
+        }
+        }
 
     </style>
 </head>
@@ -118,10 +139,10 @@
             <a id="kembaliButton" href="{{ route('quiz6') }}">
                 <img src="../assets/angle-left.png" alt="Kembali" />
             </a>
-        </div>
 
         <div class="Text">
-            <p>yg manakah lebih kecil?</p>
+            <p>Yang manakah lebih kecil?</p>
+        </div>
         </div>
 
         <div class="Objek">
@@ -129,8 +150,8 @@
         </div>
 
         <div class="Pilihan">
-            <button class="option" data-color="blue" data-audio="../assets/bukuquiz.mp3">buku</button>
-            <button class="option" data-color="red" data-audio="../assets/pulpenquiz.mp3">pulpen</button>
+            <button class="option" data-color="blue" data-audio="../assets/bukuquiz.mp3">Buku</button>
+            <button class="option" data-color="red" data-audio="../assets/pulpenquiz.mp3">Pulpen</button>
         </div>
     </div>
 
@@ -153,12 +174,12 @@ window.addEventListener('beforeunload', () => {
 // Fungsi untuk memutar audio lain dan mengurangi volume backsound sementara
 function playAudio(audioSrc) {
     const audio = new Audio(audioSrc);
-    backgroundAudio.volume = 0.1;  // Kurangi volume backsound saat audio lain diputar
+    backgroundAudio.volume = 0.003;  // Kurangi volume backsound saat audio lain diputar
     audio.play();
 
     // Kembalikan volume backsound setelah audio lain selesai diputar
     audio.onended = () => {
-        backgroundAudio.volume = 1.0;  // Kembalikan volume backsound
+        backgroundAudio.volume = 0.1;  // Kembalikan volume backsound
     };
 }
 

@@ -15,10 +15,14 @@
             padding: 0;
             font-family: 'Lexend', sans-serif;
             background-color: #f5f5f5;
+            background-image: url('../assets/background.jpg');
+            background-size: cover;
+            height: 80vh;
         }
 
         .Kotak {
-            position: relative; top: 55px;
+            position: relative; 
+            top: 25px;
             background: white;
             margin: 1rem auto;
             padding: 30px;
@@ -46,10 +50,8 @@
         }
 
         .Text {
-            text-align: center;
-            font-family: "Lexend", sans-serif;
-            margin-bottom: 20px;
             font-size: 18px;
+            margin-left: 20px;
         }
 
         .Objek {
@@ -91,6 +93,7 @@
         .option[data-color="red"] {
             background-color: rgba(53, 238, 161, 1);
             color: black;
+            margin-top: 5px;
         }
 
         .option[data-color="yellow"] {
@@ -106,6 +109,20 @@
             background-color: rgb(41, 106, 183); /* Warna saat di-hover */
         }
 
+        @media (max-width: 800px) {
+            body {
+                height: 98vh;
+            }
+
+            .Kotak {
+                top: 50px;
+            }
+
+            .Text {
+            font-size: 18px;
+            margin-right: 50px;
+        }
+        }
     </style>
 </head>
 <body>
@@ -120,10 +137,10 @@
             <a id="kembaliButton" href="{{ route('menebakAngka3') }}">
                 <img src="../assets/angle-left.png" alt="Kembali" />
             </a>
-        </div>
 
         <div class="Text">
             <p>Ada berapa banyak bola di layar?</p>
+        </div>
         </div>
 
         <div class="Objek">
@@ -132,8 +149,8 @@
 
         <div class="Pilihan">
             <button class="option" data-color="blue" data-audio="../assets/3.mp3">3</button>
-            <button class="option" data-color="red" data-audio="../assets/6.mp3">6</button>
             <button class="option" data-color="yellow" data-audio="../assets/9.mp3">9</button>
+            <button class="option" data-color="red" data-audio="../assets/6.mp3">6</button>
         </div>
     </div>
 
@@ -156,12 +173,12 @@ window.addEventListener('beforeunload', () => {
 // Fungsi untuk memutar audio lain dan mengurangi volume backsound sementara
 function playAudio(audioSrc) {
     const audio = new Audio(audioSrc);
-    backgroundAudio.volume = 0.1;  // Kurangi volume backsound saat audio lain diputar
+    backgroundAudio.volume = 0.003;  // Kurangi volume backsound saat audio lain diputar
     audio.play();
 
     // Kembalikan volume backsound setelah audio lain selesai diputar
     audio.onended = () => {
-        backgroundAudio.volume = 1.0;  // Kembalikan volume backsound
+        backgroundAudio.volume = 0.1;  // Kembalikan volume backsound
     };
 }
 
