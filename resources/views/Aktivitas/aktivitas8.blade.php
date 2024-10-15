@@ -139,7 +139,7 @@
     <div class="Kotak">
         <div class="Text">
             <img src="assets/bentuk.jpg" alt="">
-            <p>Ajak orang tua untuk menyebutkan berbagai macam bentuk dilingkungan sekitar!</p>
+            <p>Ajak orang tua untuk menyebutkan berbagai macam bentuk di lingkungan sekitar!</p>
         </div>
 
         <div class="Pilihan">

@@ -18,6 +18,7 @@
             background-image: url('../assets/background.jpg');
             background-size: cover;
             height: 80vh;
+            background-attachment: fixed;
         }
 
         .Kotak {
@@ -211,14 +212,12 @@ pilihanButtons.forEach(function(button) {
                 Swal.fire({
                     icon: 'error',
                     title: 'Salah!',
-                    text: 'bola ini bukan berjumlah ' + button.textContent.toLowerCase() + ', silahkan coba lagi!',
                     confirmButtonText: 'OK'
                 });
             } else if (selectedColor === 'red') {
                 Swal.fire({
                     icon: 'success',
                     title: 'Benar!',
-                    text: 'bola ini berjumlah ' + button.textContent.toLowerCase() + '!',
                     confirmButtonText: '<a href="{{ route('menebakAngka5') }}" style="color: white; text-decoration: none;">Lanjut</a>'
                 });
             }

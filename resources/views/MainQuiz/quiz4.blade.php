@@ -18,6 +18,7 @@
             background-image: url('../assets/background.jpg');
             background-size: cover;
             height: 80vh;
+            background-attachment: fixed;
         }
 
         .Kotak {
@@ -207,14 +208,12 @@ pilihanButtons.forEach(function(button) {
                 Swal.fire({
                     icon: 'error',
                     title: 'Salah!',
-                    text: 'salah hewan ini lebih tinggi',
                     confirmButtonText: 'OK'
                 });
             } else if (selectedColor === 'blue') {
                 Swal.fire({
                     icon: 'success',
                     title: 'Benar!',
-                    text: 'benar! orang ini lebih pendek',
                     confirmButtonText: '<a href="{{ route('quiz5') }}" style="color: white; text-decoration: none;">Lanjut</a>'
                 });
             }

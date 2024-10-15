@@ -18,6 +18,7 @@
             background-image: url('../assets/background.jpg');
             background-size: cover;
             height: 80vh;
+            background-attachment: fixed;
         }
 
         .Kotak {
@@ -118,11 +119,11 @@
 
         <div class="Pilihan">
             <div class="row">
-                <img src="../assets/angka6.png" alt="Alif" data-correct="true" />
-                <img src="../assets/angka1.png" alt="Ba" data-correct="false" />
+                <img src="../assets/angka6.png" alt="Alif" data-correct="true" data-audio="../assets/6.mp3" />
+                <img src="../assets/angka1.png" alt="Ba" data-correct="false" data-audio="../assets/1.mp3"/>
             </div>
             <div class="row">
-                <img src="../assets/angka9.png" alt="Ta" data-correct="false" /> 
+                <img src="../assets/angka9.png" alt="Ta" data-correct="false" data-audio="../assets/9.mp3"/> 
             </div>
         </div>
     </div>
@@ -185,7 +186,6 @@ pilihanImages.forEach(function(img) {
             Swal.fire({
                 icon: 'success',
                 title: 'Benar!',
-                text: 'benar ini adalah angka 6',
                 confirmButtonText: '<a href="{{ route('menebakAngka10') }}" style="color: white; text-decoration: none;">Lanjut</a>'
             });
         } 
@@ -196,7 +196,7 @@ pilihanImages.forEach(function(img) {
                 Swal.fire({
                     icon: 'error',
                     title: 'Salah!',
-                    text: 'Anda sudah salah 2 kali, mengulang ke halaman awal.',
+                    text: 'Anda sudah salah 2 kali, mengulang ke halaman awal!',
                     confirmButtonText: 'OK'
                 }).then(() => {
                     window.location.href = '{{ route('menebakAngka1') }}'; // Redirect ke halaman awal setelah 2 kesalahan
@@ -205,7 +205,6 @@ pilihanImages.forEach(function(img) {
                 Swal.fire({
                     icon: 'error',
                     title: 'Salah!',
-                    text: 'Ini bukan angka 6, silahkan coba lagi',
                     confirmButtonText: 'OK'
                 });
             }

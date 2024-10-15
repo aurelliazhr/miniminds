@@ -139,7 +139,7 @@
     <div class="Kotak">
         <div class="Text">
             <img src="assets/warna.jpg" alt="">
-            <p>Ajak orang tua untuk menyebutkan warna dilingkungan sekitar!</p>
+            <p>Ajak orang tua untuk menyebutkan warna di lingkungan sekitar!</p>
         </div>
 
         <div class="Pilihan">

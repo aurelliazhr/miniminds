@@ -153,9 +153,9 @@
     <audio id="audio" autoplay>
         <source src="assets/bermain.mp3" type="audio/mpeg">
     </audio>
-    
+
     <audio src="/assets/backsound.mp3" autoplay loop></audio>
-    
+
     <nav>
         <div class="back" onclick="back()">
             <img src="assets/Back.png">
@@ -164,42 +164,42 @@
     </nav>
 
     <div class="container">
-        <div class="menebakH" onclick="menebakH()">
+        <div class="menebakH" onclick="menebakH()" data-audio="../assets/menebakH.mp3">
             <img src="assets/menhu.png" width="175px" height="170px">
             <div class="text1">
                 <img src="assets/menebakH.png">
             </div>
         </div>
 
-        <div class="menebakA" onclick="menebakA()">
+        <div class="menebakA" onclick="menebakA()" data-audio="../assets/menebakA.mp3">
             <img src="assets/mena.png" width="231px" height="160px">
             <div class="text2">
                 <img src="assets/menebakA.png">
             </div>
         </div>
 
-        <div class="menebakHi" onclick="menebakHi()">
+        <div class="menebakHi" onclick="menebakHi()" data-audio="../assets/menebakHi.mp3">
             <img src="assets/menhi.png" width="328px" height="160px">
             <div class="text3">
                 <img src="assets/menebakHi.png">
             </div>
         </div>
 
-        <div class="menebak" onclick="menebak()">
+        <div class="menebak" onclick="menebak()" data-audio="../assets/kuis.mp3">
             <img src="assets/kumen.png" width="223px" height="163px">
             <div class="text4">
                 <img src="assets/menebak.png">
             </div>
         </div>
 
-        <div class="aktivitas" onclick="aktivitas()">
+        <div class="aktivitas" onclick="aktivitas()" data-audio="../assets/aktivitas.mp3">
             <img src="assets/akkel.png" width="193px" height="164px">
             <div class="text5">
                 <img src="assets/aktivitas.png">
             </div>
         </div>
 
-        <div class="eksplor" onclick="eksplor()">
+        <div class="eksplor" onclick="eksplor()" data-audio="../assets/eksplorasi.mp3">
             <img src="assets/eks.png" width="280px" height="173px">
             <div class="text6">
                 <img src="assets/eksplor.png">
@@ -210,31 +210,91 @@
 
     <script>
         function back() {
-            window.location.href = "{{ route ('home') }}"
+            window.location.href = "{{ route('home') }}"
         }
 
         function menebakH() {
-            window.location.href = "{{route ('huruf1')}}";
+            var audioSrc = document.querySelector('.menebakH').getAttribute('data-audio');
+
+            // Create a new audio object
+            var audio = new Audio(audioSrc);
+
+            audio.play();
+
+            // When the audio finishes, redirect to the next page
+            audio.onended = function() {
+                window.location.href = '{{ route('huruf1') }}';
+            };
         }
 
         function menebakA() {
-            window.location.href = "{{route ('menebakAngka1')}}";
+            var audioSrc = document.querySelector('.menebakA').getAttribute('data-audio');
+
+            // Create a new audio object
+            var audio = new Audio(audioSrc);
+
+            audio.play();
+
+            // When the audio finishes, redirect to the next page
+            audio.onended = function() {
+                window.location.href = '{{ route('menebakAngka1') }}';
+            };
         }
 
         function menebakHi() {
-            window.location.href = "{{route ('hijaiyah1')}}";
+            var audioSrc = document.querySelector('.menebakHi').getAttribute('data-audio');
+
+            // Create a new audio object
+            var audio = new Audio(audioSrc);
+
+            audio.play();
+
+            // When the audio finishes, redirect to the next page
+            audio.onended = function() {
+            window.location.href = "{{ route('hijaiyah1') }}";
+            };
         }
 
         function menebak() {
-            window.location.href = "{{route ('quiz1')}}";
+            var audioSrc = document.querySelector('.menebak').getAttribute('data-audio');
+
+            // Create a new audio object
+            var audio = new Audio(audioSrc);
+
+            audio.play();
+
+            // When the audio finishes, redirect to the next page
+            audio.onended = function() {
+            window.location.href = "{{ route('quiz1') }}";
+            };
         }
 
         function aktivitas() {
-            window.location.href = "{{route ('aktivitas1')}}";
+            var audioSrc = document.querySelector('.aktivitas').getAttribute('data-audio');
+
+            // Create a new audio object
+            var audio = new Audio(audioSrc);
+
+            audio.play();
+
+            // When the audio finishes, redirect to the next page
+            audio.onended = function() {
+            window.location.href = "{{ route('aktivitas1') }}";
+            };
         }
 
         function eksplor() {
-            window.location.href = "{{route ('eksplor')}}";
+            var audioSrc = document.querySelector('.eksplor').getAttribute('data-audio');
+
+            // Create a new audio object
+            var audio = new Audio(audioSrc);
+
+            audio.play();
+
+            // When the audio finishes, redirect to the next page
+            audio.onended = function() {
+            window.location.href = "{{ route('eksplor') }}";
+            };
         }
     </script>
 </body>

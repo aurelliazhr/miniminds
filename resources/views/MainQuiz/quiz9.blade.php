@@ -18,6 +18,7 @@
             background-image: url('../assets/background.jpg');
             background-size: cover;
             height: 80vh;
+            background-attachment: fixed;
         }
 
         .Kotak {
@@ -212,14 +213,12 @@ pilihanButtons.forEach(function(button) {
                 Swal.fire({
                     icon: 'error',
                     title: 'Salah!',
-                    text: 'salah pensil ini tidak berjumlah 5',
                     confirmButtonText: 'OK'
                 });
             } else if (selectedColor === 'blue') {
                 Swal.fire({
                     icon: 'success',
                     title: 'Benar!',
-                    text: 'benar! pensil ini berjumlah 4',
                     confirmButtonText: '<a href="{{ route('quiz10') }}" style="color: white; text-decoration: none;">Lanjut</a>'
                 });
             }

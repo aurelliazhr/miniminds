@@ -18,6 +18,7 @@
             background-image: url('../assets/background.jpg');
             background-size: cover;
             height: 80vh;
+            background-attachment: fixed;
         }
 
         .Kotak {
@@ -174,14 +175,12 @@
                 Swal.fire({
                     icon: 'success',
                     title: 'Benar!',
-                    text: 'ini adalah warna merah',
                     confirmButtonText: '<a href="{{ route('quiz4') }}" style="color: white; text-decoration: none;">Lanjut</a>'
                 });
             } else {
                 Swal.fire({
                     icon: 'error',
                     title: 'Salah!',
-                    text: 'Ini warna hijau, silakan coba lagi!',
                     confirmButtonText: 'OK'
                 });
             }

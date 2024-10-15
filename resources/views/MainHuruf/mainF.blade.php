@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <link href="https://fonts.googleapis.com/css?family=Lexend" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Lemon&display=swap" rel="stylesheet" />
@@ -19,6 +20,7 @@
             background-image: url('../assets/background.jpg');
             background-size: cover;
             height: 80vh;
+            background-attachment: fixed;
         }
 
         .Kotak {
@@ -188,7 +190,6 @@
                     Swal.fire({
                         icon: 'success',
                         title: 'Benar!',
-                        text: 'Ini adalah huruf F!',
                         confirmButtonText: '<a href="{{ route('huruf2') }}" style="color: white; text-decoration: none;">Lanjut</a>'
                     });
                 }
@@ -199,7 +200,7 @@
                         Swal.fire({
                             icon: 'error',
                             title: 'Salah!',
-                            text: 'Anda sudah salah 2 kali, mengulang ke halaman awal.',
+                            text: 'Anda sudah salah 2 kali, mengulang ke halaman awal!',
                             confirmButtonText: 'OK'
                         }).then(() => {
                             window.location.href =
@@ -209,7 +210,6 @@
                         Swal.fire({
                             icon: 'error',
                             title: 'Salah!',
-                            text: 'Ini bukan huruf F, silahkan coba lagi!',
                             confirmButtonText: 'OK'
                         });
                     }

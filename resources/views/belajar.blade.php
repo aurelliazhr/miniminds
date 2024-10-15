@@ -132,21 +132,21 @@
     </nav>
 
     <div class="container">
-        <div class="huruf" onclick="huruf()">
+        <div class="huruf" onclick="huruf()" data-audio="../assets/huruf.mp3">
             <img src="assets/huruf.jpg" width="229px" height="156px">
             <div class="text1">
                 <img src="assets/huruf.png">
             </div>
         </div>
 
-        <div class="angka" onclick="angka()">
+        <div class="angka" onclick="angka()" data-audio="../assets/angka.mp3">
             <img src="assets/angka.jpg" width="292px" height="150px">
             <div class="text2">
                 <img src="assets/angka.png">
             </div>
         </div>
 
-        <div class="hijaiyah" onclick="hijaiyah()">
+        <div class="hijaiyah" onclick="hijaiyah()" data-audio="../assets/hijaiyah.mp3">
             <img src="assets/hijaiyah1.jpg" width="280px" height="180px">
             <div class="text3">
                 <img src="assets/hijaiyah.png">
@@ -156,19 +156,49 @@
 
     <script>
         function back() {
-            window.location.href = "{{ route ('home') }}"
+            window.location.href = "{{ route('home') }}"
         }
 
         function huruf() {
-            window.location.href = "{{route ('huruf')}}";
+            var audioSrc = document.querySelector('.huruf').getAttribute('data-audio');
+
+            // Create a new audio object
+            var audio = new Audio(audioSrc);
+
+            audio.play();
+
+            // When the audio finishes, redirect to the next page
+            audio.onended = function() {
+                window.location.href = "{{ route('huruf') }}";
+            };
         }
 
         function angka() {
-            window.location.href = "{{route ('angka1')}}";
+            var audioSrc = document.querySelector('.angka').getAttribute('data-audio');
+
+            // Create a new audio object
+            var audio = new Audio(audioSrc);
+
+            audio.play();
+
+            // When the audio finishes, redirect to the next page
+            audio.onended = function() {
+                window.location.href = "{{ route('angka1') }}";
+            };
         }
 
         function hijaiyah() {
-            window.location.href = "{{route ('hijaiyah_1')}}";
+            var audioSrc = document.querySelector('.hijaiyah').getAttribute('data-audio');
+
+            // Create a new audio object
+            var audio = new Audio(audioSrc);
+
+            audio.play();
+
+            // When the audio finishes, redirect to the next page
+            audio.onended = function() {
+                window.location.href = "{{ route('hijaiyah_1') }}";
+            };
         }
     </script>
 </body>

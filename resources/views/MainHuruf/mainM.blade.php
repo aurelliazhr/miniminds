@@ -18,6 +18,7 @@
             background-image: url('../assets/background.jpg');
             background-size: cover;
             height: 80vh;
+            background-attachment: fixed;
         }
 
         .Kotak {
@@ -185,7 +186,6 @@ pilihanImages.forEach(function(img) {
             Swal.fire({
                 icon: 'success',
                 title: 'Benar!',
-                text: 'Ini adalah huruf M!',
                 confirmButtonText: '<a href="{{ route('huruf4') }}" style="color: white; text-decoration: none;">Lanjut</a>'
             });
         } 
@@ -196,7 +196,7 @@ pilihanImages.forEach(function(img) {
                 Swal.fire({
                     icon: 'error',
                     title: 'Salah!',
-                    text: 'Anda sudah salah 2 kali, mengulang ke halaman awal.',
+                    text: 'Anda sudah salah 2 kali, mengulang ke halaman awal!',
                     confirmButtonText: 'OK'
                 }).then(() => {
                     window.location.href = '{{ route('huruf1') }}'; // Redirect ke halaman awal setelah 2 kesalahan
@@ -205,7 +205,6 @@ pilihanImages.forEach(function(img) {
                 Swal.fire({
                     icon: 'error',
                     title: 'Salah!',
-                    text: 'Ini bukan huruf M, silahkan coba lagi!',
                     confirmButtonText: 'OK'
                 });
             }

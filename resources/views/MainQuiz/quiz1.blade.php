@@ -18,6 +18,7 @@
             background-image: url('../assets/background.jpg');
             background-size: cover;
             height: 80vh;
+            background-attachment: fixed;
         }
 
         .Kotak {
@@ -212,14 +213,12 @@ pilihanButtons.forEach(function(button) {
                 Swal.fire({
                     icon: 'error',
                     title: 'Salah!',
-                    text: 'salah benda ini lebih pendek',
                     confirmButtonText: 'OK'
                 });
             } else if (selectedColor === 'red') {
                 Swal.fire({
                     icon: 'success',
                     title: 'Benar!',
-                    text: 'benar! benda ini lebih panjang',
                     confirmButtonText: '<a href="{{ route('quiz2') }}" style="color: white; text-decoration: none;">Lanjut</a>'
                 });
             }
