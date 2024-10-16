@@ -87,11 +87,11 @@ class HijaiyahController extends Controller
     }
 
     public function hijaiyah_21() {
-        return view('Hijayah.kaf');
+        return view('Hijayah.qaf');
     }
 
     public function hijaiyah_22() {
-        return view('Hijayah.qaf');
+        return view('Hijayah.kaf');
     }
 
     public function hijaiyah_23() {

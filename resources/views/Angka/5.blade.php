@@ -20,7 +20,7 @@
             padding: 0;
             height: 100vh;
             /* background:#db1010; */
-            background-image: url('/..assets/background.jpg');
+            background-image: url('../assets/background.jpg');
             background-size: cover;
         }
 
@@ -35,7 +35,7 @@
             width: 100%;
         }
 
-        .abjad {
+        .huruf {
             position: relative; top: 70px;
             font-size: 150px;
             color: #0698d1;
@@ -60,7 +60,7 @@
         } */
 
         .btn-container {
-            margin-top: 50px;
+            margin-top: 30px;
             display: flex;
             justify-content: space-between;
         }
@@ -71,13 +71,13 @@
         }
 
         button {
-            position: relative; top: 100px;
+            position: relative; top: 80px;
             font-size: 18px;
             padding: 10px;
             border: none;
             border-radius: 10px;
             color: #fff;
-            background-color: #0698d1;
+            background-color: #e64e20;
             cursor: pointer;
             transition: background-color 0.3s ease;
             display: flex;
@@ -93,7 +93,7 @@
         } 
 
         button:hover {
-            background-color: rgb(75, 186, 250);
+            background-color: rgb(248, 120, 80);
             transform: scale(1.1);
         }
 
@@ -112,19 +112,19 @@
             font-size: 24px;
         }
 
-        @media (max-width: 480px) {
+        .abjad img {
+            margin-top: 45px;
+        }
+
+        @media (max-width: 800px) {
             .container {
                 width: 85%;
                 padding: 15px;
             }
 
-            .abjad {
-                font-size: 250px;
-            }
-
             .btn-container {
                 flex-direction: row;
-                gap: 10px;
+                gap: 20px;
             }
 
             button {
@@ -132,19 +132,27 @@
                 height: 70px;
                 padding: 10px;
             }
+            
+            .abjad img {
+                width: 250px;
+                height: 250px;
+            }
         }
+        
 
     </style>
 </head>
 <body>
     <audio id="background-audio" loop>
-        <source src="/..assets/backsound.mp3" type="audio/mpeg">
+        <source src="../assets/backsound.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
     <div class="container">
         <!-- Huruf Abjad -->
-        <div class="abjad">5</div>
+        <div class="abjad">
+            <img src="../assets/5.png" alt="" width="250px" height="250px">
+        </div>
 
         <!-- <div class="image-container">
             <img src="/..assets/ayam.gif" alt="Gambar Ayam" onclick="playAudio('/..assets/ayam.mp3')">
