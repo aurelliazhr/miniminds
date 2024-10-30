@@ -36,7 +36,7 @@
         }
 
         .btn-container {
-            margin-top: 30px;
+            margin-top: 50px;
             display: flex;
             justify-content: space-between;
         }

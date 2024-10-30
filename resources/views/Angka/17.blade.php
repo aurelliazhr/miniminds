@@ -36,7 +36,7 @@
         }
 
         .btn-container {
-            margin-top: 30px;
+            margin-top: 45px;
             display: flex;
             justify-content: space-between;
         }
@@ -47,7 +47,7 @@
         }
 
         button {
-            position: relative; top: 80px;
+            position: relative; top: 65px;
             font-size: 18px;
             padding: 10px;
             border: none;
@@ -129,7 +129,7 @@
     <div class="container">
         <!-- Huruf Abjad -->
         <div class="abjad">
-            <img src="../assets/17.png" alt="" width="300px" height="250px">
+            <img src="../assets/17.png" alt="" width="300px" height="270px">
         </div>
 
         <!-- <div class="image-container">
