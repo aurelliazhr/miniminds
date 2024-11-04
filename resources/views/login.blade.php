@@ -57,7 +57,8 @@
             margin-bottom: 35px;
         }
 
-        video {
+        video,
+        img {
             max-width: 100%;
             height: 40%;
             margin-bottom: 25px;
@@ -125,7 +126,7 @@
         button:hover {
             /* background-color: #9CE6BB; */
             /* Ubah warna latar belakang saat dihover */
-            color: black;
+            color: white;
             /* Ubah warna teks saat dihover */
             text-decoration: underline;
             /* Tambah garis bawah saat dihover */
@@ -141,7 +142,7 @@
             border-radius: 10px;
             font-family: 'Poppins';
             font-size: 25px;
-            color: white;
+            color: black;
         }
 
         .guru {
@@ -178,9 +179,9 @@
             <source src="assets/tanya.mp3" type="audio/mpeg">
         </audio>
 
-        {{-- <img src="assets/bertanya.png" width="250px"> --}}
+        <img src="assets/logo.png" width="200px">
 
-        <video src="assets/bertanya.mp4" width="200px" autoplay loop></video>
+        {{-- <video src="assets/bertanya.mp4" width="200px" autoplay loop></video> --}}
 
         <input type="text" id="fullname" name="fullname" placeholder="Masukkan Nama Lengkap" class="fullname"
             value="{{ old('fullname') }}">

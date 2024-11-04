@@ -20,19 +20,26 @@
         }
 
         nav {
+            position: fixed;
+            /* Ini membuat navbar tetap di posisi atas */
+            top: 0;
+            /* Posisi di bagian atas halaman */
             width: 100%;
-            height: 100%;
+            height: 100px;
+            /* Tentukan tinggi navbar, sesuaikan sesuai kebutuhan */
             background-color: white;
             margin-bottom: 15px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-
+            z-index: 1000;
+            /* Pastikan navbar ada di depan elemen lainnya */
         }
 
+
         nav img {
-            max-width: 100%;
-            max-height: 100%;
+            max-width: 60%;
+            max-height: 60%;
             background-color: white;
             margin-top: 5px;
             margin-right: 30%;
@@ -73,6 +80,10 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
+        }
+
+        .menebakH {
+            margin-top: 110px;
         }
 
         .text1,
