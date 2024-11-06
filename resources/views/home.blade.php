@@ -28,7 +28,11 @@
             margin-bottom: 15px;
             display: flex;
             justify-content: flex-end;
+            position: fixed; /* Menjaga navbar tetap di atas saat di-scroll */
+            top: 0;
+            z-index: 1000; /* Agar navbar tetap di atas elemen lain */
         }
+
 
         nav img {
             max-width: 100%;
@@ -101,11 +105,12 @@
         }
 
         .container {
-            margin: 0 10;
+            margin-top: 100px; /* Berikan jarak agar konten tidak tertutup navbar */
             display: flex;
             flex-direction: column;
             align-items: center;
         }
+
 
         .belajar,
         .bermain {

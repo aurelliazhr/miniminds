@@ -17,7 +17,7 @@
             background-color: #f5f5f5;
             background-image: url('../assets/background.jpg');
             background-size: cover;
-            height: 80vh;
+            height: 100vh;
         }
 
         .Kotak {
@@ -128,9 +128,7 @@
     </div>
 
     <script>
- let wrongAttempts = 0;
-
-const backgroundAudio = document.getElementById('background-audio');
+ const backgroundAudio = document.getElementById('background-audio');
 
 // Cek posisi terakhir dari LocalStorage
 const lastPosition = localStorage.getItem('audioPosition');
@@ -145,34 +143,28 @@ window.addEventListener('beforeunload', () => {
     localStorage.setItem('audioPosition', backgroundAudio.currentTime);
 });
 
-// Fungsi untuk memutar audio soal dan menurunkan volume backsound
+// Fungsi untuk memutar audio lain dan mengurangi volume backsound sementara
 function playAudio(audioSrc) {
     const audio = new Audio(audioSrc);
-
-    // Turunkan volume backsound menjadi 40% (0.4)
-    backgroundAudio.volume = 0.003;
-
-    // Putar audio soal
+    backgroundAudio.volume = 0.003; // Kurangi volume backsound saat audio lain diputar
     audio.play();
 
-    // Mengembalikan volume backsound ke 100% setelah audio soal selesai
-    audio.addEventListener('ended', () => {
-        backgroundAudio.volume = 0.1;
-    });
+    // Kembalikan volume backsound setelah audio lain selesai diputar
+    audio.onended = () => {
+        backgroundAudio.volume = 0.1; // Kembalikan volume backsound
+    };
 }
 
 // Putar audio soal saat halaman dimulai
 window.onload = () => {
-    playAudio('../assets/mainX.mp3');
+    playAudio('../assets/mainX.mp3'); // Menggunakan file audio yang sesuai
 };
 
 // Event listener untuk tombol kembali
 const kembaliButton = document.getElementById('kembaliButton');
-if (kembaliButton) { // Pastikan elemen ada
-    kembaliButton.addEventListener('click', function() {
-        history.back();
-    });
-}
+kembaliButton.addEventListener('click', function() {
+    history.back();
+});
 
 // Event listener untuk pilihan gambar
 const pilihanImages = document.querySelectorAll('.Pilihan img');
@@ -189,30 +181,18 @@ pilihanImages.forEach(function(img) {
                 confirmButtonText: '<a href="{{ route('huruf10') }}" style="color: white; text-decoration: none;">Lanjut</a>'
             });
         } 
-        // Jika salah, tambahkan jumlah kesalahan dan tangani feedback
+        // Jika salah, tampilkan notifikasi kesalahan tanpa batasan jumlah
         else {
-            wrongAttempts++;
-            if (wrongAttempts >= 2) {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Salah!',
-                    text: 'Anda sudah salah 2 kali, mengulang ke halaman awal.',
-                    confirmButtonText: 'OK'
-                }).then(() => {
-                    window.location.href = '{{ route('huruf1') }}'; // Redirect ke halaman awal setelah 2 kesalahan
-                });
-            } else {
-                Swal.fire({
-                    icon: 'error',
+            Swal.fire({
+                icon: 'error',
                     title: 'Salah!',
                     text: 'Ini bukan huruf X, silahkan coba lagi!',
                     confirmButtonText: 'OK'
-                });
-            }
+
+            });
         }
     });
 });
-
     </script>
 </body>
 </html>

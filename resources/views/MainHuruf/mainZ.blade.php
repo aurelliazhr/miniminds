@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
-    <meta name="vieZport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <link href="https://fonts.googleapis.com/css?family=Lexend" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Lemon&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Lexend" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Lemon&display=swap" rel="stylesheet"/>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js/notifikasi.js"></script>
     <title>Tebak Huruf</title>
@@ -18,7 +17,7 @@
             background-color: #f5f5f5;
             background-image: url('../assets/background.jpg');
             background-size: cover;
-            height: 80vh;
+            height: 100vh;
         }
 
         .Kotak {
@@ -93,13 +92,12 @@
             }
 
             .Text {
-                font-size: 18px;
-                margin-left: 50px;
-            }
+            font-size: 18px;
+            margin-left: 50px;
+        }
         }
     </style>
 </head>
-
 <body>
 
     <audio id="background-audio" loop>
@@ -113,109 +111,88 @@
                 <img src="../assets/angle-left.png" alt="Kembali" />
             </a>
 
-            <div class="Text">
-                <p>Yang manakah huruf Z?</p> <!-- Question as text -->
-            </div>
+        <div class="Text">
+            <p>Yang manakah huruf Z?</p> <!-- Question as text -->
+        </div>
         </div>
 
         <div class="Pilihan">
             <div class="row">
-                <img src="../assets/z.png" alt="Alif" data-correct="true" />
-                <img src="../assets/a.png" alt="Ba" data-correct="false" />
+                <img src="../assets/f.png" alt="Alif" data-correct="false" />
+                <img src="../assets/z.png" alt="Ba" data-correct="true" />
             </div>
             <div class="row">
-                <img src="../assets/c.png" alt="Ta" data-correct="false" />
+                <img src="../assets/a.png" alt="Ta" data-correct="false" /> 
             </div>
         </div>
     </div>
 
     <script>
-        let wrongAttempts = 0;
+ const backgroundAudio = document.getElementById('background-audio');
 
-        const backgroundAudio = document.getElementById('background-audio');
+// Cek posisi terakhir dari LocalStorage
+const lastPosition = localStorage.getItem('audioPosition');
+if (lastPosition !== null) {
+    backgroundAudio.currentTime = parseFloat(lastPosition);
+}
+backgroundAudio.volume = 1.0;
+backgroundAudio.play();
 
-        // Cek posisi terakhir dari LocalStorage
-        const lastPosition = localStorage.getItem('audioPosition');
-        if (lastPosition !== null) {
-            backgroundAudio.currentTime = parseFloat(lastPosition);
-        }
-        backgroundAudio.volume = 1.0;
-        backgroundAudio.play();
+// Simpan posisi audio sebelum meninggalkan halaman
+window.addEventListener('beforeunload', () => {
+    localStorage.setItem('audioPosition', backgroundAudio.currentTime);
+});
 
-        // Simpan posisi audio sebelum meninggalkan halaman
-        window.addEventListener('beforeunload', () => {
-            localStorage.setItem('audioPosition', backgroundAudio.currentTime);
-        });
+// Fungsi untuk memutar audio lain dan mengurangi volume backsound sementara
+function playAudio(audioSrc) {
+    const audio = new Audio(audioSrc);
+    backgroundAudio.volume = 0.003; // Kurangi volume backsound saat audio lain diputar
+    audio.play();
 
-        // Fungsi untuk memutar audio soal dan menurunkan volume backsound
-        function playAudio(audioSrc) {
-            const audio = new Audio(audioSrc);
+    // Kembalikan volume backsound setelah audio lain selesai diputar
+    audio.onended = () => {
+        backgroundAudio.volume = 0.1; // Kembalikan volume backsound
+    };
+}
 
-            // Turunkan volume backsound menjadi 40% (0.4)
-            backgroundAudio.volume = 0.003;
+// Putar audio soal saat halaman dimulai
+window.onload = () => {
+    playAudio('../assets/mainZ.mp3'); // Menggunakan file audio yang sesuai
+};
 
-            // Putar audio soal
-            audio.play();
+// Event listener untuk tombol kembali
+const kembaliButton = document.getElementById('kembaliButton');
+kembaliButton.addEventListener('click', function() {
+    history.back();
+});
 
-            // Mengembalikan volume backsound ke 100% setelah audio soal selesai
-            audio.addEventListener('ended', () => {
-                backgroundAudio.volume = 0.1;
+// Event listener untuk pilihan gambar
+const pilihanImages = document.querySelectorAll('.Pilihan img');
+pilihanImages.forEach(function(img) {
+    img.addEventListener('click', function() {
+        const isCorrect = img.getAttribute('data-correct') === 'true';
+
+        // Jika benar, tampilkan sukses dan lanjut ke pertanyaan berikutnya
+        if (isCorrect) {
+            Swal.fire({
+                icon: 'success',
+                title: 'Benar!',
+                text: 'Ini adalah huruf Z!',
+                confirmButtonText: '<a href="{{ route('bermain') }}" style="color: white; text-decoration: none;">Lanjut</a>'
+            });
+        } 
+        // Jika salah, tampilkan notifikasi kesalahan tanpa batasan jumlah
+        else {
+            Swal.fire({
+                icon: 'error',
+                    title: 'Salah!',
+                    text: 'Ini bukan huruf Z, silahkan coba lagi!',
+                    confirmButtonText: 'OK'
             });
         }
+    });
+});
 
-        // Putar audio soal saat halaman dimulai
-        window.onload = () => {
-            playAudio('../assets/mainZ.mp3');
-        };
-
-        // Event listener untuk tombol kembali
-        const kembaliButton = document.getElementById('kembaliButton');
-        if (kembaliButton) { // Pastikan elemen ada
-            kembaliButton.addEventListener('click', function() {
-                history.back();
-            });
-        }
-
-        // Event listener untuk pilihan gambar
-        const pilihanImages = document.querySelectorAll('.Pilihan img');
-        pilihanImages.forEach(function(img) {
-            img.addEventListener('click', function() {
-                const isCorrect = img.getAttribute('data-correct') === 'true';
-
-                // Jika benar, tampilkan sukses dan lanjut ke pertanyaan berikutnya
-                if (isCorrect) {
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Benar!',
-                        text: 'Ini adalah huruf Z!',
-                        confirmButtonText: '<a href="{{ route('bermain') }}" style="color: white; text-decoration: none;">Lanjut</a>'
-                    });
-                }
-                // Jika salah, tambahkan jumlah kesalahan dan tangani feedback
-                else {
-                    wrongAttempts++;
-                    if (wrongAttempts >= 2) {
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Salah!',
-                            text: 'Anda sudah salah 2 kali, mengulang ke halaman awal.',
-                            confirmButtonText: 'OK'
-                        }).then(() => {
-                            window.location.href =
-                            '{{ route('huruf1') }}'; // Redirect ke halaman awal setelah 2 kesalahan
-                        });
-                    } else {
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Salah!',
-                            text: 'Ini bukan huruf Z, silahkan coba lagi!',
-                            confirmButtonText: 'OK'
-                        });
-                    }
-                }
-            });
-        });
     </script>
 </body>
-
 </html>
