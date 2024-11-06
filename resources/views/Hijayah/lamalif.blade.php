@@ -35,32 +35,8 @@
             width: 100%;
         }
 
-        .abjad {
-            position: relative; top: 70px;
-            font-size: 150px;
-            color: #e94132;
-            margin: 0;
-            text-shadow: 5px 5px #ffac93;
-        }
-
-        /* .image-container {
-            margin: 20px 0;
-        }
-
-        .image-container img {
-            width: 100%;
-            max-width: 300px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .image-container img:hover {
-            background-color: #ff5722;
-            transform: scale(1.03);
-        } */
-
         .btn-container {
-            margin-top: 50px;
+            margin-top: 0px;
             display: flex;
             justify-content: space-between;
         }
@@ -71,13 +47,14 @@
         }
 
         button {
-            position: relative; top: 100px;
+            top: 25px;
+            position: relative; 
             font-size: 18px;
             padding: 10px;
             border: none;
             border-radius: 10px;
             color: #fff;
-            background-color: #e64e20;
+            background-color: #9b7a33;
             cursor: pointer;
             transition: background-color 0.3s ease;
             display: flex;
@@ -93,7 +70,7 @@
         } 
 
         button:hover {
-            background-color: rgb(248, 120, 80);
+            background-color: rgb(134, 95, 9);
             transform: scale(1.1);
         }
 
@@ -112,25 +89,31 @@
             font-size: 24px;
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: 800px) {
+            body {
+                height: 100vh;
+            }
             .container {
                 width: 85%;
                 padding: 15px;
             }
 
-            .abjad {
-                font-size: 250px;
-            }
-
             .btn-container {
                 flex-direction: row;
-                gap: 10px;
+                gap: 20px;
             }
 
             button {
                 width: 70px;
                 height: 70px;
                 padding: 10px;
+                top: 75px;
+            }
+            
+            .abjad img {
+                width: 300px;
+                height: 300px;
+                margin-top: 50px;
             }
         }
 
@@ -138,17 +121,15 @@
 </head>
 <body>
     <audio id="background-audio" loop>
-        <source src="../assets/backsound.mp3" type="audio/mpeg">
+        <source src="/assets/backsound.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
     <div class="container">
         <!-- Huruf Abjad -->
-        <div class="abjad">لا</div>
-
-        <!-- <div class="image-container">
-            <img src="../assets/ayam.gif" alt="Gambar Ayam" onclick="playAudio('../assets/ayam.mp3')">
-        </div> -->
+        <div class="abjad">
+            <img src="../assets/lamalif.png" alt="" width="400px" height="400px">
+        </div>
 
         <!-- Tombol Suara dan Navigasi -->
         <div class="btn-container">

@@ -79,7 +79,7 @@
         .custom-button-logout,
         .custom-button-cancel {
             width: 250px;
-            color: white;
+            color: black;
             border-radius: 10px;
             padding: 10px 20px;
             font-size: 20px;
@@ -91,7 +91,7 @@
         .custom-button-logout:hover,
         .custom-button-cancel:hover {
             text-decoration: underline;
-            color: black;
+            color: white;
         }
 
         .swal2-actions {

@@ -26,6 +26,7 @@
             margin-bottom: 15px;
             display: flex;
             justify-content: flex-start;
+            position: fixed;
         }
 
         nav img {
@@ -54,6 +55,10 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
+        }
+
+        .menambah {
+            margin-top: 80px;
         }
 
         .menambah h2,

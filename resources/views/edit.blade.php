@@ -35,6 +35,7 @@
             align-self: flex-start;
             margin-top: 10px;
             margin-right: 100%;
+            position: fixed;
         }
 
         .back img {
@@ -49,6 +50,7 @@
             flex-direction: column;
             align-items: center;
             margin-right: 15px;
+            margin-top: 50px;
         }
 
         img {
@@ -137,7 +139,7 @@
             margin-top: 10px;
             margin-left: 10px;
             background-color: #9CE6BB;
-            color: #fff;
+            color: black;
             border: none;
             border-radius: 10px;
             font-size: 20px;
@@ -147,14 +149,14 @@
         }
 
         button:hover {
-            color: black;
+            color: white;
             text-decoration: underline;
         }
 
         .custom-button {
             background-color: #9CE6BB;
             width: 250px;
-            color: #fff;
+            color: black;
             border-radius: 10px;
             padding: 10px 20px;
             font-size: 20px;
@@ -163,7 +165,7 @@
         }
 
         .custom-button:hover {
-            color: black;
+            color: white;
             text-decoration: underline;
         }
     </style>

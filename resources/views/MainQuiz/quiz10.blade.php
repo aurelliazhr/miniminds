@@ -18,6 +18,7 @@
             background-image: url('../assets/background.jpg');
             background-size: cover;
             height: 80vh;
+            background-attachment: fixed;
         }
 
         .Kotak {
@@ -180,7 +181,6 @@
                 Swal.fire({
                     icon: 'error',
                     title: 'Salah!',
-                    text: 'Ini warna merah, silakan coba lagi!',
                     confirmButtonText: 'OK'
                 });
             }

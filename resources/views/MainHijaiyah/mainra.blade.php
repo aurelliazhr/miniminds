@@ -18,6 +18,7 @@
             background-image: url('../assets/background.jpg');
             background-size: cover;
             height: 80vh;
+            background-attachment: fixed;
         }
 
         .Kotak {
@@ -177,18 +178,37 @@ pilihanImages.forEach(function(img) {
             Swal.fire({
                 icon: 'success',
                 title: 'Benar!',
-                text: 'Ini adalah huruf ro!',
                 confirmButtonText: '<a href="{{ route('hijaiyah8') }}" style="color: white; text-decoration: none;">Lanjut</a>'
             });
         } 
         // Jika salah, tampilkan notifikasi kesalahan tanpa batasan jumlah
         else {
+<<<<<<< HEAD
             Swal.fire({
                 icon: 'error',
                 title: 'Salah!',
                 text: 'Ini bukan huruf ro, silahkan coba lagi!',
                 confirmButtonText: 'OK'
             });
+=======
+            wrongAttempts++;
+            if (wrongAttempts >= 2) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Salah!',
+                    text: 'Anda sudah salah 2 kali, mengulang ke halaman awal!',
+                    confirmButtonText: 'OK'
+                }).then(() => {
+                    window.location.href = '{{ route('hijaiyah1') }}'; // Redirect ke halaman awal setelah 2 kesalahan
+                });
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Salah!',
+                    confirmButtonText: 'OK'
+                });
+            }
+>>>>>>> 2829bd8b3d88a02c848019e34327d7025b7dcc95
         }
     });
 });

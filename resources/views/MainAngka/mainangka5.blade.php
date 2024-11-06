@@ -18,6 +18,7 @@
             background-image: url('../assets/background.jpg');
             background-size: cover;
             height: 80vh;
+            background-attachment: fixed;
         }
 
         .Kotak {
@@ -211,14 +212,12 @@ pilihanButtons.forEach(function(button) {
                 Swal.fire({
                     icon: 'error',
                     title: 'Salah!',
-                    text: 'rautan ini bukan berjumlah ' + button.textContent.toLowerCase() + ', silahkan coba lagi!',
                     confirmButtonText: 'OK'
                 });
             } else if (selectedColor === 'blue') {
                 Swal.fire({
                     icon: 'success',
                     title: 'Benar!',
-                    text: 'rautan ini berjumlah ' + button.textContent.toLowerCase() + '!',
                     confirmButtonText: '<a href="{{ route('menebakAngka6') }}" style="color: white; text-decoration: none;">Lanjut</a>'
                 });
             }

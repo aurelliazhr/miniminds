@@ -28,9 +28,13 @@
             margin-bottom: 15px;
             display: flex;
             justify-content: flex-end;
+<<<<<<< HEAD
             position: fixed; /* Menjaga navbar tetap di atas saat di-scroll */
             top: 0;
             z-index: 1000; /* Agar navbar tetap di atas elemen lain */
+=======
+            position: fixed;
+>>>>>>> 2829bd8b3d88a02c848019e34327d7025b7dcc95
         }
 
 
@@ -126,6 +130,10 @@
             cursor: pointer;
         }
 
+        .belajar {
+            margin-top: 90px;
+        }
+
         .belajar img,
         .bermain img {
             margin-top: 5px;
@@ -163,7 +171,7 @@
         }
 
         .close {
-            color: red;
+            color: black;
             float: left;
             font-size: 30px;
             font-weight: bold;
@@ -173,14 +181,14 @@
         }
 
         .close i {
-            color: red;
+            color: black;
             margin-left: 5px;
         }
 
         .close i:hover,
         .close i:focus {
             color: black;
-            text-decoration: none;
+            text-decoration: underline;
             cursor: pointer;
         }
 
@@ -229,7 +237,7 @@
         .custom-button-logout,
         .custom-button-cancel {
             width: 250px;
-            color: white;
+            color: black;
             border-radius: 10px;
             padding: 10px 20px;
             font-size: 20px;
@@ -241,7 +249,7 @@
         .custom-button-logout:hover,
         .custom-button-cancel:hover {
             text-decoration: underline;
-            color: black;
+            color: white;
         }
 
         .swal2-actions {
@@ -252,6 +260,15 @@
             color: black;
             background-color: white;
         }
+
+        .edit-link {
+            color: black;
+        }
+
+        .edit-link:hover {
+            color: white;
+        }
+
 
         @media (min-width: 1024px) {
             nav ul {
@@ -282,6 +299,10 @@
             .menu-button {
                 display: block;
             }
+
+            .belajar {
+                margin-top: 90px;
+            }
         }
     </style>
 </head>
@@ -299,16 +320,16 @@
         <ul class="sidebar">
             <li onclick=hideSidebar()><a href="#"><i class="fa-solid fa-xmark"></i></a></li>
             <li onclick=openProfile()><a href="#">Profil</a></li>
-            @if(auth()->user()->role == 'guru')
-            <li><a href="{{ route ('guru') }}">Data Murid</a></li>
+            @if (auth()->user()->role == 'guru')
+                <li><a href="{{ route('guru') }}">Data Murid</a></li>
             @endif
             <li onclick=logout()><a href="#">Logout</a></li>
         </ul>
 
         <ul>
             <li class="hideOnMobile" onclick=openProfile()><a href="#">Profil</a></li>
-            @if(auth()->user()->role == 'guru')
-            <li class="hideOnMobile"><a href="{{ route ('guru') }}">Data Murid</a></li>
+            @if (auth()->user()->role == 'guru')
+                <li class="hideOnMobile"><a href="{{ route('guru') }}">Data Murid</a></li>
             @endif
             <li class="hideOnMobile" onclick=logout()><a href="#">Logout</a></li>
             <li class="menu-button" onclick=showSidebar()><a href="#"><img src="assets/menu.png"></a></li>
@@ -331,40 +352,41 @@
         <div class="modal-content">
             <span class="close" onclick="closeProfile()"><i class="fa-solid fa-xmark"></i></span>
             <div class="profile-info">
-                @if(auth()->user()->role == 'murid')
-                @foreach($stikers as $stiker)
-                    <img src="{{ 'data:image/jpeg;base64,' . base64_encode($stiker->stiker)}}" alt="Stiker {{ $stiker->kategori }}" width="80px">
-                @endforeach
+                @if (auth()->user()->role == 'murid')
+                    @foreach ($stikers as $stiker)
+                        <img src="{{ 'data:image/jpeg;base64,' . base64_encode($stiker->stiker) }}"
+                            alt="Stiker {{ $stiker->kategori }}" width="80px">
+                    @endforeach
                 @endif
 
-                @if(auth()->user()->role == 'guru')
-                <img src="{{ asset('storage/foto-user/' . auth()->user()->image) }}" width="120px" height="120px"
-                    class="profil">
+                @if (auth()->user()->role == 'guru')
+                    <img src="{{ asset('storage/foto-user/' . auth()->user()->image) }}" width="120px" height="120px"
+                        class="profil">
                 @endif
 
                 <p>Nama: {{ auth()->user()->fullname }}</p>
                 <p>Kelas: {{ auth()->user()->kelas }}</p>
 
-                @if(auth()->user()->role == 'guru')
-                <p><a href="{{ route('edit', ['id' => $user->id]) }}">Edit Data</a></p>
+                @if (auth()->user()->role == 'guru')
+                    <p><a href="{{ route('edit', ['id' => $user->id]) }}" class="edit-link">Edit Data</a></p>
                 @endif
 
-                @if(auth()->user()->role == 'murid')
-                <p>Catatan: {{ auth()->user()->catatan }}</p>
-                <p><a href="{{ route('upload', ['id' => $user->id]) }}">Upload Foto Profil</a></p>
+                @if (auth()->user()->role == 'murid')
+                    <p>Catatan: {{ auth()->user()->catatan }}</p>
+                    <p><a href="{{ route('upload', ['id' => $user->id]) }}">Upload Foto Profil</a></p>
                 @endif
-                
+
             </div>
         </div>
     </div>
 
     <script>
         function belajar() {
-            window.location.href = "{{route ('belajar')}}";
+            window.location.href = "{{ route('belajar') }}";
         }
 
         function bermain() {
-            window.location.href = "{{route ('bermain')}}";
+            window.location.href = "{{ route('bermain') }}";
         }
 
         function showSidebar() {

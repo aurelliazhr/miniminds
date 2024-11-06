@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <link href="https://fonts.googleapis.com/css?family=Lexend" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Lemon&display=swap" rel="stylesheet" />
@@ -18,7 +19,12 @@
             background-color: #f5f5f5;
             background-image: url('../assets/background.jpg');
             background-size: cover;
+<<<<<<< HEAD
             height: 100vh;
+=======
+            height: 80vh;
+            background-attachment: fixed;
+>>>>>>> 2829bd8b3d88a02c848019e34327d7025b7dcc95
         }
 
         .Kotak {
@@ -180,16 +186,35 @@ pilihanImages.forEach(function(img) {
             Swal.fire({
                 icon: 'success',
                         title: 'Benar!',
-                        text: 'Ini adalah huruf F!',
                         confirmButtonText: '<a href="{{ route('huruf2') }}" style="color: white; text-decoration: none;">Lanjut</a>'
+<<<<<<< HEAD
             });
         } 
         // Jika salah, tampilkan notifikasi kesalahan tanpa batasan jumlah
         else {
             Swal.fire({
                 icon: 'error',
+=======
+                    });
+                }
+                // Jika salah, tambahkan jumlah kesalahan dan tangani feedback
+                else {
+                    wrongAttempts++;
+                    if (wrongAttempts >= 2) {
+                        Swal.fire({
+                            icon: 'error',
                             title: 'Salah!',
-                            text: 'Ini bukan huruf F, silahkan coba lagi!',
+                            text: 'Anda sudah salah 2 kali, mengulang ke halaman awal!',
+                            confirmButtonText: 'OK'
+                        }).then(() => {
+                            window.location.href =
+                            '{{ route('huruf1') }}'; // Redirect ke halaman awal setelah 2 kesalahan
+                        });
+                    } else {
+                        Swal.fire({
+                            icon: 'error',
+>>>>>>> 2829bd8b3d88a02c848019e34327d7025b7dcc95
+                            title: 'Salah!',
                             confirmButtonText: 'OK'
             });
         }

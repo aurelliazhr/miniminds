@@ -67,7 +67,7 @@
             padding: 10px;
             margin-bottom: 10px;
             background-color: #9CE6BB;
-            color: white;
+            color: black;
             border: none;
             border-radius: 5px;
             font-size: 16px;
@@ -80,13 +80,14 @@
             /* background-color: #ccc; */
             text-decoration: underline;
             cursor: pointer;
-            color: black;
+            color: white;
         }
 
         .custom-button-logout,
         .custom-button-cancel {
             background-color: #9CE6BB;
             font-family: 'Poppins';
+            color: black
         }
 
     </style>

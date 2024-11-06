@@ -71,7 +71,7 @@
         }
 
         button {
-            position: relative; top: 100px;
+            position: relative; top: 80px;
             font-size: 18px;
             padding: 10px;
             border: none;
@@ -112,19 +112,20 @@
             font-size: 24px;
         }
 
-        @media (max-width: 480px) {
+        .abjad img {
+            margin-top: 45px;
+            margin-right: 45px;
+        }
+
+        @media (max-width: 800px) {
             .container {
                 width: 85%;
                 padding: 15px;
             }
 
-            .abjad {
-                font-size: 250px;
-            }
-
             .btn-container {
                 flex-direction: row;
-                gap: 10px;
+                gap: 20px;
             }
 
             button {
@@ -132,7 +133,13 @@
                 height: 70px;
                 padding: 10px;
             }
+            
+            .abjad img {
+                width: 250px;
+                height: 250px;
+            }
         }
+        
 
     </style>
 </head>
@@ -144,7 +151,9 @@
 
     <div class="container">
         <!-- Huruf Abjad -->
-        <div class="huruf">1</div>
+        <div class="abjad">
+            <img src="../assets/1.png" alt="" width="250px" height="250px">
+        </div>
 
         <!-- <div class="image-container">
             <img src="/..assets/1yam.gif" alt="Gambar Ayam" onclick="playAudio('/..assets/1yam.mp3')">

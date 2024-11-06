@@ -2,6 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
+<<<<<<< HEAD
+=======
+    <meta name="vieZport" content="width=device-width, initial-scale=1.0" />
+>>>>>>> 2829bd8b3d88a02c848019e34327d7025b7dcc95
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <link href="https://fonts.googleapis.com/css?family=Lexend" rel="stylesheet"/>
@@ -17,7 +21,12 @@
             background-color: #f5f5f5;
             background-image: url('../assets/background.jpg');
             background-size: cover;
+<<<<<<< HEAD
             height: 100vh;
+=======
+            height: 80vh;
+            background-attachment: fixed;
+>>>>>>> 2829bd8b3d88a02c848019e34327d7025b7dcc95
         }
 
         .Kotak {
@@ -193,6 +202,59 @@ pilihanImages.forEach(function(img) {
     });
 });
 
+<<<<<<< HEAD
+=======
+        // Putar audio soal saat halaman dimulai
+        window.onload = () => {
+            playAudio('../assets/mainZ.mp3');
+        };
+
+        // Event listener untuk tombol kembali
+        const kembaliButton = document.getElementById('kembaliButton');
+        if (kembaliButton) { // Pastikan elemen ada
+            kembaliButton.addEventListener('click', function() {
+                history.back();
+            });
+        }
+
+        // Event listener untuk pilihan gambar
+        const pilihanImages = document.querySelectorAll('.Pilihan img');
+        pilihanImages.forEach(function(img) {
+            img.addEventListener('click', function() {
+                const isCorrect = img.getAttribute('data-correct') === 'true';
+
+                // Jika benar, tampilkan sukses dan lanjut ke pertanyaan berikutnya
+                if (isCorrect) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Benar!',
+                        confirmButtonText: '<a href="{{ route('bermain') }}" style="color: white; text-decoration: none;">Lanjut</a>'
+                    });
+                }
+                // Jika salah, tambahkan jumlah kesalahan dan tangani feedback
+                else {
+                    wrongAttempts++;
+                    if (wrongAttempts >= 2) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Salah!',
+                            text: 'Anda sudah salah 2 kali, mengulang ke halaman awal!',
+                            confirmButtonText: 'OK'
+                        }).then(() => {
+                            window.location.href =
+                            '{{ route('huruf1') }}'; // Redirect ke halaman awal setelah 2 kesalahan
+                        });
+                    } else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Salah!',
+                            confirmButtonText: 'OK'
+                        });
+                    }
+                }
+            });
+        });
+>>>>>>> 2829bd8b3d88a02c848019e34327d7025b7dcc95
     </script>
 </body>
 </html>

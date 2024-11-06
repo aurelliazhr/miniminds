@@ -139,7 +139,7 @@
     <div class="Kotak">
         <div class="Text">
             <img src="assets/ortu.jpg" alt="">
-            <p>Ajak orang tua untuk berjalan disekitar rumah!</p>
+            <p>Ajak orang tua untuk berjalan di sekitar rumah!</p>
         </div>
 
         <div class="Pilihan">

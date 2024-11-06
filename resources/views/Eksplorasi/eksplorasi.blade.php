@@ -230,7 +230,8 @@
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Ya!'
+                confirmButtonText: 'Ya',
+                cancelButtonText: 'Tidak'
             }).then((result) => {
                 if (result.isConfirmed) {
                     ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas
@@ -251,7 +252,7 @@
             const dataURL = canvas.toDataURL("image/png");
             const a = document.createElement("a");
             a.href = dataURL;
-            a.download = "sketch.png";
+            a.download = "MiniMinds.png";
             a.click();
 
             Swal.fire({

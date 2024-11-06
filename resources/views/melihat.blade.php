@@ -99,6 +99,12 @@
             color: black;
             text-decoration: underline;
         }
+
+        @media (max-width: 800px) {
+            .container {
+                margin-top: 50px;
+            }
+        }
     </style>
 </head>
 

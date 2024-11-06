@@ -18,6 +18,7 @@
             background-image: url('../assets/background.jpg');
             background-size: cover;
             height: 80vh;
+            background-attachment: fixed;
         }
 
         .Kotak {
@@ -177,16 +178,30 @@ pilihanImages.forEach(function(img) {
             Swal.fire({
                 icon: 'success',
                 title: 'Benar!',
-                text: 'Ini adalah huruf waw!',
                 confirmButtonText: '<a href="{{ route('bermain') }}" style="color: white; text-decoration: none;">Lanjut</a>'
             });
         } 
         // Jika salah, tampilkan notifikasi kesalahan tanpa batasan jumlah
         else {
+<<<<<<< HEAD
             Swal.fire({
                 icon: 'error',
+=======
+            wrongAttempts++;
+            if (wrongAttempts >= 2) {
+                Swal.fire({
+                    icon: 'error',
                     title: 'Salah!',
-                    text: 'Ini bukan huruf waw, silahkan coba lagi!',
+                    text: 'Anda sudah salah 2 kali, mengulang ke halaman awal!',
+                    confirmButtonText: 'OK'
+                }).then(() => {
+                    window.location.href = '{{ route('hijaiyah1') }}'; // Redirect ke halaman awal setelah 2 kesalahan
+                });
+            } else {
+                Swal.fire({
+                    icon: 'error',
+>>>>>>> 2829bd8b3d88a02c848019e34327d7025b7dcc95
+                    title: 'Salah!',
                     confirmButtonText: 'OK'
             });
         }
