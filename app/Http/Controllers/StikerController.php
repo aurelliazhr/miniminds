@@ -12,34 +12,40 @@ class StikerController extends Controller
 {
     public function storeStiker(Request $request)
     {
-        $user = Auth::user(); // Mendapatkan user yang sedang login
-        $kategori = $request->kategori;
+        $request->validate([
+            'kategori' => 'required|string',
+            'stiker' => 'required|string',
+        ]);
 
-        // Mendapatkan file gambar stiker dari kategori
-        $stikerFile = $this->getStikerFile($kategori);
+        $user = Auth::user();
+        $kategori = $request->input('kategori');
+        $stikerData = $request->input('stiker');
 
-        // Mengecek apakah stiker dengan kategori ini sudah ada untuk user ini
-        $existingStiker = Stiker::where('user_id', $user->id)->where('kategori', $kategori)->first();
-
-        if (!$existingStiker) {
-            // Menyimpan stiker baru ke database
-            Stiker::create([
-                'user_id' => $user->id, // Gunakan id, bukan user_id
-                'kategori' => $kategori,
-                'stiker' => $stikerFile, // Ini adalah data binary dari gambar
-            ]);
-
-            return response()->json(['success' => true, 'message' => 'Stiker berhasil disimpan']);
+        $stikerFile = base64_decode($stikerData);
+        if ($stikerFile === false){
+            throw new \Exception('gagal decode data base64');
         }
 
-        // Jika user sudah memiliki stiker ini, berikan respon gagal
-        return response()->json(['success' => false, 'message' => 'User sudah memiliki stiker ini']);
+        $existingStiker = Stiker::where('user_id', $user->id)
+                                ->where('kategori', $kategori)
+                                ->first();
+                                
+        if (!$existingStiker){
+            Stiker::create([
+                'user_id' => $user->id,
+                'kategori' => $kategori,
+                'stiker' => $stikerFile,
+            ]);
+            return response()->json(['success' => true, 'message' => 'stiker berhasil dikirim']);
+        }
+
+        return response()->json(['success' => false, 'message' => 'user telah memiliki stiker ini']);
     }
 
     // Mendapatkan konten file stiker berdasarkan kategori
     private function getStikerFile($kategori)
     {
-        $filePath = public_path("stiker/{$kategori}.jpg"); // Mengambil path file stiker
+        $filePath = public_path("stiker/{$kategori}.png"); // Mengambil path file stiker
 
         // Mengecek apakah file stiker ada
         if (file_exists($filePath)) {

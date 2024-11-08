@@ -45,4 +45,8 @@ class MainHurufController extends Controller
     public function huruf10() {
         return view('MainHuruf.mainZ');
     }
+
+    public function resultH() {
+        return view('MainHuruf.resultH');
+    }
 }
