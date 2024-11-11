@@ -3,6 +3,7 @@ let score = parseInt(localStorage.getItem('score')) || 0;
 let stars = 0;
 const userId = 1;
 const kategori = 'huruf';
+const csrfTokenElement = document.querySelector('meta[name="csrf-token"]');
 
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -75,46 +76,24 @@ function updateStars(){
 }
 
 function giveStiker(){
-    const stikerImagePath = '/stiker/huruf.png';
-    fetch(stikerImagePath)
-      .then(response => response.blob())
-      .then(blob => {
-        const reader = new FileReader();
-        reader.readAsDataURL(blob);
-        reader.onloadend = function() {
-            const base64data = reader.result.split(',')[1];
-            if (!base64data){
-                console.error("base64 data is null or undefined");
-                return;
+    if (stars >= 5){
+        fetch('/store-stiker', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+            },
+            body: JSON.stringify({ kategori: 'angka', stiker: 'angka.jpg' })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                console.log('stiker berhasil disimpan:', data.message);
+            } else {
+                console.error('gagal menyimpan stiker:', data.message);
             }
-
-            fetch('/store-stiker', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-                },
-                body: JSON.stringify({
-                    kategori: 'lampu',
-                    stiker: 'lampu.png'
-                })
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success){
-                    console.log('stiker berhasil dikirim:', data.message);
-                } else {
-                    console.error('gagal menyimpan stiker:', data.message);
-                }
-            })
-            .catch(error => {
-                console.error('gagal mengirim permintaan:', error);
-            });
-        }
-      })
-      .catch(error => {
-        console.error('gagal memuat stiker:', error);
-      });
+        })
+    }
 }
 
 function resetScore() {
