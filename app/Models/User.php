@@ -25,6 +25,6 @@ class User extends Authenticatable // Meng-extend Authenticatable
     use Notifiable;
     public function stikers()
     {
-        return $this->hasMany(Stiker::class);
+        return $this->hasMany(Stiker::class, 'user_id');
     }
 }

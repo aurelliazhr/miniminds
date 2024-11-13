@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Stiker;
+Use App\Models\User;
 
 
 class StikerController extends Controller
@@ -42,5 +43,12 @@ class StikerController extends Controller
 
         // Jika file tidak ditemukan, kembalikan error atau handle secara lebih baik
         abort(404, 'Stiker tidak ditemukan');
+    }
+
+    public function data()
+    {
+        $data = User::with('stikers')->get();
+
+        return view('data', compact('data'));
     }
 }
