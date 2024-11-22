@@ -2,7 +2,7 @@
 let score = parseInt(localStorage.getItem('score')) || 0;
 let stars = 0;
 const userId = 1;
-const kategori = 'huruf';
+const kategori = 'quiz';
 const csrfTokenElement = document.querySelector('meta[name="csrf-token"]');
 
 
@@ -83,7 +83,7 @@ function giveStiker(){
                 'Content-Type': 'application/json',
                 'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
             },
-            body: JSON.stringify({ kategori: 'huruf', stiker: 'huruf.jpg' })
+            body: JSON.stringify({ kategori: 'quiz', stiker: 'quiz.jpg' })
         })
         .then(response => response.json())
         .then(data => {

@@ -9,6 +9,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Lemon&display=swap" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js/notifikasi.js"></script>
+    <script src="js/angka.js"></script>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Tebak Huruf</title>
     <style>
         body {
@@ -122,19 +124,19 @@
         <div class="Pilihan">
             <div class="row">
                 <div class="6">
-                    <img src="../assets/angka6.png" alt="Alif" data-correct="true" id="playImage"
+                    <img src="../assets/angka6.png" alt="Alif" data-correct="true" onclick="checkAnswer(this)" id="playImage"
                         data-audio="../assets/6.mp3" />
                     <audio src="../assets/6.mp3" id="audioClip"></audio>
                 </div>
                 <div class="1">
-                    <img src="../assets/angka1.png" alt="Alif" data-correct="false" id="playImage1"
+                    <img src="../assets/angka1.png" alt="Alif" data-correct="false" onclick="checkAnswer(this)" id="playImage1"
                         data-audio="../assets/1.mp3" />
                     <audio src="../assets/1.mp3" id="audioClip1"></audio>
                 </div>
             </div>
             <div class="row">
                 <div class="9">
-                    <img src="../assets/angka9.png" alt="Alif" data-correct="false" id="playImage9"
+                    <img src="../assets/angka9.png" alt="Alif" data-correct="false" onclick="checkAnswer(this)" id="playImage9"
                         data-audio="../assets/9.mp3" />
                     <audio src="../assets/9.mp3" id="audioClip9"></audio>
                 </div>
@@ -143,7 +145,6 @@
     </div>
 
     <script>
-<<<<<<< HEAD
 const backgroundAudio = document.getElementById('background-audio');
 
 // Cek posisi terakhir dari LocalStorage
@@ -205,16 +206,6 @@ pilihanImages.forEach(function(img) {
                 text: 'Ini bukan angka 6, silahkan coba lagi',
                 confirmButtonText: 'OK'
             });
-=======
-        let wrongAttempts = 0;
-
-        const backgroundAudio = document.getElementById('background-audio');
-
-        // Cek posisi terakhir dari LocalStorage
-        const lastPosition = localStorage.getItem('audioPosition');
-        if (lastPosition !== null) {
-            backgroundAudio.currentTime = parseFloat(lastPosition);
->>>>>>> 2829bd8b3d88a02c848019e34327d7025b7dcc95
         }
         backgroundAudio.volume = 1.0;
         backgroundAudio.play();
@@ -308,7 +299,7 @@ pilihanImages.forEach(function(img) {
                             confirmButtonText: 'OK'
                         }).then(() => {
                             window.location.href =
-                            '{{ route('menebakAngka1') }}'; // Redirect ke halaman awal setelah 2 kesalahan
+                            '{{ route('menebakAngka10') }}'; // Redirect ke halaman awal setelah 2 kesalahan
                         });
                     } else {
                         Swal.fire({
