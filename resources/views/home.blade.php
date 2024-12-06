@@ -28,13 +28,9 @@
             margin-bottom: 15px;
             display: flex;
             justify-content: flex-end;
-<<<<<<< HEAD
             position: fixed; /* Menjaga navbar tetap di atas saat di-scroll */
             top: 0;
             z-index: 1000; /* Agar navbar tetap di atas elemen lain */
-=======
-            position: fixed;
->>>>>>> 2829bd8b3d88a02c848019e34327d7025b7dcc95
         }
 
 
@@ -354,7 +350,7 @@
             <div class="profile-info">
                 @if (auth()->user()->role == 'murid')
                     @foreach ($stikers as $stiker)
-                        <img src="{{ 'data:image/jpeg;base64,' . base64_encode($stiker->stiker) }}"
+                        <img src="{{ 'data:image/png;base64,' . base64_encode($stiker->stiker) }}"
                             alt="Stiker {{ $stiker->kategori }}" width="80px">
                     @endforeach
                 @endif

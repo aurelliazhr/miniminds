@@ -8,6 +8,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Lemon&display=swap" rel="stylesheet"/>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js/notifikasi.js"></script>
+    <script src="js/angka.js"></script>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Tebak Warna</title>
     <style>
         body {
@@ -149,9 +151,9 @@
         </div>
 
         <div class="Pilihan">
-            <button class="option" data-color="blue" data-audio="../assets/3.mp3">3</button>
-            <button class="option" data-color="yellow" data-audio="../assets/9.mp3">9</button>
-            <button class="option" data-color="red" data-audio="../assets/6.mp3">6</button>
+            <button class="option" data-color="blue" data-audio="../assets/3.mp3" data-correct="false" onclick="checkAnswer(this)">3</button>
+            <button class="option" data-color="yellow" data-audio="../assets/9.mp3" data-correct="false" onclick="checkAnswer(this)">9</button>
+            <button class="option" data-color="red" data-audio="../assets/6.mp3" data-correct="true" onclick="checkAnswer(this)">6</button>
         </div>
     </div>
 

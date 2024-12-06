@@ -46,4 +46,8 @@ class MainQuizController extends Controller
         return view('MainQuiz.quiz10');
     }
 
+    public function resultQ() {
+        return view('MainQuiz.resultQ');
+    }
+
 }

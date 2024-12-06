@@ -8,6 +8,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Lemon&display=swap" rel="stylesheet"/>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js/notifikasi.js"></script>
+    <script src="js/quiz.js"></script>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Permainan Kuis</title>
     <style>
         body {
@@ -151,8 +153,8 @@
         </div>
 
         <div class="Pilihan">
-            <button class="option" data-color="blue" data-audio="../assets/bukuquiz.mp3">Buku</button>
-            <button class="option" data-color="red" data-audio="../assets/pulpenquiz.mp3">Pulpen</button>
+            <button class="option" data-color="blue" data-audio="../assets/bukuquiz.mp3" data-correct="false" onclick="checkAnswer(this)">Buku</button>
+            <button class="option" data-color="red" data-audio="../assets/pulpenquiz.mp3" data-correct="true" onclick="checkAnswer(this)">Pulpen</button>
         </div>
     </div>
 

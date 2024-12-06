@@ -8,6 +8,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Lemon&display=swap" rel="stylesheet"/>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js/notifikasi.js"></script>
+    <script src="js/hijaiyah.js"></script>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Tebak Huruf</title>
     <style>
         body {
@@ -119,11 +121,11 @@
 
         <div class="Pilihan">
             <div class="row">
-                <img src="../assets/waw.jpg " alt="Alif" data-correct="true" />
-                <img src="../assets/Lam.jpg" alt="Ba" data-correct="false" />
+                <img src="../assets/waw.jpg " alt="Alif" data-correct="true" onclick="checkAnswer(this)"/>
+                <img src="../assets/Lam.jpg" alt="Ba" data-correct="false" onclick="checkAnswer(this)"/>
             </div>
             <div class="row">
-                <img src="../assets/zho.jpg" alt="Ta" data-correct="false" /> 
+                <img src="../assets/zho.jpg" alt="Ta" data-correct="false" onclick="checkAnswer(this)"/> 
             </div>
         </div>
     </div>
@@ -178,29 +180,13 @@ pilihanImages.forEach(function(img) {
             Swal.fire({
                 icon: 'success',
                 title: 'Benar!',
-                confirmButtonText: '<a href="{{ route('bermain') }}" style="color: white; text-decoration: none;">Lanjut</a>'
+                confirmButtonText: '<a href="{{ route('resultHi') }}" style="color: white; text-decoration: none;">Lanjut</a>'
             });
         } 
         // Jika salah, tampilkan notifikasi kesalahan tanpa batasan jumlah
         else {
-<<<<<<< HEAD
             Swal.fire({
                 icon: 'error',
-=======
-            wrongAttempts++;
-            if (wrongAttempts >= 2) {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Salah!',
-                    text: 'Anda sudah salah 2 kali, mengulang ke halaman awal!',
-                    confirmButtonText: 'OK'
-                }).then(() => {
-                    window.location.href = '{{ route('hijaiyah1') }}'; // Redirect ke halaman awal setelah 2 kesalahan
-                });
-            } else {
-                Swal.fire({
-                    icon: 'error',
->>>>>>> 2829bd8b3d88a02c848019e34327d7025b7dcc95
                     title: 'Salah!',
                     confirmButtonText: 'OK'
             });

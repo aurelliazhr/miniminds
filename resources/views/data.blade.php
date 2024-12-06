@@ -150,9 +150,13 @@
                 <img src="{{ asset('storage/foto-user/' . $d->image) }}" width="120px" height="120px" class="profil">
             </td>
             <td>
-                @foreach($stikers as $stiker)
-                <img src="data:image/jpeg;base64,{{ base64_encode($stiker->stiker) }}" alt="Stiker {{ $stiker->kategori }}" width="80px">
+            @if ($d->stikers->isNotEmpty())
+                @foreach($d->stikers as $stiker)
+                    <img src="{{ 'data:image/png;base64,' . base64_encode($stiker->stiker) }}" alt="Stiker {{ $stiker->kategori }}" width="80px">
                 @endforeach
+            @else
+                <span>Tidak ada stiker</span>
+            @endif
             </td>
             <td>
                 <a href="{{ route ('catatan', ['id' => $d->id]) }}">

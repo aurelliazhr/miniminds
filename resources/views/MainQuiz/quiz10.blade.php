@@ -8,6 +8,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Lemon&display=swap" rel="stylesheet"/>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js/notifikasi.js"></script>
+    <script src="js/quiz.js"></script>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Permainan Kuis</title>
     <style>
         body {
@@ -121,8 +123,8 @@
 
         <div class="Pilihan">
             <div class="row">
-                <img src="../assets/red.jpg" alt="Alif" data-correct="false" />
-                <img src="../assets/green.jpg" alt="Ba" data-correct="true" />
+                <img src="../assets/red.jpg" alt="Alif" data-correct="false" onclick="checkAnswer(this)"/>
+                <img src="../assets/green.jpg" alt="Ba" data-correct="true" onclick="checkAnswer(this)"/>
         </div>
     </div>
 
@@ -175,7 +177,7 @@
                 Swal.fire({
                     icon: 'success',
                     title: 'Benar!',
-                    confirmButtonText: '<a href="{{ route('bermain') }}" style="color: white; text-decoration: none;">Lanjut</a>'
+                    confirmButtonText: '<a href="{{ route('resultQ') }}" style="color: white; text-decoration: none;">Lanjut</a>'
                 });
             } else {
                 Swal.fire({

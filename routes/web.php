@@ -139,6 +139,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/huruf8', [MainHurufController::class, 'huruf8'])->name('huruf8');
     Route::get('/huruf9', [MainHurufController::class, 'huruf9'])->name('huruf9');
     Route::get('/huruf10', [MainHurufController::class, 'huruf10'])->name('huruf10');
+    Route::get('/resultH', [MainHurufController::class, 'resultH'])->name('resultH');
+    Route::post('/store-stiker', [StikerController::class, 'storeStiker']);
 
 
     Route::get('/menebakA', [BermainController::class, 'menebakA'])->name('menebakA');
@@ -152,6 +154,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/menebakAngka8', [MainAngkaController::class, 'angka8'])->name('menebakAngka8');
     Route::get('/menebakAngka9', [MainAngkaController::class, 'angka9'])->name('menebakAngka9');
     Route::get('/menebakAngka10', [MainAngkaController::class, 'angka10'])->name('menebakAngka10');
+    Route::get('/resultA', [MainAngkaController::class, 'resultA'])->name('resultA');
 
     Route::get('/menebakHi', [BermainController::class, 'menebakHi'])->name('menebakHi');
     Route::get('/hijaiyah1', [MainHijaiyahController::class, 'hijaiyah1'])->name('hijaiyah1');
@@ -164,6 +167,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/hijaiyah8', [MainHijaiyahController::class, 'hijaiyah8'])->name('hijaiyah8');
     Route::get('/hijaiyah9', [MainHijaiyahController::class, 'hijaiyah9'])->name('hijaiyah9');
     Route::get('/hijaiyah10', [MainHijaiyahController::class, 'hijaiyah10'])->name('hijaiyah10');
+    Route::get('/resultHi', [MainHijaiyahController::class, 'resultHi'])->name('resultHi');
 
     Route::get('/menebak', [BermainController::class, 'menebak'])->name('menebak');
     Route::get('quiz1', [MainQuizController::class, 'quiz1'])->name('quiz1');
@@ -176,6 +180,7 @@ Route::middleware('auth')->group(function () {
     Route::get('quiz8', [MainQuizController::class, 'quiz8'])->name('quiz8');
     Route::get('quiz9', [MainQuizController::class, 'quiz9'])->name('quiz9');
     Route::get('quiz10', [MainQuizController::class, 'quiz10'])->name('quiz10');
+    Route::get('/resultQ', [MainQuizController::class, 'resultQ'])->name('resultQ');
 
     Route::get('/aktivitas', [BermainController::class, 'aktivitas'])->name('aktivitas');
     Route::get('/aktivitas1', [AktivitasController::class, 'aktivitas1'])->name('aktivitas1');
@@ -211,7 +216,7 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::middleware('auth')->group(function () {
-        Route::post('/store-stiker', [StikerController::class, 'storeStiker']);
+       
         Route::get('/home', [ProfileController::class, 'show'])->name('home');
     });
 });

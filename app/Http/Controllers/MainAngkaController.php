@@ -45,4 +45,8 @@ class MainAngkaController extends Controller
     public function angka10() {
         return view('MainAngka.mainangka10');
     }
+
+    public function resultA() {
+        return view('MainAngka.resultA');
+    }
 }

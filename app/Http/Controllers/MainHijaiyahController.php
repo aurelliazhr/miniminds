@@ -45,4 +45,8 @@ class MainHijaiyahController extends Controller
     public function hijaiyah10() {
         return view('MainHijaiyah.mainwaw');
     }
+
+    public function resultHi() {
+        return view('MainHijaiyah.resultHi');
+    }
 }
