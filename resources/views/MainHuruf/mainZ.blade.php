@@ -184,7 +184,7 @@ pilihanImages.forEach(function(img) {
         // Jika benar, tampilkan sukses dan lanjut ke pertanyaan berikutnya
         if (isCorrect) {
             Swal.fire({
-                icon: 'success',
+                cmdicon: 'success',
                 title: 'Benar!',
                 text: 'Ini adalah huruf Z!',
                 confirmButtonText: '<a href="{{ route('bermain') }}" style="color: white; text-decoration: none;">Lanjut</a>'

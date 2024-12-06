@@ -196,7 +196,7 @@
 
         // Memainkan file a.mp3 otomatis saat halaman dimuat
         window.onload = () => {
-            playAudio('/..assets/2.mp3');
+            playAudio('../assets/2.mp3');
         };
     </script>
     
