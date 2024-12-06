@@ -122,7 +122,7 @@
         <div class="Pilihan">
             <div class="row">
                 <img src="../assets/mim.jpg " alt="Alif" data-correct="true" onclick="checkAnswer(this)"/>
-                <img src="../assets/Lam.jpg" alt="Ba" data-correct="false" onclick="checkAnswer(this)"/>
+                <img src="../assets/lam.png" alt="Ba" data-correct="false" onclick="checkAnswer(this)"/>
             </div>
             <div class="row">
                 <img src="../assets/do.jpg" alt="Ta" data-correct="false" onclick="checkAnswer(this)"/> 
