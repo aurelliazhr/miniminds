@@ -189,7 +189,7 @@
             <small>{{ $message }}</small>
         @enderror
 
-        <input type="text" id="password" name="password" placeholder="Masukkan Nomor Absen" class="password"
+        <input type="text" id="password" name="password" placeholder="Masukkan Nomor Absen / NUPTK" class="password"
             value="{{ old('password') }}">
         @error('password')
             <small>{{ $message }}</small>

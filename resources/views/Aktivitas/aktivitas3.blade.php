@@ -183,7 +183,7 @@ function playAudio(audioSrc) {
 
 // Putar audio soal saat halaman dimulai
 window.onload = () => {
-    playAudio('../assets/soal1.mp3');
+    playAudio('../assets/akt3.mp3');
 };
     </script>
 </body>
