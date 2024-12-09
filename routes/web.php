@@ -140,7 +140,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/huruf9', [MainHurufController::class, 'huruf9'])->name('huruf9');
     Route::get('/huruf10', [MainHurufController::class, 'huruf10'])->name('huruf10');
     Route::get('/resultH', [MainHurufController::class, 'resultH'])->name('resultH');
-    Route::post('/store-stiker', [StikerController::class, 'storeStiker']);
+    // Route::post('/store-stiker', [StikerController::class, 'storeStiker']);
 
 
     Route::get('/menebakA', [BermainController::class, 'menebakA'])->name('menebakA');

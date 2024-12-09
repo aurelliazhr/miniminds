@@ -19,12 +19,7 @@
             background-color: #f5f5f5;
             background-image: url('../assets/background.jpg');
             background-size: cover;
-<<<<<<< HEAD
             height: 100vh;
-=======
-            height: 80vh;
-            background-attachment: fixed;
->>>>>>> 2829bd8b3d88a02c848019e34327d7025b7dcc95
         }
 
         .Kotak {

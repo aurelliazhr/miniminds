@@ -12,7 +12,7 @@ Use App\Models\User;
 class StikerController extends Controller
 {
     public function storeStiker(Request $request)
-    {
+    {        
         $user = Auth::user();
         $kategori = $request->kategori;
 
