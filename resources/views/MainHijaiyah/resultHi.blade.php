@@ -98,12 +98,13 @@
   </div>
   <img id="starImage" src="" alt="bintang">
   <div class="tombol">
-     <button onclick="resetScore()">Reset score</button>
+     <button type="button" onclick="resetScore()">Mengulang</button>
   </div>
 </form>
 
 <script src="js/hijaiyah.js"></script>
 <script>
+    const hi1Url = "{{ route('hijaiyah1') }}";
     // Tampilkan skor akhir
     document.addEventListener("DOMContentLoaded", function() {
         let finalScore = parseInt(localStorage.getItem('score')) || 0;

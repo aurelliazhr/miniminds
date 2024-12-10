@@ -103,4 +103,6 @@ function resetScore() {
     localStorage.setItem('stars', stars);
     updateScoreDisplay();
     updateStars();
+
+    window.location.href = hi1Url;
 }

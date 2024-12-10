@@ -129,13 +129,10 @@
         </div>
     </div>
 
-    <script>
- icon: 'error',
-                    title: 'Salah!',
-                    text: 'Ini bukan huruf W, silahkan coba lagi!',
-                    confirmButtonText: 'OK'
+<script>
+  
 
-              const backgroundAudio = document.getElementById('background-audio');
+const backgroundAudio = document.getElementById('background-audio');
 
 // Cek posisi terakhir dari LocalStorage
 const lastPosition = localStorage.getItem('audioPosition');

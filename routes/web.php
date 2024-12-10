@@ -34,7 +34,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/home', [HomeController::class, 'home'])->name('home');
     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
-    Route::post('/store-stiker', [StikerController::class, 'storeStiker']);
+    Route::post('/store-stiker', [StikerController::class, 'storeStiker'])->name('store-stiker');
 
     Route::get('/upload/{id}', [UploadController::class, 'upload'])->name('upload');
     Route::put('/upload-proses/{id}', [UploadController::class, 'upload_proses'])->name('upload-proses');
